@@ -74,12 +74,100 @@ In addition to its electronic structure, the total molecular state depends on it
 
 \subsection{Week 2: Variational Quantum Eigensolving}
 
+\newpage
+
 \subsection{Week 3: Franck Condon Factors}
+
+You've probably wondered how scientists in labs are able to determine extremely small quantities like the distance between atoms that are chemically bonded. 
+Spectroscopy is the field of study that has provided technqiues to measure such quantities with ease. Not only is its importance in academic settings unprecedented, industry relies on spectroscopic theory and techniques for countless applications. This week, you'll learn:
+
+\begin{enumerate}
+    \item introductory physics and chemistry behind spectroscopy
+    \item what a Franck Condon Factor is
+    \item how to calculate Franck Condon Factors for simple molecules
+\end{enumerate}
+
+For further reading, you may consult the following references among many others: Ref.~\cite{quesadaFranckCondonFactorsCounting2019,wrightFranckCondonFactorsTheir1999,fantzFranckCondonFactors2006}
+
+If you come from a physics or chemistry background, you will have probably learned material that will be covered in the the next few subsections. Feel free to skip them! This is intended for an audience that is entirely unfamiliar with these concepts.
+
+\subsubsection{What is spectroscopy?}
+
+Spectroscopy is the study of how light and matter (atoms and molecules) interact. 
+Light can be absorbed by matter (\textit{absorption}) or matter can emit light (\textit{emission}). 
+However, it turns out that atoms and molecules can only emit / absorb certain wavelengths of light and not all wavelengths. 
+The wavelengths of light that atoms and molecules can emit / absorb is dictated by the \textit{energy levels} of a molecule.
+Think of a molecule's energy levels as a set of stairs, where each stair represents one energy level and the vertical distance seperating stairs is the difference in energy between stairs. 
+For a molecule to absorb or emit light, the light must have \textit{exactly} the amount of energy between two stairs. 
+If stairs \# 1 and \# 2 have energy $E_1$ and $E_2$ respectively, then the light's energy, $E_{\text{light}}$, must satisfy
+\begin{equation}
+    E_2 - E_1 = E_{\text{light}}.
+\end{equation}
+Therefore, a molecule can only absorb or emit light that has a specific energy, and therefore wavelength since the energy of light is inversely proportional to its wavelength ($\lambda$).
+\begin{equation}
+    E_{\text{light}} \propto \frac{1}{\lambda}
+\end{equation}
+It is from the pattern of light that a molecule can emit / absorb -- its \textit{spectrum} -- that we can determine all sorts of properties (e.g. bond strenghts, positions of atoms in molecules, etc.)
+
+\subsubsection{Molecular energy levels}
+
+So, the energy levels of molecules give us the key to its structural properties. What are these energy levels? Energy in a molecule can be stored in a few ways: vibration, rotation and the energy of electrons ($e^-$) surrounding the molecule (see Fig.~\ref{fig:DOFs}). For now, let's only worry about harnessing vibrational energy and energy from exciting electrons within a molecule.
+
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=0.5\linewidth]{figures/molecule_DOFs.pdf}
+    \end{center}
+    \caption{
+    (a) Molecular vibration, (b) rotation, and (c) exciting an electron in an atom / molecule.
+    }
+    \label{fig:DOFs}
+\end{figure}
+
+The chemical bond is what forces atoms in a molecule to stay close enough together. If we were to try and take two atoms that are chemically bonded and rip them apart, we would be met with incredible resistance from the retaliation of the bond. On the flip side, there is a repulsive force between atoms that are bonded that ensures that the atoms don't get too close to each other. This balance between the repulsive and attractive forces determines the distance that seperates atoms in a chemical bond (called \textit{bond length}). If we were to plot the potential energy stored in a molecule, $E_{bond}$, as a function of the two atoms' seperation, $r$, it would look something like the blue or red curve in Fig.~\ref{fig:potential_curve}. It's at the very minimum point on the curves in Fig.~\ref{fig:potential_curve} where the attractive and repulsive forces are in equilibrium with each other.
+
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=0.4\linewidth]{figures/potential_energy_curve.pdf}
+    \end{center}
+    \caption{
+    The general form of a molecule's potential energy curve as a function of bond length. The blue curve represents a molecule in its ground electronic state and the red curve represents the same molecule in an excited electronic state.
+    }
+    \label{fig:potential_curve}
+\end{figure}
+
+Vibrations affect the distance between the atoms, $r$, in the molecule. It turns out that the laws of quantum mechanics only allow for \textit{discrete} vibrational energies, and that the lowest vibrational energy that can be obtained (dubbed the ``ground'' vibrational state) is actually slightly above the minimum point on the blue/red curve. The allowed vibrational energy levels of the molecule are the horizontal lines within the blue curve in Fig.~\ref{fig:potential_curve}.
+
+We can also think about exciting the molecule's electrons. If we were to do this, this can drastically change the interplay between the attractive and repulsive forces. Therefore, $E_{bond}$ as a function of $r$ changes significantly. The red and blue curves in Fig.~\ref{fig:potential_curve} are meant to represent the molecule in an excited electronic state and in its ground (lowest energy) electronic state, respectively. Note that the excited electronic state of the molecule also vibrates and therefore has its own discrete vibrational energy levels.
+
+\subsubsection{Wavefunctions}
+
+We need knowledge of one more thing before we can accomplish our goal of calculating Franck Condon Factors: wavefunctions. The wavefunction of a system, often denoted by the Greek letter $\psi$, is essentially the key to being able to calculate anything and everything about said system. In our spectroscopy language, the wavefunction of a molecule that we are interested in can be extremely complicated to fully determine. However, for our purposes we can ``seperate'' the wavefunction of our molecule into parts describing its vibration ($v$), rotation ($R$) and electrons ($e$).
+\begin{equation}
+    \psi_{molecule} = \psi_e\psi_R\psi_v
+\end{equation}
+
+\subsubsection{Franck Condon Factors}
+
+Armed with this conceptual knowledge of molecular vibrational energy levels and wavefunctions, we can now learn about Franck Condon Factors (FCFs). Picture the following scenario. We have a molecule in its ground state (both vibrationally and electronically), and we excite it electronically (i.e. move from the blue curve to the red curve in Fig.~\ref{fig:potential_curve}). To a very good approximation, it turns out that electronic transitions are so fast that the distance seperating atoms in a molecule does not have time to adjust (this is the Franck Condon Principle). Diagramatically, we are looking at the vertical green line in Fig.~\ref{fig:potential_curve} (it is vertical because the atoms in the molecule stays at the same distance apart during the transition). This specific ``vertical'' transition from the ground electronic and vibrational state to the excited electronic state and its second vibrational state will have a \textit{transition intensity} that is related to the vibrational part of the wavefunctions describing the system before and after the transition. More specifically, the transition intensity is proportional to the square \textit{overlap} (think of a vector dot product) between the two vibrational wavefunctions.
+\begin{equation}
+    \text{Transition}\text{ intensity} \propto \text{overlap}(\psi_{v,\text{before}},\psi_{v,\text{after}})^2
+\end{equation}
+The square of this overlap is precisely the Franck Condon Factor!
+\begin{equation}
+    \text{FCF} = \text{overlap}(\psi_{v,\text{before}},\psi_{v,\text{after}})^2
+\end{equation}
+
+\subsubsection{Your task}
+
+\noindent (put specific assignment questions here, along with code blocks and more references)
+
+\newpage
 
 \subsection{Week 4: Ising Annealer}
 
 \newpage
 
 \bibliography{refs}
+\bibliographystyle{unsrt}
 
 \end{document}
