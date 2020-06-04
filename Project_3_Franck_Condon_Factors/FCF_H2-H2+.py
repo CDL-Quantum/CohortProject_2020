@@ -26,7 +26,7 @@ n_0=3
 n_p=3
 
 # Information about the diatomic system                                                                          
-mass_of_diatomic=2.01588  #amu                                                                                   
+reduced_mass=1.00784/2. #amu                                                                                   
 omega_0=4401.0            #cm-1                                                                                  
 omega_p=2322.0            #cm-1                                                                                  
 eqgeom_0=0.742            #Ang                                                                                   
@@ -37,7 +37,7 @@ eqgeom_p=1.057            #Ang
 #################################                                                                                
 
 # CONVERT TO ATOMIC UNITS                                                                                        
-mass_of_diatomic*=amu_to_me
+reduced_mass*=amu_to_me
 omega_0*=invcm_to_invEh
 omega_p*=invcm_to_invEh
 
@@ -49,8 +49,8 @@ R_max*=AngtoBohr
 
 
 # CALCULATE ALPHA PARAMETER                                                                                      
-alpha_0=mass_of_diatomic*omega_0/hbar
-alpha_p=mass_of_diatomic*omega_p/hbar
+alpha_0=reduced_mass*omega_0/hbar
+alpha_p=reduced_mass*omega_p/hbar
 
 
 #####################################                                                                            
@@ -63,7 +63,7 @@ def psi (alpha,eqgeom,R,state):
     coeffs=zeros(n+1,float)
     coeffs[n]=1.0
     hermpoly=hermval(sqrt(alpha)*(R-eqgeom),coeffs)
-        return prefactor*exp(-0.5*alpha*(R-eqgeom)**2)*hermpoly
+    return prefactor*exp(-0.5*alpha*(R-eqgeom)**2)*hermpoly
 
 
 #####################################                                                                            
