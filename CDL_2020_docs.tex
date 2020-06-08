@@ -39,7 +39,7 @@ Challenges consist of scientific, computational, and business tasks, devised to 
 the general theme of the Cohort Project will change.  In 2020 it is {\it quantum chemistry}.
 
 
-\section*{Quantum Chemsitry}
+\section*{Quantum Chemistry}
 
 The field of quantum chemistry is a multi-disciplinary effort spanning physics, chemistry, computer science, software engineering, and high-performance computing,
 all working together to assist in the design and discovery of new molecules, materials, and drugs.  It is a {\it native quantum} field, meaning that the underlying
@@ -79,7 +79,7 @@ In addition to its electronic structure, the total molecular state depends on it
 \subsection{Week 3: Franck Condon Factors}
 
 You've probably wondered how scientists in labs are able to determine extremely small quantities like the distance between atoms that are chemically bonded. 
-Spectroscopy is the field of study that has provided technqiues to measure such quantities with ease. Not only is its importance in academic settings unprecedented, industry relies on spectroscopic theory and techniques for countless applications. This week, you'll learn:
+Spectroscopy is the field of study that has provided techniques to measure such quantities with ease. Not only is its importance in academic settings unprecedented, industry relies on spectroscopic theory and techniques for countless applications. This week, you'll learn:
 
 \begin{enumerate}
     \item introductory physics and chemistry behind spectroscopy
@@ -97,7 +97,7 @@ Spectroscopy is the study of how light and matter (atoms and molecules) interact
 Light can be absorbed by matter (\textit{absorption}) or matter can emit light (\textit{emission}). 
 However, it turns out that atoms and molecules can only emit / absorb certain wavelengths of light and not all wavelengths. 
 The wavelengths of light that atoms and molecules can emit / absorb is dictated by the \textit{energy levels} of a molecule.
-Think of a molecule's energy levels as a set of stairs, where each stair represents one energy level and the vertical distance seperating stairs is the difference in energy between stairs. 
+Think of a molecule's energy levels as a set of stairs, where each stair represents one energy level and the vertical distance separating stairs is the difference in energy between stairs. 
 For a molecule to absorb or emit light, the light must have \textit{exactly} the amount of energy between two stairs. 
 If stairs \# 1 and \# 2 have energy $E_1$ and $E_2$ respectively, then the light's energy, $E_{\text{light}}$, must satisfy
 \begin{equation}
@@ -107,7 +107,7 @@ Therefore, a molecule can only absorb or emit light that has a specific energy, 
 \begin{equation}
     E_{\text{light}} \propto \frac{1}{\lambda}
 \end{equation}
-It is from the pattern of light that a molecule can emit / absorb -- its \textit{spectrum} -- that we can determine all sorts of properties (e.g. bond strenghts, positions of atoms in molecules, etc.)
+It is from the pattern of light that a molecule can emit / absorb -- its \textit{spectrum} -- that we can determine all sorts of properties (e.g. bond strengths, positions of atoms in molecules, etc.)
 
 \subsubsection{Molecular energy levels}
 
@@ -123,7 +123,7 @@ So, the energy levels of molecules give us the key to its structural properties.
     \label{fig:DOFs}
 \end{figure}
 
-The chemical bond is what forces atoms in a molecule to stay close enough together. If we were to try and take two atoms that are chemically bonded and rip them apart, we would be met with incredible resistance from the retaliation of the bond. On the flip side, there is a repulsive force between atoms that are bonded that ensures that the atoms don't get too close to each other. This balance between the repulsive and attractive forces determines the distance that seperates atoms in a chemical bond (called \textit{bond length}). If we were to plot the potential energy stored in a molecule, $E_{bond}$, as a function of the two atoms' seperation, $r$, it would look something like the blue or red curve in Fig.~\ref{fig:potential_curve}. It's at the very minimum point on the curves in Fig.~\ref{fig:potential_curve} where the attractive and repulsive forces are in equilibrium with each other.
+The chemical bond is what forces atoms in a molecule to stay close enough together. If we were to try and take two atoms that are chemically bonded and rip them apart, we would be met with incredible resistance from the retaliation of the bond. On the flip side, there is a repulsive force between atoms that are bonded that ensures that the atoms don't get too close to each other. This balance between the repulsive and attractive forces determines the distance that separates atoms in a chemical bond (called \textit{bond length}). If we were to plot the potential energy stored in a molecule, $E_{bond}$, as a function of the two atoms' separation, $r$, it would look something like the blue or red curve in Fig.~\ref{fig:potential_curve}. It's at the very minimum point on the curves in Fig.~\ref{fig:potential_curve} where the attractive and repulsive forces are in equilibrium with each other.
 
 \begin{figure}
     \begin{center}
@@ -141,14 +141,14 @@ We can also think about exciting the molecule's electrons. If we were to do this
 
 \subsubsection{Wavefunctions}
 
-We need knowledge of one more thing before we can accomplish our goal of calculating Franck Condon Factors: wavefunctions. The wavefunction of a system, often denoted by the Greek letter $\psi$, is essentially the key to being able to calculate anything and everything about said system. In our spectroscopy language, the wavefunction of a molecule that we are interested in can be extremely complicated to fully determine. However, for our purposes we can ``seperate'' the wavefunction of our molecule into parts describing its vibration ($v$), rotation ($R$) and electrons ($e$).
+We need knowledge of one more thing before we can accomplish our goal of calculating Franck Condon Factors: wavefunctions. The wavefunction of a system, often denoted by the Greek letter $\psi$, is essentially the key to being able to calculate anything and everything about said system. In our spectroscopy language, the wavefunction of a molecule that we are interested in can be extremely complicated to fully determine. However, for our purposes we can ``separate'' the wavefunction of our molecule into parts describing its vibration ($v$), rotation ($R$) and electrons ($e$).
 \begin{equation}
     \psi_{molecule} = \psi_e\psi_R\psi_v
 \end{equation}
 
 \subsubsection{Franck Condon Factors}
 
-Armed with this conceptual knowledge of molecular vibrational energy levels and wavefunctions, we can now learn about Franck Condon Factors (FCFs). Picture the following scenario. We have a molecule in its ground state (both vibrationally and electronically), and we excite it electronically (i.e. move from the blue curve to the red curve in Fig.~\ref{fig:potential_curve}). To a very good approximation, it turns out that electronic transitions are so fast that the distance seperating atoms in a molecule does not have time to adjust (this is the Franck Condon Principle). Diagramatically, we are looking at the vertical green line in Fig.~\ref{fig:potential_curve} (it is vertical because the atoms in the molecule stays at the same distance apart during the transition). This specific ``vertical'' transition from the ground electronic and vibrational state to the excited electronic state and its second vibrational state will have a \textit{transition intensity} that is related to the vibrational part of the wavefunctions describing the system before and after the transition. More specifically, the transition intensity is proportional to the square \textit{overlap} (think of a vector dot product) between the two vibrational wavefunctions.
+Armed with this conceptual knowledge of molecular vibrational energy levels and wavefunctions, we can now learn about Franck Condon Factors (FCFs). Picture the following scenario. We have a molecule in its ground state (both vibrationally and electronically), and we excite it electronically (i.e. move from the blue curve to the red curve in Fig.~\ref{fig:potential_curve}). To a very good approximation, it turns out that electronic transitions are so fast that the distance separating atoms in a molecule does not have time to adjust (this is the Franck Condon Principle). Diagrammatically, we are looking at the vertical green line in Fig.~\ref{fig:potential_curve} (it is vertical because the atoms in the molecule stays at the same distance apart during the transition). This specific ``vertical'' transition from the ground electronic and vibrational state to the excited electronic state and its second vibrational state will have a \textit{transition intensity} that is related to the vibrational part of the wavefunctions describing the system before and after the transition. More specifically, the transition intensity is proportional to the square \textit{overlap} (think of a vector dot product) between the two vibrational wavefunctions.
 \begin{equation}
     \text{Transition}\text{ intensity} \propto \text{overlap}(\psi_{v,\text{before}},\psi_{v,\text{after}})^2
 \end{equation}
@@ -157,10 +157,55 @@ The square of this overlap is precisely the Franck Condon Factor!
     \text{FCF} = \text{overlap}(\psi_{v,\text{before}},\psi_{v,\text{after}})^2
 \end{equation}
 
-\subsubsection{Your task}
+\subsubsection{A simplified model for vibrations of diatomic molecules (2-atom molecules)}
+One of the simplest ways to represent vibrations of diatomic molecules is to consider they are connected by a spring. The frequency of the vibration is a property of the molecule (and remains the same regardless of the energy the system has) and can be easily calculated using the masses of the atoms and the stiffness of the spring. This ``spring system'' is denoted a harmonic oscillator.
 
-\noindent (put specific assignment questions here, along with code blocks and more references)
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=0.4\linewidth]{figures/Harmonic_Oscillator.pdf}
+    \end{center}
+    \caption{
+    A representation of a diatomic and it's vibrational energy levels in the harmonic oscillator approximation. The properties of this diatomic are it's equilibrium geometry, $x_{eq}$, it's frequency, $\omega$, and it's reduced mass, $\mu$. The ground state energy ($E_0$) is $\frac{1}{2}\hbar\omega$ from the potential minimum and vibrational energy differences between adjacent levels is $\hbar\omega$.
+    }
+    \label{fig:harmonic_curve}
+\end{figure}
 
+Refer to Fig.~\ref{fig:harmonic_curve} for the energy levels associated with a harmonic oscillator system. If a molecule is in it's ground vibrational state, it will ``stretch'' and ``contract" about it’s natural (or equilibrium) bond length. As it gains energy and moves into excited vibrational states, it can stretch and contract further and further from it’s equilibrium bond length, however it continues to vibrate at the same natural frequency.
+
+The harmonic oscillator is a simplified model, since it ignores all repulsive effects of the 2 atoms within the molecule (the steep wall at small $r$ denoted by a more realistic potential energy curve in Fig.~\ref{fig:potential_curve}). As well, the harmonic oscillator potential has no dissociation (or bond-breaking) as is denoted by the flat portion at large $r$ in the potential energy curve in Fig.~\ref{fig:potential_curve} meaning at higher excited states, the atoms will continue to stretch further and further without the ``spring snapping.''
+\newpage
+However, the harmonic oscillator has a unique feature, in that the energy levels are equally spaced and the wavefunction takes an analytic form, allowing for simple calculations.
+
+$\psi_n(x) = \frac{1}{\sqrt{2^nn!}}\cdot\left(\frac{\mu\omega}{\pi\hbar}\right)\cdot\exp\left(-\frac{\mu\omega (x-x_{eq})^2}{2\hbar}\right)\cdot H_n\left(\sqrt{\frac{\mu\omega}{\hbar}}(x-x_{eq})\right)$ , n=0,1,2,...
+
+\noindent where $\mu$ is the reduced mass of the molecule, $\omega$ is it's vibrational frequency, $x$ is the bond length, $x_{eq}$ is the equilibrium bond length, $n$ is the vibrational state of the system, and $H_n$ is the Hermite polynomial.
+
+\subsubsection{Project 1: Calculate Franck-Condon Factors for H$_2$-H$_2^+$ using the harmonic oscillator approximation}
+You are provided with a Python code FCF-H2.py which calculates all of the information you require.
+
+\noindent This code takes as input:
+\begin{enumerate}
+    \item Reduced mass of H$_2$ molecule (same as H$_2^+$)
+    \item Frequency of the H$_2$ molecule
+    \item Frequency of the H$_2^+$ molecule
+    \item Difference in bond length (displacement)
+    \item Difference between potential minima of the electronic states ($\Delta T_e = T_e^{'} - T_e$)
+    \item Number of ground and excited vibrational states required for output
+\end{enumerate}
+
+\noindent This code outputs:
+\begin{enumerate}
+    \item Franck-Condon Factors for each pair of ground and excited vibrational states up to a threshold, using the n$_{H_2}$ = 0, n$_{H_2^+}$ = 0 Franck-Condon factor as the reference.
+\end{enumerate}
+
+\noindent Your task will be to determine the spectra of at least 10 transitions with a relative Franck-Condon factor greater than 1\%, where the FCF is the intensity and the spectral position is defined as:
+
+
+Spectral Position = $\Delta T_e + E_{H_2^+} - E_{H_2}$
+
+and expanded to:
+
+Spectral Position = $\Delta T_e +\hbar\omega_{H_2^+}(n_{H_2^+} + \frac{1}{2}) - \hbar\omega_{H_2}(n_{H_2} + \frac{1}{2})$
 \newpage
 
 \subsection{Week 4: Ising Annealer}
