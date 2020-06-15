@@ -1,13 +1,13 @@
-# CDL_2020
+![CDL 2020 Cohort Project](figures/CDL_logo.jpg)
 ## Quantum Bootcamp Cohort Project 2020
 
 The 2020 Cohort Project is an online collaboration bringing together founders in a series of open-source challenges.
-During the four-week bootcamp, founders will form teams to compete and collaborate on a set of challenges
+During the four-week bootcamp, founders will form teams to compete and collaborate on a set of projects 
 relevant for the Quantum Incubator Stream.  This year's challenges will focus on Quantum Chemistry.
 
 Goals: 
-* To calculate quantum properties of several few-electron diatomic molecules, such as moledular Hydrogen, Helium, or Lithium Hydride.
-* To disseminate the results of the collaboration in an open access format accessible to all quantum entrepreneurs
+* Technical: To calculate low-energy quantum properties of some small molecules, identifying the strengths and weaknesses of various modern approaches.
+* Business: To disseminate the results of the collaboration in an open access format accessible to all quantum entrepreneurs; to identify value propositions in the various technical approaches.
 
 ### 2020 Challenges
 Four separate challenges will be issued; one per week.  
@@ -18,9 +18,9 @@ Four separate challenges will be issued; one per week.
 * Calculating the above properties using data from a real or virtual quantum device.
 
 ### Resources include 
-* Quantum-inspired classical simulation techniques
-* Quantum hardware including circut-based devices and quantum annealers
 * Data for use in machine learning reconstruction techniques
+* Quantum-inspired classical simulation techniques
+* Quantum hardware including circut-based computers, CV devices, and quantum annealers
 
 ### References:
 * Review: Quantum Chemistry in the Age of Quantum Computing: https://arxiv.org/abs/1812.09976
