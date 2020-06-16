@@ -1,138 +1,143 @@
 import numpy as np
 import torch
-import torch.utils.data
-import torch.nn as nn
-import torch.nn.functional as F
-import torch.optim as optim
-from torch.autograd import Variable
+from itertools import chain
+from torch import nn
+from torch.nn import functional as F
+from torch.nn.utils import parameters_to_vector
+from itertools import chain
+from math import ceil
 
+class RBM():
 
-def outer_product(vecs1, vecs2):
-    # A way to calculate outer vector products in torch
-    return torch.bmm(vecs1.unsqueeze(2), vecs2.unsqueeze(1)) 
-
-class RBM(nn.Module):
-    def __init__(self,
-                 n_vis=10,
-                 n_hin=50,
-                 k=5, gpu = False, saved_weights = None):
+    def __init__(self, n_vis, n_hin):
         super(RBM, self).__init__()
-        self.gpu = gpu
-        if saved_weights is None:
-            self.W = nn.Parameter(torch.randn(n_hin,n_vis)*1e-2, requires_grad = True) # randomly initialize weights
-            self.v_bias = nn.Parameter(torch.randn(n_vis)*1e-2, requires_grad=True)
-            self.h_bias = nn.Parameter(torch.randn(n_hin)*1e-2, requires_grad=True)
-        else:
-            self.W = saved_weights[0]
-            self.v_bias = saved_weights[1]
-            self.h_bias = saved_weights[2]
-        self.k = k
         self.n_vis = n_vis
+        self.n_hin = n_hin
         
-        self.W_update = self.W.clone()
-        self.h_bias_update = self.h_bias.clone()
-        self.v_bias_update = self.v_bias.clone()
+        self.initialize_parameters()
+
+    def initialize_parameters(self):
+        self.weights = torch.randn(
+            self.n_hin, 
+            self.n_vis, 
+            dtype=torch.double
+        ) / np.sqrt(self.n_vis)
         
-        if self.gpu:
-            self.W_update = self.W_update.cuda()
-            self.v_bias_update = self.v_bias_update.cuda()
-            self.h_bias_update = self.h_bias_update.cuda()
+        self.visible_bias = torch.zeros(self.n_vis, dtype=torch.double)
+        self.hidden_bias = torch.zeros(self.n_hin, dtype=torch.double)
 
-    #--------------------------------------------------------------------------
-    # What does this code do? 
-    def v_to_h(self,v): # sample h, given v
-        if (self.gpu and not v.is_cuda):
-            v = v.cuda()
-        p_h = F.sigmoid(F.linear(v,self.W,self.h_bias))
-        # p (h_j | v ) = sigma(b_j + sum_i v_i w_ij)
-        sample_h = p_h.bernoulli()
-        return p_h, sample_h
+    def effective_energy(self, v):
+        v = v.to(self.weights)
+        visible_bias_term = torch.matmul(v, self.visible_bias)
+        hid_bias_term = F.softplus(F.linear(v, self.weights, self.hidden_bias)).sum(-1)
 
-    #--------------------------------------------------------------------------
-    # What does this code do?     
-    def h_to_v(self,h): # sample v given h
-        if (self.gpu and not h.is_cuda):
-            h = h.cuda()
-        p_v = F.sigmoid(F.linear(h,self.W.t(),self.v_bias))
-        # p (v_i | h ) = sigma(a_i + sum_j h_j w_ij)
-        sample_v = p_v.bernoulli()
-        return p_v, sample_v
+        return -(visible_bias_term + hid_bias_term)
+
+    def effective_energy_gradient(self, v):
+        v = (v.unsqueeze(0) if v.dim() < 2 else v).to(self.weights)
+        prob = self.prob_h_given_v(v)
+
+        W_grad = -torch.matmul(prob.transpose(0, -1), v)
+        vb_grad = -torch.sum(v, 0)
+        hb_grad = -torch.sum(prob, 0)
+        return W_grad, vb_grad, hb_grad
+
+    def prob_v_given_h(self, h):
+        return (
+            torch.matmul(h, self.weights.data, out=None)
+            .add_(self.visible_bias.data)
+            .sigmoid_()
+            .clamp_(min=0, max=1)
+        )
+
+    def prob_h_given_v(self, v):
+        return (
+            torch.matmul(v, self.weights.data.t(), out=None)
+            .add_(self.hidden_bias.data)
+            .sigmoid_()
+            .clamp_(min=0, max=1)
+        )
+
+    def sample_v_given_h(self, h):
+        v = self.prob_v_given_h(h)
+        v = torch.bernoulli(v)  # overwrite v with its sample
+        return v
+
+    def sample_h_given_v(self, v):
+        h = self.prob_h_given_v(v)
+        h = torch.bernoulli(h)  # overwrite h with its sample
+        return h
+
+    def draw_samples(self, k, initial_state):
+        v = (initial_state.clone()).to(self.weights)
+        h = torch.zeros(*v.shape[:-1], self.n_hin).to(self.weights)
+
+        for _ in range(k):
+            h = self.sample_h_given_v(v)
+            v = self.sample_v_given_h(h)
+
+        return v
+
+    def wavefunction(self, v):
+        return (-self.effective_energy(v)).exp().sqrt()
     
-    def forward(self,v): 
-        if (self.gpu and not v.is_cuda):
-            v = v.cuda()
-        p_h, h1 = self.v_to_h(v)
-        h_ = h1
-        for _ in range(self.k):
-            _, v_ = self.h_to_v(h_)
-            _, h_ = self.v_to_h(v_)
-        return v,v_
-        
-    def free_energy(self,v): 
-        if (self.gpu and not v.is_cuda):
-            v = v.cuda()
-        if len(v.shape)<2: #if v is just ONE vector
-            v = v.view(1, v.shape[0])
-        vbias_term = v.mv(self.v_bias) 
-        wx_b = F.linear(v,self.W,self.h_bias) 
-        hidden_term = wx_b.exp().add(1).log().sum(1) 
-        return (-hidden_term - vbias_term) 
+    def gradients(self, batch):
+        grads_W, grads_vb, grads_hb = self.effective_energy_gradient(batch)
+        grads_W /= float(batch.shape[0])
+        grads_vb /= float(batch.shape[0])
+        grads_hb /= float(batch.shape[0])
 
-    #--------------------------------------------------------------------------
-    # What does this code do?     
-    def draw_sample(self, sample_length):
-        v_ = F.relu(torch.sign(Variable(torch.randn(self.n_vis))))
-        for _ in range(sample_length):
-            _, h_ = self.v_to_h(v_)
-            _, v_ = self.h_to_v(h_)
-        return v_
-    
-    # -------------------------------------------------------------------------
-    def partition_fct(self, spins):
-        return (-self.free_energy(spins)).exp().sum()
+        return grads_W, grads_vb, grads_hb
 
-    def probability_of_v(self, all_spins, v):
-        epsilon = (-self.free_energy(v)).exp().sum()
-        Z = self.partition_fct(all_spins)
-        return epsilonW/Z
+    def compute_batch_gradients(self, k, pos_phase_batch, neg_phase_batch):
+        grads_W, grads_vb, grads_hb = self.gradients(pos_phase_batch)
 
-    #--------------------------------------------------------------------------
-    # What does this code do?    
-    def train(self, train_loader, lr= 0.01, weight_decay=0, momentum=0.9, epoch=0):
-        loss_ = []
-        for _, data in enumerate(train_loader):
-            self.data = Variable(data.view(-1,self.n_vis))
-            if self.gpu:
-                self.data = self.data.cuda()
+        vk = self.draw_samples(k, neg_phase_batch)
+        neg_grads_W, neg_grads_vb, neg_grads_hb = self.gradients(vk)
+
+        grads_W -= neg_grads_W
+        grads_vb -= neg_grads_vb
+        grads_hb -= neg_grads_hb
+
+        return grads_W, grads_vb, grads_hb
+  
+    def shuffle_data(self, data, batch_size):
+        permutation = torch.randperm(data.shape[0])
+        data = [
+            data[batch_start : (batch_start + batch_size)]
+            for batch_start in range(0, len(data), batch_size)
+        ]
+        return data
+
+    def params(self):
+        return self.weights, self.visible_bias, self.hidden_bias
+
+    def update_params(self, grads, lr):
+        self.weights -= lr*grads[0]
+        self.visible_bias -= lr*grads[1]
+        self.hidden_bias -= lr*grads[2]
+
+    def train(self, input_data, k=10, batch_size=100, lr=0.01):
+          
+        num_batches = ceil(input_data.shape[0] / batch_size)
+        pos_batches = self.shuffle_data(input_data, batch_size)
+        neg_batches = self.shuffle_data(input_data, batch_size)
+
+        for b in range(num_batches):
+            all_gradients = self.compute_batch_gradients(k, pos_batches[b], neg_batches[b])
             
-            # Get positive phase from the data
-            self.vpos = self.data
-            self.hpos_probability, self.hpos = self.v_to_h(self.vpos)
-            # Get negative phase from the chains
-            _, self.vneg = self.forward(self.vpos) # make actual k-step sampling
-            self.hneg_probability, self.hneg = self.v_to_h(self.vneg)
-        
-            self.W_update.data      *= momentum
-            self.h_bias_update.data *= momentum
-            self.v_bias_update.data *= momentum
-            
-            self.deltaW = (outer_product(self.hpos_probability, self.vpos)- outer_product(self.hneg_probability, self.vneg)).data.mean(0)
-            self.deltah = (self.hpos_probability - self.hneg_probability).data.mean(0)
-            self.deltav = (self.vpos - self.vneg).data.mean(0)
-            # mean averages over all batches
-            if self.gpu:
-                self.W_update.data      += (lr * self.deltaW).cuda()
-                self.h_bias_update.data += (lr * self.deltah).cuda()
-                self.v_bias_update.data += (lr * self.deltav).cuda()
-            else:
-                self.W_update.data      += (lr * self.deltaW)
-                self.h_bias_update.data += (lr * self.deltah)
-                self.v_bias_update.data += (lr * self.deltav)
+            self.update_params(all_gradients, lr)
 
-                    
-            self.W.data      += self.W_update.data
-            self.h_bias.data += self.h_bias_update.data
-            self.v_bias.data += self.v_bias_update.data
-                
-            loss_.append(F.mse_loss(self.vneg, self.vpos).data)
+    def partition_function(self, space):
+        logZ = (-self.effective_energy(space)).logsumexp(0)
+        return logZ.exp()
 
+    def generate_hilbert_space(self):
+        dim = np.arange(2 ** self.n_vis)
+        space = ((dim[:, None] & (1 << np.arange(self.n_vis))) > 0)[:, ::-1]
+        space = space.astype(int)
+        return torch.tensor(space, dtype=torch.double)
+
+    def psi(self):
+        space = self.generate_hilbert_space()
+        return self.wavefunction(space) / self.partition_function(space).sqrt()
