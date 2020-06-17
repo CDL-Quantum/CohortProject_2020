@@ -13,6 +13,8 @@
 \usepackage{enumerate}
 \usepackage{mathtools}
 \usepackage{fancyhdr}
+\usepackage{hyperref}
+
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -36,7 +38,8 @@ During the four-week bootcamp, founders will form teams to compete and collabora
 relevant for the Quantum Incubator Stream.  Four separate challenges will be issued; one per week.  New teams will be formed by the Academic Director weekly.
 
 Challenges consist of scientific, computational, and business tasks, devised to be tacked in diverse teams of founders with complementary skill sets.  Each year
-the general theme of the Cohort Project will change.  In 2020 it is {\it quantum chemistry}.
+the general theme of the Cohort Project will change.  In 2020 it is {\it quantum chemistry}.  Begin your reading with 
+\href{https://arxiv.org/abs/1812.09976}{\textcolor{blue}{this review} }.
 
 
 \section{Quantum Chemistry}
@@ -63,6 +66,10 @@ Except for simple few-body atoms and molecules, the solution to electronic struc
 
 \section{Weekly Challenges}
 
+Each week your team will be presented with a set of problems in the form of scientific tasks and challenges.  In order to complete these, you will {\it fork} this repository to a GitHub account managed by your team.  After completing your work on the project at the end of the week, you will issue a {\it pull request} back to the upstream repository.
+CDL will choose one team's work to merge into the main upstream repository, where it will become part of the legacy of the 2020 Boot Camp.  For more information see the
+\href{https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-forks}{\textcolor{blue}{GitHub documentation} }.
+
 \subsection{Week 1: Machine Learning}
 
 Significant speedups can in principle be achieved by simulating a molecular electronic structure Hamiltonian
@@ -72,17 +79,30 @@ expressed in terms of fermion operators by choosing an appropriate basis set.  H
 are not the fundamental units of quantum information used by today's quantum computers.
 Since most of today's quantum hardware employs qubits, 
 the molecular Hamiltonian is often transformed from its expression in terms of fermion operators 
-to a suitable qubit Hamiltonian.  This Hamiltonian can then be encoded in a quantum device that (hopefully)
+to a suitable qubit Hamiltonian.\footnote{See e.g. \href{https://arxiv.org/abs/quant-ph/0108146}{quant-ph/0108146} and \href{https://arxiv.org/abs/quant-ph/0003137}{quant-ph/0003137} }
+his Hamiltonian can then be encoded in a quantum device that (hopefully)
 finds the lowest energy state, or wavefunction.
+Next week, you will learn in detail about how molecular energies can be calculated in quantum hardware using 
+the Variational Quantum Eigensolver (VQE).
 
 In this week's challenge, we will approach the electronic structure from a data-driven perspective.  You will be given the {\it output} of a quantum computer - the individual qubit measurements of a molecular qubit Hamiltonian that was prepared
 on a (real or simulated) quantum computer. From this data, you will be asked to reconstruct the quantum state in a stochastic neural network using unsupervised machine learning techniques.  This reconstructed state will be a faithful representation of 
 the quantum wavefunction from which you can calculate physical quantities -- for example the electronic energy $E = \langle H \rangle$.
 
+Start with reading the documentation for Project 1
+\href{https://github.com/CDL-Quantum/CohortProject_2020/tree/master/Project_1_RBM_and_Tomography}{\textcolor{blue}{here.}}
+You will explore the use of a stochastic neural network -- the Restricted Boltzmann Machine (RBM) -- to learn the wavefunctions of the diatomic $H_2$ molecule 
+and a chain of Rydberg atoms from the provided data (Task 1 and Task 2).  
+
+
 \newpage
 
 
-\subsection{Week 2: Variational Quantum Eigensolving}
+\subsection{Week 2: Variational Quantum Eigensolver: Constructing Potential Energy Surfaces for Small Molecules}
+
+Co-authors: Robert Lang, Thomson Yen, Manuel Diaz-Tinoco, and Liam Kischuck
+\\
+Purpose: Illustrate main steps of the VQE framework using small molecules of increasing computational difficulty; compare results with standard classical techniques.
 
 \newpage
 
