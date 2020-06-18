@@ -54,9 +54,10 @@ def Y0Y1(wvfn, samples):
     ratio = num / denom
    
     # matrix elements are +/-1
-    # -1: if qubit 2 is 0
-    # +1: otherwise
-    ratio *= (-1)**(samples[:,1]+1)
+    # -1: if sum(Sz) = 0 (mod 2)
+    # +1: otherwise 
+    parity = (samples.sum(dim=1)) % 2
+    ratio *= (-1)**(parity+1)
     freq = find_sample_frequency(samples)
     return ratio.sum() / samples.size()[0] 
 
@@ -67,6 +68,6 @@ def energy(samples, coeff, RBM_wvfn):
     diagonal_part = c1*one(f) + c2*Z0(f) + c3*Z1(f) + c4*Z0Z1(f)
 
     # need wavefunction coefficients (unnorm) for other terms (off diag)
-    offdiagonal_part = -c5*X0X1(RBM_wvfn, samples) - c5*Y0Y1(RBM_wvfn, samples)
+    offdiagonal_part = -c5*X0X1(RBM_wvfn, samples) - c6*Y0Y1(RBM_wvfn, samples)
 
     return diagonal_part + offdiagonal_part
