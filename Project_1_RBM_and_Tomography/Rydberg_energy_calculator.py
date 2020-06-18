@@ -5,8 +5,17 @@ def Vij(R,i,j):
     return 1./(R*abs(i-j))**6.
 
 def energy(samples, RBM_wvfn):
+    '''
+    The Rydberg Hamiltonian is:
+    
+    H = -\sum_{<i,j>} Vij (\sigma_i^z \sigma_j^z + \sigma_i^z + \sigma_j^z
+        - \Omega \sum_i \sigma_i^z - h \sum_i \sigma_i^x
+
+    where \sigma's are Pauli matrices. Now, this function calculates E = <H>.
+    '''
 
     # hardset Rydberg Hamiltonian parameters
+    # Do not change!
     R = 1.
     h = 1.
     Omega = 1.

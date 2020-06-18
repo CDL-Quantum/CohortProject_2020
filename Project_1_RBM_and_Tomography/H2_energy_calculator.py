@@ -62,12 +62,29 @@ def Y0Y1(wvfn, samples):
     return ratio.sum() / samples.size()[0] 
 
 def energy(samples, coeff, RBM_wvfn):
+    '''
+    The Hamiltonian for H2, under a Bravyi-Kitaev transformation, is
+
+    H = c1 + c2*\sigma_1^z + c3*\sigma_2^z + c4*\sigma_1^z \sigma_2^z +
+        c5*\sigma_1^x \sigma_2^x + c5*\sigma_1^y \sigma_2^y
+
+    (equation 37 in Xia et al)
+
+    However, there's a sign problem in this Hamiltonian which complicates the
+    learning problem quite a bit (the ground state wavefunction has sign 
+    structure, so we require a different RBM and data in other bases!). 
+
+    The sign problem can be alleviated by transforming the Hamiltonian with the
+    unitary kron(1, \sigma^z). This manifests in flipping the sign of c5.
+    '''
+    
+
     # only need freqs for first four terms
     f = find_sample_frequency(samples)
     c1, c2, c3, c4, c5, c6 = coeff[1:-1]
     diagonal_part = c1*one(f) + c2*Z0(f) + c3*Z1(f) + c4*Z0Z1(f)
 
     # need wavefunction coefficients (unnorm) for other terms (off diag)
-    offdiagonal_part = -c5*X0X1(RBM_wvfn, samples) - c6*Y0Y1(RBM_wvfn, samples)
+    offdiagonal_part = -c5*X0X1(RBM_wvfn, samples) - c5*Y0Y1(RBM_wvfn, samples)
 
     return diagonal_part + offdiagonal_part
