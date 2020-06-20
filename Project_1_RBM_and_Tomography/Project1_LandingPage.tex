@@ -35,20 +35,16 @@
 
 \maketitle
 
-\subsection*{Before you start}
-
-This project will guide you through using a machine learning algorithm -- the Restricted Boltzmann machine (RBM) -- on molecular data. If you want some more exposure before you begin your tasks, supplemental reading on RBMs can be found \href{https://qucumber.readthedocs.io/en/stable/_static/RBM_tutorial.pdf}{here}, and a guide on training RBMs on a dummy dataset can be found in \texttt{RBM\_train\_dummy\_dataset.ipynb}. The base RBM code is located in \texttt{RBM\_helper.py}. We've intentionally left it to be pretty bare-bones and easy to use.
-
-If you feel that you are very comfortable with RBMs and how they work, feel free to skip right to your tasks for Week 1!
-
-\subsection*{Data science motivation?}
+\subsection*{Data science motivation}
 
 Data-compression is a central problem in science; scientists are always trying to figure out ways to represent things in a more efficient, compact package. 
 It turns out that machine learning is one of the best tools out there for the job.
-In the data science and machine learning community, the Modified National Institute of Standards and Technology (MNIST) database is arguably the most important benchmark database for machine learning algorithms. 
-The database consists of hand-written digits like in Fig.~\ref{fig:MNIST_digits}. 
+In the data science and machine learning community, the MNIST dataset
+\footnote{ \href{http://yann.lecun.com/exdb/mnist/}{http://yann.lecun.com/exdb/mnist/}}
+is the most well-known dataset for machine learning algorithms. 
+The data consists of hand-written digits like in Fig.~\ref{fig:MNIST_digits}. 
 A machine learning algorithm reads in all of these hand-written digits as binary (0's and 1's) data, assigning a 0 to pixels of the image that are white and a 1 to pixels of the image that are black. 
-After the machine learning algorithm has trained itself on this massive data set of hand-written digits, it offers itself as a compact ``digit generator''; a small file containing all the information required in order to generate \textit{new} instances of hand-written digits (i.e. hand-written digits that look like a real human drew them, but actually a machine generated!). See Fig.~\ref{fig:MNIST_ML}. 
+After an unsupervised machine learning algorithm has trained itself on this massive data set of hand-written digits, it offers itself as a compact ``digit generator''; a small file containing all the information required in order to generate \textit{new} instances of hand-written digits (i.e. hand-written digits that look like a real human drew them, but actually a machine generated). See Fig.~\ref{fig:MNIST_ML}. 
 
 \begin{figure}
     \begin{center}
@@ -66,7 +62,11 @@ After the machine learning algorithm has trained itself on this massive data set
     \label{fig:MNIST_ML}
 \end{figure}
 
-You are not required to do this as part of your task this week, but if you are interested in learning about how a Restricted Boltzmann machine can learn MNIST data, you are encouraged to see the \texttt{MNIST} folder. It contains a \texttt{python} script to load MNIST data. There also exists another good database for machine learning algorithm benchmarks called the ``Bars and Stripes'' database. In the \texttt{BarsAndStripes} folder, there is a \texttt{python} script for loading this data.  
+In unsupervised learning, {\it generative models} can be used to learn the probability distribution underlying a dataset, and can generate new instances of the data.
+If you are unfamiliar with machine learning using generative models such as the restricted Boltzmann machine used in the rest of this project, 
+you are encouraged to begin with the 
+\href{https://github.com/CDL-Quantum/CohortProject_2020/tree/master/Project_1_RBM_and_Tomography/MNIST}{MNIST} folder. 
+It contains a \texttt{python} script to load MNIST data. There also exists another good database for machine learning algorithm benchmarks called the ``Bars and Stripes'' database. In the \href{https://github.com/CDL-Quantum/CohortProject_2020/tree/master/Project_1_RBM_and_Tomography/BarsAndStripes}{BarsAndStripes} folder, there is a \texttt{python} script for loading this data.  
 
 \subsection*{Chemistry \& physics motivation?}
 
@@ -77,7 +77,7 @@ This is precisely the ``curse of dimensionality'' that physicists and chemists f
 
 \subsection*{Your tasks} \label{sec:tasks}
 
-This week, you'll train an RBM to learn information about the H$_2$ molecule and Rydberg atoms. This is exactly like the MNIST example that was mentioned previously, but instead of hand-written digits we will use data from a molecule / atoms! See Fig.~\ref{fig:H2_ML}. You'll also see how machine learning algorithms address the aforementioned ``curse of dimensionality''.
+This week, you'll train an RBM to learn information about the H$_2$ molecule and Rydberg atoms. This is exactly like the MNIST example that was mentioned previously, but instead of hand-written digits we will use data from atoms and molecules. See Fig.~\ref{fig:H2_ML}. You'll also see how machine learning algorithms address the aforementioned ``curse of dimensionality''.
 
 \begin{figure}
     \begin{center}
@@ -116,11 +116,12 @@ Here's what we'd like you to do.
     \item Load in data for all values of $r$ in the \texttt{H2\_data/} folder and train different RBMs for each $r$ value.
     \item With the trained RBM, generate samples from it in order to calculate $E_{bond}$ from those samples. Then, plot $E_{bond}$ for every $r$ and save the image. Does it look like Fig.~\ref{fig:potential_curve}?
 \end{enumerate}
-Take a second to appreciate what you just did. You successfully used machine learning (an RBM) to learn information about a H$_2$ molecule... Cool! For those wishing to take this a step further, there are other datasets for different molecules. See if you can do the same thing as we did for H$_2$.
+Take a second to appreciate what you just did. You successfully used machine learning (an RBM) to learn information about a H$_2$ molecule... Cool! 
+%For those wishing to take this a step further, there are other datasets for different molecules. See if you can do the same thing as we did for H$_2$.
 
 \subsubsection*{Task \#2}
 
-Go back to the apples analogy that we talked about earlier for a second. It turns out that Task \#1 is sort of like the 1-apple problem: it's easy to do just by brute force and we didn't really need a machine learning algorithm in the first place. In this task, you'll see the true value of machine learning in physics and chemistry. 
+Go back to the apples analogy that we talked about earlier for a second. It turns out that Task \#1 is sort of like the 1-apple problem: it's easy to do just by brute force and we didn't really need a machine learning algorithm in the first place.  In this task, you'll explore the value of machine learning in physics and chemistry. 
 
 In Task \#1, we gave you plenty of binary input data so that you wouldn't run into any issues. On top of this, learning information about an H$_2$ molecule is actually quite easy for an RBM; we didn't require that many hidden units. In reality, the availability of data is a problem and the difficulty of learning information about certain problems isn't easy. If we were to obtain input data from a real experiment, the experiment may not be stable for long enough to obtain a lot of data. We'll have limited input data to train something like an RBM as a result. Even if we did have a very stable experiment and could obtain as much data as we wanted, we still might be faced with a hard learning problem. So, we'll need a lot of hidden units and the ``compression'' of the original problem won't be as much as we'd hoped.
 
@@ -135,6 +136,10 @@ Here's what we'd like you to do.
 \end{enumerate}
 
 Start with the code provided in \texttt{Task2.ipynb}. For those of you interested, we've intentionally left the RBM code in \texttt{RBM\_helper.py} very generic and bare-bones. Use any means necessary to modify this code (or make your own!) and try and improve the results you previously got.
+
+\subsection*{Further Challenges} \label{sec:challenges}
+
+Now you're on your own.
 
 \bibliography{refs}
 \bibliographystyle{unsrt}
