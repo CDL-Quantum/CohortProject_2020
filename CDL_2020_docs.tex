@@ -74,27 +74,62 @@ GitHub documentation.
 
 \subsection{Week 1: Machine Learning}
 
-Significant speedups can in principle be achieved by simulating a molecular electronic structure Hamiltonian
-on a highly-controlled quantum device (i.e.~a computer).  
-After application of the Born-Oppenheimer approximation, the electronic structure Hamiltonian can be 
-expressed in terms of fermion operators by choosing an appropriate basis set.  However, these operators
-are not the fundamental units of quantum information used by today's quantum computers.
-Since most of today's quantum hardware employs qubits, 
-the molecular Hamiltonian is often transformed from its expression in terms of fermion operators 
-to a suitable qubit Hamiltonian.\footnote{See e.g. \href{https://arxiv.org/abs/quant-ph/0108146}{quant-ph/0108146} and \href{https://arxiv.org/abs/quant-ph/0003137}{quant-ph/0003137} }
-his Hamiltonian can then be encoded in a quantum device that (hopefully)
-finds the lowest energy state, or wavefunction.
+Significant speedups in simulating quantum mechanical systems, such as electrons in molecules, can in principle be achieved with quantum computers. 
+As stated in the previous section, determining the behavior of protons and electrons in atoms comprises of computing the lowest energy state of the entity that governs their behavior: the Hamiltonian, $H$. 
+To a good approximation (the Born-Oppenheimer approximation), protons can be neglected. 
+So, how do we translate the daunting problem of dealing with electrons in an atom to quantum hardware language? 
+Quantum hardware deals with quantum bits (qubits), not electrons. 
+However, there exists a mathematical framework wherein we can view Hamiltonians that describe electrons as Hamiltonians that describe qubits (something a quantum computer can understand!)\footnote{For those interested: The electronic structure Hamiltonian can be expressed in terms of fermionic operators. After a Bravyi-Kitaev transformation, the same Hamiltonian now describes qubits. See e.g. \href{https://arxiv.org/abs/quant-ph/0108146}{quant-ph/0108146} and \href{https://arxiv.org/abs/quant-ph/0003137}{quant-ph/0003137}.}.
+This Hamiltonian can then be encoded in a quantum device that (hopefully) finds the lowest energy state.
 Next week, you will learn in detail about how molecular energies can be calculated in quantum hardware using 
 the Variational Quantum Eigensolver (VQE).
 
-In this week's challenge, we will approach the electronic structure from a data-driven perspective.  You will be given the {\it output} of a quantum computer - the individual qubit measurements of a molecular qubit Hamiltonian that was prepared
-on a (real or simulated) quantum computer. From this data, you will be asked to reconstruct the quantum state in a stochastic neural network using unsupervised machine learning techniques.  This reconstructed state will be a faithful representation of 
-the quantum wavefunction from which you can calculate physical quantities -- for example the electronic energy $E = \langle H \rangle$.
+In this week's challenge, we will approach the electronic structure from a data-driven perspective.  
+You will be given the {\it output} of a quantum computer - the individual qubit measurements of a molecular qubit Hamiltonian that was prepared
+on a (real or simulated) quantum computer. 
+From this data, you will be asked to reconstruct the quantum state in a stochastic neural network using unsupervised machine learning techniques.  
+This reconstructed state will be a faithful representation of the quantum wavefunction from which you can calculate physical quantities -- for example the electronic energy $E = \langle H \rangle$.
 
+\subsubsection{What are machine learning algorithms doing, really?}
+
+When we hear about machine learning (ML) and/or artificial intelligence (AI) in the news it usually comes across as vague and confusing; what's really going on under the hood? Firstly, let's consider the goals of ML algorithms for our purposes. Generally we want ML algorithms to learn {\it probability distributions} and make new predictions from limited inputs. Consider for instance a biased coin (i.e. a coin that is not 50/50 heads or tails). A friend of yours flips this coin many times and sends you the results. You are then asked, what is the chance of getting heads or tails? You could just do statistical inference and say that 
+\begin{align*}
+    P_{\text{heads}} \approx \frac{\text{\# of heads}}{\text{\# of heads} + \text{\# of tails}} \\
+    \intertext{and}
+    P_{\text{tails}} \approx \frac{\text{\# of tails}}{\text{\# of heads} + \text{\# of tails}}.
+\end{align*}
+But, there's a more sophisticated way of determining $P_{\text{heads}}$ and $P_{\text{tails}}$ from the data your friend gives you: use a ML algorithm!
+
+ML algorithms comprise of a bunch of tunable parameters that, given the algorithm architecture, describe a general probability distribution. The training portion of ML algorithms tunes its parameters in such a way that its probability distribution closely matches (often better than statistical inference) the underlying one from the data your friend gives you. Let's now break down what the training looks like.
+
+\subsubsection{Training}
+
+ML algorithms generally associate how ``well'' they are doing in learning through a ``cost function'' called the {\it Negative Log-Likelihood}.\footnote{This is related to the {\it Kullback Leibler Divergence}: $\sum_{v} p_{\text{true}}(v) \ln(\frac{p_{\text{true}}(v)}{p_{\text{ML alg.}}(v)})$}
+\begin{equation}
+    NLL = -\sum_{v} p_{\text{true}}(v) \ln(p_{\text{ML alg.}}(v))
+\end{equation}
+ML algorithms want to minimize the cost function: find the set of parameters in the model such that the cost function is smallest. The way in which ML algorithms do this is via {\it gradient decent}\footnote{Really, there are many different algorithms for minimizing the cost function. Pytorch has a list of different optimization methods that you can find here: https://pytorch.org/docs/stable/optim.html}: update parameters, $\lambda$, incrementally at every training step with the following rule.
+\begin{equation}
+    \lambda \leftarrow \lambda - \eta \nabla_{\lambda}NLL
+\end{equation}
+\begin{itemize}
+    \item $\eta$: The {\it learning rate}. It is just a real number that scales the gradient.
+    \item $\nabla_{\lambda}$: Symbol to denote the gradient operator with respect to all of the parameters in the model, $\lambda$.
+\end{itemize}
+
+Generally, the gradient of the cost function may not be analytic (i.e. it may not have a ``nice'' form that we can write down and we have to resort to other differentiation methods). For the model you will be working with this week, the Restricted Boltzmann machine (RBM), the gradients of the cost function are analytic. We are simply required to sample our machine learning algorithm (ask it to generate new instances of data) in order to calculate $\nabla_{\lambda}NLL$.
+In summary, for our purposes, training the RBM boils down to the following.
+
+\begin{enumerate}
+    \item Generate data from the RBM 
+    \item Calculate $\nabla_{\lambda}NLL$
+    \item Update the RBM parameters: $\lambda \leftarrow \lambda - \eta \nabla_{\lambda}NLL$
+\end{enumerate}
+ 
 Start with reading the documentation for Project 1.
 \footnote{\href{https://github.com/CDL-Quantum/CohortProject_2020/tree/master/Project_1_RBM_and_Tomography}
 {\textcolor{blue}{https://github.com/CDL-Quantum/}}}
-You will explore the use of a stochastic neural network -- the Restricted Boltzmann Machine (RBM) -- to learn the l of the diatomic $H_2$ molecule 
+You will explore using the RBM to learn the wavefunctions of the diatomic $H_2$ molecule 
 and a chain of Rydberg atoms from the provided data (Task 1 and Task 2).  
 
 
