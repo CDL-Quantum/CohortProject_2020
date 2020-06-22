@@ -6,12 +6,11 @@ During the four-week bootcamp, founders will form teams to compete and collabora
 designed to engage science, technology, and business founders in problems related to quantum entrepreneurship.
 This year's challenges will focus on Quantum Chemistry.
 
-Goals: 
+### Goals: 
 * Technical: To calculate low-energy quantum properties of some small molecules, identifying the strengths and weaknesses of various modern approaches.
 * Business: To disseminate the results of the collaboration in an open access format accessible to all quantum entrepreneurs; to identify value propositions in the various technical approaches.
 
-Project Legacy:
-
+### Project Legacy:
 Each week your team will fork this repository to your own GitHub account to work on the challenges.  At the end of the week you will issue a pull request. CDL will choose one team's work to merge into the main upstream repository, where it will become part of the legacy of the 2020 Boot Camp.
 
 ### 2020 Challenges
