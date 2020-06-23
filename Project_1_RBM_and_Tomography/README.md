@@ -4,16 +4,17 @@ This project will guide you through using a machine learning algorithm -- the Re
 
 Open up [Project1_LandingPage.pdf](https://github.com/CDL-Quantum/CohortProject_2020/blob/master/Project_1_RBM_and_Tomography/Project1_LandingPage.pdf) to begin learning about your tasks for this week!
 
-Tasks include:
+## Tasks include:
 * Train an RBM to reconstruct the potential energy of moleculary Hydrogen as the distance between the H atoms changes.
 * Train an RBM to reconstruct the groundstate of a Rydberg atom quantum computer.
 
-Further Challenges:
-* Additional data has been provided for LiH and BeH2.
-* Other unsupervised machine learning techniques can be used besides RBMs, such as recurrent neural networks (RNNs)
+## Further Challenges:
+* Additional data has been provided for LiH and BeH2. Consider an RBM reconstruction for these more complicated molecules.  What is the fundamental difference between these and the systems studied in the above Tasks?
+* Explore other unsupervised machine learning techniques besides RBMs, such as recurrent neural networks (RNNs).
+* What other quantum wavefunction datasets can you obtain? 
 
-Possible Business Outcomes:
+## Possible Business Outcomes:
 * Explain to a layperson why quantum computers are desired for quantum chemistry tasks.
 * Research different machine learning strategies in industry; which are most suitable for pairing with quantum chemistry data and why?
 * How does one place a value on data derived from a quantum computer?
-* How would a standard dataset for quantum chemistry data look?
+* How would a standard dataset for machine learning quantum chemistry look?
