@@ -6,7 +6,7 @@ During the four-week bootcamp, founders will form teams to compete and collabora
 designed to engage science, technology, and business founders in problems related to quantum entrepreneurship.
 This year's challenges will focus on Quantum Chemistry.
 
-### Goals: 
+### Goals:  
 * Technical: To calculate low-energy quantum properties of some small molecules, identifying the strengths and weaknesses of various modern approaches.
 * Business: To disseminate the results of the collaboration in an open access format accessible to all quantum entrepreneurs; to identify value propositions in the various technical approaches.
 
