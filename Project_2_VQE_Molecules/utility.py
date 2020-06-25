@@ -287,9 +287,15 @@ def obtain_PES(mol_data_list, basis, method):
         moldata_R = quantumchemistry.Molecule(mol_data_list[i], basis)
 
         if method == 'cisd':
-            result = moldata_R.compute_energy('detci', options={"detci__ex_level": 2})
+            try:
+                result = moldata_R.compute_energy('detci', options={"detci__ex_level": 2})
+            except:
+                result = np.nan
         else:
-            result = moldata_R.compute_energy(method)
+            try:
+                result = moldata_R.compute_energy(method)
+            except:
+                result = np.nan
 
         print("E = {} Eh".format(result))
 
