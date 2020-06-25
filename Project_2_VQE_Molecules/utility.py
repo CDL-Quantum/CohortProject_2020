@@ -285,8 +285,10 @@ def obtain_PES(molecule, bond_lengths, basis, method):
     for i in range(gridpoints):
 
         obtained_e = False
+        nudged_geo_tries = 0
 
         while obtained_e == False:
+
             try:
                 mol_data = get_molecular_data(molecule, bond_lengths[i], xyz_format=True)
                 mol_data = quantumchemistry.Molecule(mol_data, basis)
@@ -303,6 +305,12 @@ def obtain_PES(molecule, bond_lengths, basis, method):
 
             except:
                 #Nudge geometry, cross fingers
-                bond_lengths[i] += 0.00000001
+                bond_lengths[i] += 0.00000042
+                nudged_geo_tries += 1
+
+            if nudged_geo_tries > 9:
+                obtained_e = True
+                energies[i] = np.nan
+                print("Could not converge")
 
     return energies
