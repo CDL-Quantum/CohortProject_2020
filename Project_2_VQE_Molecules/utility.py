@@ -273,32 +273,36 @@ def get_qwc_group(H : QubitOperator):
         qwc_list_idx += 1
     return qwc_list
 
-def obtain_PES(mol_data_list, basis, method):
+def obtain_PES(molecule, bond_lengths, basis, method):
 
     if method.lower() not in ['ccsd', 'cisd', 'fci', 'hf']:
         raise(ValueError("Method not recognized, implemented methods are 'ccsd', 'cisd', 'fci', 'hf'."))
 
-    gridpoints = len(mol_data_list)
+    gridpoints = len(bond_lengths)
 
     energies = np.zeros(gridpoints)
 
     for i in range(gridpoints):
 
-        moldata_R = quantumchemistry.Molecule(mol_data_list[i], basis)
+        obtained_e = False
 
-        if method == 'cisd':
+        while obtained_e == False:
             try:
-                result = moldata_R.compute_energy('detci', options={"detci__ex_level": 2})
-            except:
-                result = np.nan
-        else:
-            try:
-                result = moldata_R.compute_energy(method)
-            except:
-                result = np.nan
+                mol_data = get_molecular_data(molecule, bond_lengths[i], xyz_format=True)
+                mol_data = quantumchemistry.Molecule(mol_data, basis)
 
-        print("E = {} Eh".format(result))
+                if method == 'cisd':
+                    result = mol_data.compute_energy('detci', options={"detci__ex_level": 2})
+                else:
+                    result = mol_data.compute_energy(method)
 
-        energies[i] = result
+                print("E = {} Eh".format(result))
+
+                energies[i] = result
+                obtained_e = True
+
+            except:
+                #Nudge geometry, cross fingers
+                bond_lengths[i] += 0.00000001
 
     return energies
