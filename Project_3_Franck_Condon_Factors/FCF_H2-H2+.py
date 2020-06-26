@@ -26,7 +26,7 @@ n_0=3
 n_p=3
 
 # Information about the diatomic system                                                                          
-reduced_mass=1.00784/2. #amu                                                                                   
+reduced_mass=1.00784/2.   #amu                                                                                   
 omega_0=4401.0            #cm-1                                                                                  
 omega_p=2322.0            #cm-1                                                                                  
 eqgeom_0=0.742            #Ang                                                                                   
@@ -111,4 +111,4 @@ for i in range(n_0):
 # lower state (E_0) plotted on the x-axis and the Franck-Condon
 # Factor plotted on the y-axis (FC)
 
-# Task: Plot the spectrum based on the output of this code
+# Task: Plot the spectrum with energies in units of eV
