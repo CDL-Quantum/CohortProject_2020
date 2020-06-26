@@ -31,7 +31,7 @@ omega_0=4401.0            #cm-1
 omega_p=2322.0            #cm-1                                                                                  
 eqgeom_0=0.742            #Ang                                                                                   
 eqgeom_p=1.057            #Ang                                                                                   
-
+ion_energy=124418.457     #cm-1
 #################################     
 ######## INITIAL SETUP ##########                                                                                
 #################################                                                                                
@@ -76,7 +76,7 @@ print("n_0    n_p      FC")
 for i in range(n_0):
     E_0=hbar*omega_0*(i+0.5)/invcm_to_invEh
     for j in range(n_p):
-        E_p=hbar*omega_p*(j+0.5)/invcm_to_invEh
+        E_p=hbar*omega_p*(j+0.5)/invcm_to_invEh+ion_energy
         overlap=0.0
         for p in range(quadraturepoints):
 
@@ -94,4 +94,21 @@ for i in range(n_0):
         if (i==0 and j==0):
             reference=FC
         if (FC>pow(10.,-3)):
-            print(f'{i:3} {j:5} {FC/reference:10.3f}')
+            FC/=reference
+            print(f'{i:3} {j:5} {FC:10.3f}')
+
+
+#################################
+####### PLOT THE SPECTRUM #######
+#################################
+
+# This code initially only prints out the vibrational quantum
+# numbers of the lower surface (i) and the upper surface (j)
+# along with the Franck-Condon Factor (FC)
+
+# A spectrum is a visual representation of these transitions with
+# the difference in energy between the upper state (E_p) and
+# lower state (E_0) plotted on the x-axis and the Franck-Condon
+# Factor plotted on the y-axis (FC)
+
+# Task: Plot the spectrum based on the output of this code
