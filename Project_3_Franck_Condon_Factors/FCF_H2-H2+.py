@@ -8,7 +8,7 @@ from numpy.polynomial.legendre import leggauss
 #################################                                                                                
 hbar=1.0
 amu_to_me=1822.888486209
-invcm_to_invEh=100.0*5.29177210903*pow(10.,-11.)*137.036
+invcm_to_invEh=100.0*5.29177210903*pow(10.,-11.)*137.036*2*pi
 AngtoBohr=1.88973
 
 ################################                                                                                 
