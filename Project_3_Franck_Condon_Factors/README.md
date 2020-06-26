@@ -12,10 +12,11 @@ Open up [Project3_LandingPage.pdf](https://github.com/CDL-Quantum/CohortProject_
 * Calculate the Franck-Condon Factors (and spectra) of that molecule using vibronic sampling. This calculation involves Gaussian Boson Sampling (GBS), which would allow these factors to be calculated using a quantum circuit.
 
 ## Further Challenges:
-* An alternative and analogous method to calculating these Franck-Condon Factors using matrix elements is to use a loop hafnians approach. This loop hafnian approach uses GBS which would allow these factors to be calculated using a quantum circuit. Use the result of Task 3 to provide data to a skeleton code provided that uses "Loop Hafnians" to calculate the FCFs.
+* An alternative and analogous method to calculating these Franck-Condon Factors using matrix elements is to use a loop hafnian approach. This loop hafnian approach uses GBS which would allow these factors to be calculated using a quantum circuit. Use the result of Task 3 to provide data to a skeleton code provided that uses loop hafnians to calculate the Franck-Condon Factors.
 * Explain briefly the similarities and differences between these three methods.
 
 ## Possible Business Outcomes:
-* Explain to a layperson the importance of theoretical chemistry/physics from an economic point of view
+* Explain to a layperson what theoretical chemistry/physics is, in the general context of Franck-Condon Factors
+* What is the importance of theoretical chemistry/physics from an economic point of view
 * Explain to a layperson what a quantum circuit is and it's relationship to theoretical chemistry/physics
-* What are advantages of disadvantages of codes licensed for the public domain and those that are licensed for private use
+* What are advantages and disadvantages of codes licensed for the public domain and those that are licensed for private use
