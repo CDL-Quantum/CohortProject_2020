@@ -1,11 +1,14 @@
 import math
 import numpy as np
+import openfermion
 from openfermion import QubitOperator
 from openfermion.hamiltonians import MolecularData
 from openfermionpyscf import run_pyscf
 from openfermion.transforms import get_fermion_operator, bravyi_kitaev, jordan_wigner
+from openfermion.utils import taper_off_qubits
 
 from tequila.grouping.binary_rep import BinaryHamiltonian
+from tequila.grouping.binary_utils import binary_null_space
 from tequila import QubitHamiltonian, quantumchemistry
 
 def get_qubit_hamiltonian(mol, geometry, basis, charge=0, multiplicity=1, qubit_transf='bk'):
@@ -314,3 +317,66 @@ def obtain_PES(molecule, bond_lengths, basis, method):
                 print("Could not converge")
 
     return energies
+
+def get_bare_stabilizer(H : QubitOperator):
+    '''
+    Identify the stabilizer of H. 
+    Currently admits only stabilizer with all z 
+    since hf can only identifies the value of these terms
+    '''
+    n = get_number_qubit(H)
+    pws = []
+    
+    for pw, _ in H.terms.items():
+        pws.append(pw)
+
+    binvecs = pauli2binvec(pws, n)
+    nullvecs = binary_null_space(np.array(binvecs))
+
+    stabs = []
+    for vec in nullvecs:
+        # If is all z
+        if all(vec[:n] == 0):
+            stab = QubitOperator.identity()
+            for i in range(n):
+                if vec[n+i] == 1:
+                    stab = stab * QubitOperator('Z'+str(i))
+            stabs.append(stab)
+        else:
+            print('Stabilizer with x/y terms ignored. ')
+    return stabs
+
+def hf_occ(n_spin_orbitals, n_electrons, BK=False):
+    '''
+    Returns the HF canonical orbital occupations.
+    Assumes Aufbau filling.
+    '''
+    hf_state = np.zeros(n_spin_orbitals)
+    hf_state[:n_electrons] = 1
+    # hf_state = np.expand_dims(hf_state, 1)
+
+    if BK:
+        bk_encoder = openfermion.bravyi_kitaev_code(n_spin_orbitals).encoder.toarray()
+        return bk_encoder @ hf_state % 2
+    else:
+        return hf_state
+
+def correct_stabilizer_phase(stabs, hf_state):
+    '''
+    Accept a hf state in BK encoding. Correct the phase of the z stabilizers. 
+    '''
+    for idx in range(len(stabs)):
+        pw, _ = stabs[idx].terms.copy().popitem()
+        for ps in pw:
+            if hf_state[ps[0]] == 1:
+                stabs[idx] = stabs[idx] * -1
+    return stabs
+
+def taper_hamiltonian(H : QubitOperator, n_spin_orbitals, n_electrons):
+    '''
+    Taper off the H with the stabilizer in the correct phase based on hf state. 
+    '''
+    stabs = get_bare_stabilizer(H)
+    hf = hf_occ(n_spin_orbitals, n_electrons, True)
+    stabs = correct_stabilizer_phase(stabs, hf)
+    return taper_off_qubits(H, stabs)
