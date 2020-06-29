@@ -13,8 +13,12 @@ Open up [Project1_LandingPage.pdf](https://github.com/CDL-Quantum/CohortProject_
 * Explore other unsupervised machine learning techniques besides RBMs, such as recurrent neural networks (RNNs).
 * What other quantum wavefunction datasets can you obtain? 
 
-## Possible Business Outcomes:
-* Explain to a layperson why quantum computers are desired for quantum chemistry tasks.
-* Research different machine learning strategies in industry; which are most suitable for pairing with quantum chemistry data and why?
-* How does one place a value on data derived from a quantum computer?
-* How would a standard dataset for machine learning quantum chemistry look?
+## Business Application
+For each week, your team is asked to complete a Business Application. Questions you will be asked are:
+
+* Explain to a layperson the technical problem you solved in this exercise.
+* Explain or provide examples of the types of real-world problems this solution can solve.
+* Identify at least one potential customer for this solution - ie: a business who has this problem and would consider paying to have this problem solved.
+* Prepare a 90 second video explaining the value proposition of your innovation to this potential customer in non-technical language.
+
+For more details refer to the [Business Application found here](./Business_Application.md)
