@@ -46,16 +46,16 @@ the general theme of the Cohort Project will change.  In 2020 it is {\it quantum
 
 The field of quantum chemistry is a multi-disciplinary effort spanning physics, chemistry, computer science, software engineering, and high-performance computing,
 all working together to assist in the design and discovery of new molecules, materials, and drugs.  It is a {\it native quantum} field, meaning that the underlying
-foundation of its technology is quantum mechanics. It offers a rich opportunity to develop science and technology 
+foundation of its technology is quantum mechanics. It offers a rich opportunity to develop science and technology
 based companies around classical software, machine learning, quantum-inspired solutions, and quantum computing.
 
-One of the central problems of theoretical chemistry is to compute the lowest energy state of a molecular Hamiltonian. 
-The behavior of protons and electrons in atoms is governed by the Schrodinger equation 
+One of the central problems of theoretical chemistry is to compute the lowest energy state of a molecular Hamiltonian.
+The behavior of protons and electrons in atoms is governed by the Schrodinger equation
 $i \hbar \frac{\partial }{ \partial t}  | \Psi \rangle = H | \Psi \rangle$, where $H$ is the Hamiltonian, and $\Psi$ is the quantum state or {\it wavefunction}.
-Quite generally, this equation cannot be solved exactly for more than a few particles.  
-For large molecules this problem is intractable even on todays largest supercomputers. 
+Quite generally, this equation cannot be solved exactly for more than a few particles.
+For large molecules this problem is intractable even on todays largest supercomputers.
 
-The standard approach to computational chemistry begins with the Born-Oppenheimer approximation, which assumes that nuclei are fixed classical point charges. These charges create the potential that determines the electronic Hamiltonian, and therefore the electronic wavefunction.  
+The standard approach to computational chemistry begins with the Born-Oppenheimer approximation, which assumes that nuclei are fixed classical point charges. These charges create the potential that determines the electronic Hamiltonian, and therefore the electronic wavefunction.
 The low-energy electronic states is where all the action is; solving this given a molecular Hamiltonian $H$ is
 called the {\it electronic structure} problem.
 Except for simple few-body atoms and molecules, the solution to electronic structure problems can require significant computational resources.  In this cohort project we will largely consider diatomic molecules composed of two bonded atoms, where reasonable computational calculations can be done.
@@ -68,45 +68,45 @@ Each week your team will be presented with a set of problems in the form of scie
 CDL will choose one team's work to merge into the main upstream repository, where it will become part of the legacy of the 2020 Boot Camp.  For more information see the
 GitHub documentation.
 \footnote{
-\href{https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-forks}{\textcolor{blue}{https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-forks} } }
+    \href{https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-forks}{\textcolor{blue}{https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-forks} } }
 
 \subsection{Week 1: Machine Learning}
 
-Significant speedups in simulating quantum mechanical systems, such as electrons in molecules, can in principle be achieved with quantum computers. 
-As stated in the previous section, determining the behavior of protons and electrons in atoms comprises of computing the lowest energy state of the entity that governs their behavior: the Hamiltonian, $H$. 
+Significant speedups in simulating quantum mechanical systems, such as electrons in molecules, can in principle be achieved with quantum computers.
+As stated in the previous section, determining the behavior of protons and electrons in atoms comprises of computing the lowest energy state of the entity that governs their behavior: the Hamiltonian, $H$.
 %To a good approximation (the Born-Oppenheimer approximation), protons can be neglected. 
 For most of the problems in this Project, you will be asked to find a wavefunction given a Hamiltonian.  However for Week 1 we will assume that a quantum
-computer is doing that for us.  In order for this to happen, one must first translate the problem of dealing with electrons in an atom to 
-the language of quantum hardware, which deals with quantum bits (qubits), not electrons. 
+computer is doing that for us.  In order for this to happen, one must first translate the problem of dealing with electrons in an atom to
+the language of quantum hardware, which deals with quantum bits (qubits), not electrons.
 There exists several mathematical frameworks wherein one can view Hamiltonians that describe electrons as Hamiltonians that describe qubits\footnote{For those interested: The electronic structure Hamiltonian can be expressed in terms of fermionic operators. After a Bravyi-Kitaev transformation, the same Hamiltonian now describes qubits. See e.g. \href{https://arxiv.org/abs/quant-ph/0108146}{quant-ph/0108146} and \href{https://arxiv.org/abs/quant-ph/0003137}{quant-ph/0003137}.}.
 This Hamiltonian can then be encoded in a quantum device that (hopefully) finds the lowest energy state.
-Next week, you will learn in detail about how molecular energies can be calculated in quantum hardware using 
+Next week, you will learn in detail about how molecular energies can be calculated in quantum hardware using
 the Variational Quantum Eigensolver (VQE).
 
-This week we will approach the electronic structure problem from a data-driven perspective.  
+This week we will approach the electronic structure problem from a data-driven perspective.
 You will be given the {\it output} of a quantum computer - the individual qubit measurements of a molecular qubit Hamiltonian that was prepared
-on a (real or simulated) quantum computer. 
-From this data, you will be asked to reconstruct the quantum state $\Psi$ in a stochastic neural network 
-(a restricted Boltzmann machine) using unsupervised machine learning techniques.  
+on a (real or simulated) quantum computer.
+From this data, you will be asked to reconstruct the quantum state $\Psi$ in a stochastic neural network
+(a restricted Boltzmann machine) using unsupervised machine learning techniques.
 This reconstructed state will be a faithful representation of the quantum wavefunction from which you can calculate physical quantities -- for example the electronic energy $E = \langle H \rangle$.
 
 \subsubsection{Neural networks as quantum wavefunctions}
 
 %When we hear about machine learning (ML) and/or artificial intelligence (AI) in the news it usually comes across as vague and confusing; what's really going on under the hood? 
-Machine learning (ML) tasks are often broken down as {\it supervised} or {\it unsupervised}.  A general goal of unsupervised learning is 
-to learn probability distributions and make new predictions from limited input in the form of data. 
+Machine learning (ML) tasks are often broken down as {\it supervised} or {\it unsupervised}.  A general goal of unsupervised learning is
+to learn probability distributions and make new predictions from limited input in the form of data.
 \footnote{A question to ponder: what is the relationship between a probability distribution $P$ and a quantum wavefunction $\Psi$?}
-Consider for instance the task of learning the probability distribution underlying 
-a biased coin (i.e.~a coin that is not 50/50 heads or tails). A friend of yours flips this coin many times and sends you the results as a data set. 
-To answer the question ``what is the probability of getting heads or tails?'', you could just build a {\it frequency distribution} and say that 
+Consider for instance the task of learning the probability distribution underlying
+a biased coin (i.e.~a coin that is not 50/50 heads or tails). A friend of yours flips this coin many times and sends you the results as a data set.
+To answer the question ``what is the probability of getting heads or tails?'', you could just build a {\it frequency distribution} and say that
 $$
-    P_{\text{heads}} \approx \frac{\text{\# of heads}}{\text{\# of heads} + \text{\# of tails}} 
+    P_{\text{heads}} \approx \frac{\text{\# of heads}}{\text{\# of heads} + \text{\# of tails}}
 $$
 %    P_{\text{tails}} \approx \frac{\text{\# of tails}}{\text{\# of heads} + \text{\# of tails}}.
 %\end{align*}
-and $ P_{\text{tails}} = 1 - P_{\text{heads}}$.  However, in some cases (what cases?) frequency distributions are insufficient.  Then, ML algorithms called {\it generative 
-models} can be used. Generative models comprise of a bunch of tunable parameters that, given the algorithm architecture, describe a general probability distribution. 
-The model is trained by tuning its parameters (call them $\lambda$) in such a way that its probability distribution closely matches the underlying one from the data your friend gives you. 
+and $ P_{\text{tails}} = 1 - P_{\text{heads}}$.  However, in some cases (what cases?) frequency distributions are insufficient.  Then, ML algorithms called {\it generative
+        models} can be used. Generative models comprise of a bunch of tunable parameters that, given the algorithm architecture, describe a general probability distribution.
+The model is trained by tuning its parameters (call them $\lambda$) in such a way that its probability distribution closely matches the underlying one from the data your friend gives you.
 For Project 1, we will use a restricted Boltzmann machine (RBM) as the generative model, where the parameters are weights and biases.
 \footnote{For more reading see \textcolor{blue}{ \href{https://arxiv.org/abs/1905.04312}{https://arxiv.org/abs/1905.04312} }}
 Let's now break down what the training looks like.
@@ -118,7 +118,7 @@ ML algorithms generally associate how ``well'' they are doing in learning throug
     NLL = -\sum_{v} p_{\text{true}}(v) \ln(p_{\text{ML alg.}}(v))
 \end{equation}
 In the case where a quantum computer provides data, what is $p_{\text{true}}$ and $p_{\text{ML alg.}}$?  How do these relate to $\Psi$?
-ML algorithms want to minimize the cost function: find the set of parameters in the model such that the cost function is smallest. The way in which ML algorithms do this is via {\it gradient decent}\footnote{Really, there are many different algorithms for minimizing the cost function. Pytorch has a list of different optimization methods that you can find here: https://pytorch.org/docs/stable/optim.html}: update parameters, $\lambda$, incrementally at every training step with the following rule.
+ML algorithms want to minimize the cost function: find the set of parameters in the model such that the cost function is smallest. The way in which ML algorithms do this is via {\it gradient decent}\footnote{Really, there are many different algorithms for minimizing the cost function. Pytorch has a list of different optimization methods that you can find here: \textcolor{blue}{ \href{https://pytorch.org/docs/stable/optim.html}{https://pytorch.org/docs/stable/optim.html} }}: update parameters, $\lambda$, incrementally at every training step with the following rule.
 \begin{equation}
     \lambda \leftarrow \lambda - \eta \nabla_{\lambda}NLL
 \end{equation}
@@ -131,16 +131,16 @@ Generally, the gradient of the cost function may not be analytic (i.e. it may no
 In summary, for our purposes, training the RBM boils down to the following.
 
 \begin{enumerate}
-    \item Generate data from the RBM 
+    \item Generate data from the RBM
     \item Calculate $\nabla_{\lambda}NLL$
     \item Update the RBM parameters: $\lambda \leftarrow \lambda - \eta \nabla_{\lambda}NLL$
 \end{enumerate}
- 
+
 Start with reading the documentation for Project 1.
 \footnote{\href{https://github.com/CDL-Quantum/CohortProject_2020/tree/master/Project_1_RBM_and_Tomography}
-{\textcolor{blue}{https://github.com/CDL-Quantum/}}}
-You will explore using the RBM to learn the wavefunctions of the diatomic $H_2$ molecule 
-and a chain of Rydberg atoms from the provided data (Task 1 and Task 2).  
+    {\textcolor{blue}{https://github.com/CDL-Quantum/}}}
+You will explore using the RBM to learn the wavefunctions of the diatomic $H_2$ molecule
+and a chain of Rydberg atoms from the provided data (Task 1 and Task 2).
 Once you've mastered these, you're encouraged to continue with one of the {\it Challenges} provided (or better yet, make up your own)!
 
 \newpage
@@ -156,27 +156,23 @@ Purpose: Illustrate main steps of the VQE framework using small molecules of inc
 
 \subsection{Week 3: Franck Condon Factors}
 
-You've probably wondered how scientists in labs are able to determine extremely small quantities like the distance between atoms that are chemically bonded. 
+You've probably wondered how scientists in labs are able to determine extremely small quantities like the distance between atoms that are chemically bonded.
 Spectroscopy is the field of study that has provided techniques to measure such quantities with ease. Not only is its importance in academic settings unprecedented, industry relies on spectroscopic theory and techniques for countless applications. This week, you'll learn:
-
 \begin{enumerate}
     \item introductory physics and chemistry behind spectroscopy
     \item what a Franck Condon Factor is
     \item how to calculate Franck Condon Factors for simple molecules
 \end{enumerate}
-
-For further reading, you may consult the following references among many others: Ref.~\cite{quesadaFranckCondonFactorsCounting2019,wrightFranckCondonFactorsTheir1999,fantzFranckCondonFactors2006}
-
-If you come from a physics or chemistry background, you will have probably learned material that will be covered in the the next few subsections. Feel free to skip them! This is intended for an audience that is entirely unfamiliar with these concepts.
+For further reading, you may consult the following references among many others: Ref.~\cite{quesadaFranckCondonFactorsCounting2019,wrightFranckCondonFactorsTheir1999,fantzFranckCondonFactors2006}.
 
 \subsubsection{What is spectroscopy?}
 
-Spectroscopy is the study of how light and matter (atoms and molecules) interact. 
-Light can be absorbed by matter (\textit{absorption}) or matter can emit light (\textit{emission}). 
-However, it turns out that atoms and molecules can only emit / absorb certain wavelengths of light and not all wavelengths. 
+Spectroscopy is the study of how light and matter (atoms and molecules) interact.
+Light can be absorbed by matter (\textit{absorption}) or matter can emit light (\textit{emission}).
+However, it turns out that atoms and molecules can only emit / absorb certain wavelengths of light and not all wavelengths.
 The wavelengths of light that atoms and molecules can emit / absorb is dictated by the \textit{energy levels} of a molecule.
-Think of a molecule's energy levels as a set of stairs, where each stair represents one energy level and the vertical distance separating stairs is the difference in energy between stairs. 
-For a molecule to absorb or emit light, the light must have \textit{exactly} the amount of energy between two stairs. 
+Think of a molecule's energy levels as a set of stairs, where each stair represents one energy level and the vertical distance separating stairs is the difference in energy between stairs.
+For a molecule to absorb or emit light, the light must have \textit{exactly} the amount of energy between two stairs.
 If stairs \# 1 and \# 2 have energy $E_1$ and $E_2$ respectively, then the light's energy, $E_{\text{light}}$, must satisfy
 \begin{equation}
     E_2 - E_1 = E_{\text{light}}.
@@ -187,7 +183,7 @@ Therefore, a molecule can only absorb or emit light that has a specific energy, 
 \end{equation}
 It is from the pattern of light that a molecule can emit / absorb -- its \textit{spectrum} -- that we can determine all sorts of properties (e.g. bond strengths, positions of atoms in molecules, etc.)
 
-\subsubsection{Molecular energy levels}
+\subsubsection{Molecular energy levels} \label{sec:molec_energy_lvls}
 
 So, the energy levels of molecules give us the key to its structural properties. What are these energy levels? Energy in a molecule can be stored in a few ways: vibration, rotation and the energy of electrons ($e^-$) surrounding the molecule (see Fig.~\ref{fig:DOFs}). For now, let's only worry about harnessing vibrational energy and energy from exciting electrons within a molecule.
 
@@ -196,7 +192,7 @@ So, the energy levels of molecules give us the key to its structural properties.
         \includegraphics[width=0.5\linewidth]{figures/molecule_DOFs.pdf}
     \end{center}
     \caption{
-    (a) Molecular vibration, (b) rotation, and (c) exciting an electron in an atom / molecule.
+        (a) Molecular vibration, (b) rotation, and (c) exciting an electron in an atom / molecule.
     }
     \label{fig:DOFs}
 \end{figure}
@@ -208,7 +204,7 @@ The chemical bond is what forces atoms in a molecule to stay close enough togeth
         \includegraphics[width=0.4\linewidth]{figures/potential_energy_curve.pdf}
     \end{center}
     \caption{
-    The general form of a molecule's potential energy curve as a function of bond length. The blue curve represents a molecule in its ground electronic state and the red curve represents the same molecule in an excited electronic state.
+        The general form of a molecule's potential energy curve as a function of bond length. The blue curve represents a molecule in its ground electronic state and the red curve represents the same molecule in an excited electronic state.
     }
     \label{fig:potential_curve}
 \end{figure}
@@ -231,59 +227,44 @@ Armed with this conceptual knowledge of molecular vibrational energy levels and 
     \text{Transition}\text{ intensity} \propto \text{overlap}(\psi_{v,\text{before}},\psi_{v,\text{after}})^2
 \end{equation}
 The square of this overlap is precisely the Franck Condon Factor!
-\begin{equation}
+\begin{equation} \label{eq:FCF}
     \text{FCF} = \text{overlap}(\psi_{v,\text{before}},\psi_{v,\text{after}})^2
 \end{equation}
 
 \subsubsection{A simplified model for vibrations of diatomic molecules (2-atom molecules)}
-One of the simplest ways to represent vibrations of diatomic molecules is to consider they are connected by a spring. The frequency of the vibration is a property of the molecule (and remains the same regardless of the energy the system has) and can be easily calculated using the masses of the atoms and the stiffness of the spring. This ``spring system'' is denoted a harmonic oscillator.
+
+We've now developed the idea of a Franck Condon Factor (FCF). How do we formally calculate these quantities?
+As evident in Eq.~\eqref{eq:FCF}, we require knowledge of the {\it vibrational wavefunction} before and after the transition.
+One of the simplest ways to represent vibrations of diatomic molecules is to consider that they are connected by a spring. 
+This ``spring system'' is usually referred to in the scientific community as a {\it harmonic oscillator}. Let's now look into this description of molecular vibrations.
+
+In section ~\ref{sec:molec_energy_lvls}, you learned that vibrational energy levels are discrete. 
+Fig.~\ref{fig:harmonic_curve} shows how the vibrational energy levels are spaced in the harmonic oscillator picture. If a molecule is in it's ground vibrational state, it will ``stretch'' and ``contract" about it’s natural (or equilibrium) bond length. As it gains energy and moves into excited vibrational states, it can stretch and contract further and further from it’s equilibrium bond length. The frequency of the vibration -- how many times in one second that the molecule's spring fully extends, then fully contracts, and comes back again -- is directly related to how strong the bond is between the atoms (i.e. how ``stiff'' the spring is). 
 
 \begin{figure}
     \begin{center}
         \includegraphics[width=0.4\linewidth]{figures/Harmonic_Oscillator.pdf}
     \end{center}
     \caption{
-    A representation of a diatomic and it's vibrational energy levels in the harmonic oscillator approximation. The properties of this diatomic are it's equilibrium geometry, $x_{eq}$, it's frequency, $\omega$, and it's reduced mass, $\mu$. The ground state energy ($E_0$) is $\frac{1}{2}\hbar\omega$ from the potential minimum and vibrational energy differences between adjacent levels is $\hbar\omega$.
+        A representation of a diatomic and it's vibrational energy levels in the harmonic oscillator approximation. The properties of this diatomic molecule are it's equilibrium geometry, $x_{eq}$, it's frequency, $\omega$, and it's reduced mass, $\mu$. The ground state energy ($E_0$) is $\frac{1}{2}\hbar\omega$ above the potential minimum and vibrational energy differences between adjacent levels is $\hbar\omega$.
     }
     \label{fig:harmonic_curve}
 \end{figure}
 
-Refer to Fig.~\ref{fig:harmonic_curve} for the energy levels associated with a harmonic oscillator system. If a molecule is in it's ground vibrational state, it will ``stretch'' and ``contract" about it’s natural (or equilibrium) bond length. As it gains energy and moves into excited vibrational states, it can stretch and contract further and further from it’s equilibrium bond length, however it continues to vibrate at the same natural frequency.
+The harmonic oscillator is an extremely simplified model, since it ignores all repulsive effects of the 2 atoms within the molecule (the steep wall at small $r$ denoted by a more realistic potential energy curve in Fig.~\ref{fig:potential_curve}). On top of this, the harmonic oscillator potential has no dissociation (or bond-breaking) as is captured by the flat portion at large $r$ in the potential energy curve in Fig.~\ref{fig:potential_curve}. In our harmonic oscillator picture, this means that at higher excited states the atoms will continue to stretch further and further without the ``spring snapping.''
 
-The harmonic oscillator is a simplified model, since it ignores all repulsive effects of the 2 atoms within the molecule (the steep wall at small $r$ denoted by a more realistic potential energy curve in Fig.~\ref{fig:potential_curve}). As well, the harmonic oscillator potential has no dissociation (or bond-breaking) as is denoted by the flat portion at large $r$ in the potential energy curve in Fig.~\ref{fig:potential_curve} meaning at higher excited states, the atoms will continue to stretch further and further without the ``spring snapping.''
-\newpage
-However, the harmonic oscillator has a unique feature, in that the energy levels are equally spaced and the wavefunction takes an analytic form, allowing for simple calculations.
+However, the harmonic oscillator has a useful feature in that the energy levels are equally spaced and the vibrational wavefunction (what we need to calculate FCFs) takes a ``nice'' analytic form, allowing for simple calculations. The $n^{th}$ state of the harmonic oscillator has the following vibrational wavefunction.
+\begin{equation}
+    \psi_{v,n}(x) = \frac{1}{\sqrt{2^nn!}}\left(\frac{\mu\omega}{\pi\hbar}\right)\cdot\exp\left(-\frac{\mu\omega (x-x_{eq})^2}{2\hbar}\right)\cdot H_n\left(\sqrt{\frac{\mu\omega}{\hbar}}(x-x_{eq})\right) \qquad n=0,1,2,...
+\end{equation}
+$\mu$ is the reduced mass of the molecule, $\omega$ is it's fundamental vibrational frequency, $x$ is the bond length, $x_{eq}$ is the equilibrium bond length, $n$ is the vibrational state of the system, and $H_n$ is called a {\it Hermite polynomial}. \footnote{Check this Wikipedia article out to read more on Hermite polynomials: \href{https://en.wikipedia.org/wiki/Hermite_polynomials}{\textcolor{blue}{wikipedia.org}}.}.
 
-$\psi_n(x) = \frac{1}{\sqrt{2^nn!}}\cdot\left(\frac{\mu\omega}{\pi\hbar}\right)\cdot\exp\left(-\frac{\mu\omega (x-x_{eq})^2}{2\hbar}\right)\cdot H_n\left(\sqrt{\frac{\mu\omega}{\hbar}}(x-x_{eq})\right)$ , n=0,1,2,...
+With this information, we can begin actually calculating FCFs! Start with reading the documentation for Project 3.
+\footnote{\href{https://github.com/CDL-Quantum/CohortProject_2020/tree/master/Project_3_Franck_Condon_Factors}
+    {\textcolor{blue}{https://github.com/CDL-Quantum/}}}
+You will explore techniques to calculate FCFs.
+Once you've mastered these techniques and have finished the tasks, you're encouraged to continue with one of the {\it Challenges} provided (or better yet, make up your own)!
 
-\noindent where $\mu$ is the reduced mass of the molecule, $\omega$ is it's vibrational frequency, $x$ is the bond length, $x_{eq}$ is the equilibrium bond length, $n$ is the vibrational state of the system, and $H_n$ is the Hermite polynomial.
-
-\subsubsection{Task 1: Calculate Franck-Condon Factors for H$_2$-H$_2^+$ using the harmonic oscillator approximation}
-You are provided with a Python code FCF-H2.py which calculates all of the information you require.
-
-\noindent This code takes as input:
-\begin{enumerate}
-    \item Reduced mass of H$_2$ molecule (same as H$_2^+$)
-    \item Frequency of the H$_2$ molecule
-    \item Frequency of the H$_2^+$ molecule
-    \item Difference in bond length (displacement)
-    \item Difference between potential minima of the electronic states ($\Delta T_e = T_e^{'} - T_e$)
-    \item Number of ground and excited vibrational states required for output
-\end{enumerate}
-
-\noindent This code outputs:
-\begin{enumerate}
-    \item Franck-Condon Factors for each pair of ground and excited vibrational states up to a threshold, using the n$_{H_2}$ = 0, n$_{H_2^+}$ = 0 Franck-Condon factor as the reference.
-\end{enumerate}
-
-\noindent Your task will be to determine the spectra of at least 10 transitions with a relative Franck-Condon factor greater than 1\%, where the FCF is the intensity and the spectral position is defined as:
-
-
-Spectral Position = $\Delta T_e + E_{H_2^+} - E_{H_2}$
-
-and expanded to:
-
-Spectral Position = $\Delta T_e +\hbar\omega_{H_2^+}(n_{H_2^+} + \frac{1}{2}) - \hbar\omega_{H_2}(n_{H_2} + \frac{1}{2})$
 \newpage
 
 \subsection{Week 4: Ising Annealer}
