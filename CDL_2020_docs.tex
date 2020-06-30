@@ -151,6 +151,37 @@ Once you've mastered these, you're encouraged to continue with one of the {\it C
 Co-authors: Robert Lang, Thomson Yen, Manuel Diaz-Tinoco, and Liam Kischuck
 \\
 Purpose: Illustrate main steps of the VQE framework using small molecules of increasing computational difficulty; compare results with standard classical techniques.
+\newline \\
+
+Solving the time-independent Schrodinger equation,
+\begin{equation}
+    \hat{H}\ket{\psi} = E\ket{\psi}
+\end{equation}
+is, arguably, the central goal of physics and chemistry. Essentially, a model for something in nature is captured in the Hamiltonian, $\hat{H}$, and we wish to extract properties, $E$ and $\ket{\psi}$, from this model.\footnote{This is a linear algebra problem; we wish to find the eigenspectrum of $\hat{H}$: $E$ and $\ket{\psi}$} More often than not, solving this via brute force is intractable for modern hardware. We therefore settle for numerical techniques to approximately/exactly solve this problem. One very common way to solve the Schrodinger equation is via the {\it variational method}.
+
+Let's suppose that we do not know how to specifically solve the Schrodinger equation, but we know what the solution $\ket{\psi}$ should ``look'' like (i.e. its functional form).
+So, we come up with a trial solution $\ket{\psi_{\text{trial}}(\Theta)}$ that has the desired features we want from a solution, but also can be tuned via changing parameters $\Theta$ that define it.
+How do we change these parameters?
+The variational method boils down to an optimization problem. 
+The entity that we wish to optimize is the trial energy,
+\begin{equation}
+    E_{\text{trial}}(\Theta) = \mel{\psi_{\text{trial}}(\Theta)}{\hat{H}}{\psi_{\text{trial}}(\Theta)}.
+\end{equation}
+We give the task of finding parameters $\Theta$ such that $E_{\text{trial}}(\Theta)$ is minimized to a machine and we're left with the optimal trial solution.
+
+However, in the process of describing the variational method we've glanced over a very important problem: finding $\ket{\psi_{\text{trial}}(\Theta)}$ to begin with. This is where this week's topic of the Variational Quantum Eigensolver comes in handy.
+
+\subsubsection{The Variational Quantum Eigensolver \cite{PeruzzoVQE}}
+
+The Variational Quantum Eigensolver (VQE) provides two answers to our goal of solving the Schrodinger equation using the variational method: a versatile/expressive trial solution and computational efficiency.
+Briefly, our trial solution is embedded in a quantum circuit through parameterized {\it gates}.\footnote{Unitary operations that alter the input to the quantum circuit.} Given an output from the circuit, we can then ask the quantum device to efficiently calculate $E_{\text{trial}}(\Theta)$. To optimize the circuit parameters, we then rely on a classical algorithm to adjust the parameterized gates in the circuit. See Figure~\ref{fig:vqe}.
+
+\begin{figure} \label{fig:vqe}
+    \begin{center}
+        \includegraphics[width=0.7\linewidth]{figures/VQE_flowchart.pdf}
+    \end{center}
+    \caption{A flowchart of VQE.}
+\end{figure}
 
 \newpage
 
@@ -235,11 +266,11 @@ The square of this overlap is precisely the Franck Condon Factor!
 
 We've now developed the idea of a Franck Condon Factor (FCF). How do we formally calculate these quantities?
 As evident in Eq.~\eqref{eq:FCF}, we require knowledge of the {\it vibrational wavefunction} before and after the transition.
-One of the simplest ways to represent vibrations of diatomic molecules is to consider that they are connected by a spring. 
+One of the simplest ways to represent vibrations of diatomic molecules is to consider that they are connected by a spring.
 This ``spring system'' is usually referred to in the scientific community as a {\it harmonic oscillator}. Let's now look into this description of molecular vibrations.
 
-In section ~\ref{sec:molec_energy_lvls}, you learned that vibrational energy levels are discrete. 
-Fig.~\ref{fig:harmonic_curve} shows how the vibrational energy levels are spaced in the harmonic oscillator picture. If a molecule is in it's ground vibrational state, it will ``stretch'' and ``contract" about it’s natural (or equilibrium) bond length. As it gains energy and moves into excited vibrational states, it can stretch and contract further and further from it’s equilibrium bond length. The frequency of the vibration -- how many times in one second that the molecule's spring fully extends, then fully contracts, and comes back again -- is directly related to how strong the bond is between the atoms (i.e. how ``stiff'' the spring is). 
+In section ~\ref{sec:molec_energy_lvls}, you learned that vibrational energy levels are discrete.
+Fig.~\ref{fig:harmonic_curve} shows how the vibrational energy levels are spaced in the harmonic oscillator picture. If a molecule is in it's ground vibrational state, it will ``stretch'' and ``contract" about it’s natural (or equilibrium) bond length. As it gains energy and moves into excited vibrational states, it can stretch and contract further and further from it’s equilibrium bond length. The frequency of the vibration -- how many times in one second that the molecule's spring fully extends, then fully contracts, and comes back again -- is directly related to how strong the bond is between the atoms (i.e. how ``stiff'' the spring is).
 
 \begin{figure}
     \begin{center}
