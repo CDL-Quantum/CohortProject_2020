@@ -1,3 +1,4 @@
+![CDL 2020 Cohort Project](../figures/CDL_logo.jpg)
 ## Project 1: Machine Learning
 
 This project will guide you through using a machine learning algorithm -- the Restricted Boltzmann machine (RBM) -- on molecular data. If you want some more machine learning exposure before you begin your tasks, supplemental reading on RBMs can be found [here](\href{https://qucumber.readthedocs.io/en/stable/_static/RBM_tutorial.pdf}), and a guide on training RBMs on a dummy dataset has been provided in a [Jupyter notebook](https://github.com/CDL-Quantum/CohortProject_2020/blob/master/Project_1_RBM_and_Tomography/RBM_train_dummy_dataset.ipynb). The base RBM code is located in [RBM_helper.py](https://github.com/CDL-Quantum/CohortProject_2020/blob/master/Project_1_RBM_and_Tomography/RBM_helper.py). We've intentionally left it to be bare-bones and easy to use.
