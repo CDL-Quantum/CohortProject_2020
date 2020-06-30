@@ -42,28 +42,27 @@ Countless other applications like drug discovery, magnetic-resonance imaging (MR
 
 \subsubsection*{Task \#1}
 
-In this task, you will calculate Franck-Condon Factors for H$_2$-H$_2^+$ using the harmonic oscillator approximation and compare to a real experiment!
-You are provided with a \texttt{python} notebook called \texttt{Task1.ipynb} which calculates all of the information you require. This code takes as input:
-\begin{enumerate}
-    \item Upper bound of ground and excited vibrational states allowed for transitions
-    \item Reduced mass of H$_2$ molecule (same as H$_2^+$)
-    \item Frequency of the H$_2$ molecule  (ground state, 0)
-    \item Frequency of the H$_2^+$ molecule (excited state, p)
-    \item Equilibrium bond lengths (the difference is the displacement)
-    \item Difference between potential minima of the electronic states (ionization energy)
-\end{enumerate}
-This code outputs:
-\begin{enumerate}
-    \item Franck-Condon Factors for each pair of ground and excited vibrational states up to a threshold, using the n$_{H_2}$ = 0, n$_{H_2^+}$ = 0 Franck-Condon Factor as the reference.
-\end{enumerate}
-Your task will be to plot the spectra of at least 10 transitions with a relative Franck-Condon Factor greater than 1\%, where the FCF is the intensity and the spectral position (SP) is defined as:
-\begin{equation}
-    \text{SP} = IE + E_{H_2^+} - E_{H_2}
-\end{equation}
+In this task, you will calculate Franck-Condon Factors for H$_2-$H$_2^+$ using the harmonic oscillator approximation and compare to a real experiment! In a real experiment, we can excite many different vibronic transitions. We would therefore be able to calculate many FCFs that describe different vibronic transitions. For example, it could be that we see excitations corresponding to an H$_2$ molecule in its $n = 0$ vibrational state to H$_2^+$ in its $n = 2$ vibrational state (green line in Fig.~\ref{fig:visualize_vibronic}) and its $n = 4$ vibrational state. In this task, we will look at only transitions that have a high FCF (i.e. the corresponding transition is very intense).
 
-\noindent All of these energies are calculated for you ($E_0$ and $E_p$). You will need to store the Franck-Condon Factors and plot them. You may also need to adjust the bounds of allowed ground and excited vibrational states to reach 10 transitions. 
+\begin{figure} \label{fig:visualize_vibronic}
+    \begin{center}
+        \includegraphics[width=0.5\linewidth]{../figures/potential_energy_curve.pdf}
+    \end{center}
+    \caption{A visualization of vibronic transitions. The blue and red curves represent H$_2$ and H$_2^+$, respectively.}
+\end{figure}
 
-Congratulations, you have now successfully predicted the Franck-Condon Factors of H$_2$ - H$_2^+$! Figure \ref{fig:h2_spectrum} shows the photoionization spectrum for H$_2$. How does it compare to your calculation using the harmonic oscillator approximation?
+You are provided with a \texttt{python} notebook called \texttt{Task1.ipynb} which calculates all of the information you require. The \texttt{FCF\_helper.py} file contains all of the calculations done under the hood. \footnote{Calculating FCFs comes down to calculating the overlap between the wavefunctions before and after the vibronic transition. The overlap calculation is an integral which we chose to evaluate numerically. We emphasize that molecular parameters like the reduced mass of H$_2$ and fundamental frequencies of H$_2$ and H$_2^+$ are hard-coded in \texttt{FCF\_helper.py}} Currently, the \texttt{spectrum\_analysis} function in \texttt{FCF\_helper.py} only outputs the following.
+\begin{itemize}
+    \item \texttt{n\_0} and \texttt{n\_p}: The vibrational state numbers of H$_2$ and H$_2^+$, respectively, involved in the vibronic transition
+    \item \texttt{FCF}: The corresponding FCF associated to the vibronic transition
+\end{itemize}
+Here's what we'd like you to do:
+\begin{enumerate}
+    \item Open up \texttt{FCF\_helper.py} and navigate to the \texttt{spectrum\_analysis} function. Modify the \texttt{data} variable so that it also includes the spectral intensity (\texttt{Ep - E0}).
+    \item Plot the corresponding FCF versus spectral intensity (i.e. plot \texttt{FCF} versus \texttt{Ep - E0}) and show the results. Make sure you have at least 10 points.\footnote{You may need to adjust the input bounds on the maximum vibrational state numbers. For now, start with both being 2.}
+\end{enumerate}
+
+Congratulations, you have now successfully predicted the Franck-Condon Factors of H$_2-$H$_2^+$! Figure \ref{fig:h2_spectrum} shows the photoionization spectrum for H$_2$. Does it look like the real data in Fig.~\ref{fig:h2_spectrum}?
 
 \begin{figure}
     \begin{center}
