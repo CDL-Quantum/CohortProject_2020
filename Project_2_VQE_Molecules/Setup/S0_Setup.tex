@@ -1,0 +1,64 @@
+\documentclass[12pt]{article}
+
+% packages
+\usepackage{setspace}
+\usepackage{array}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{amsmath,bm}
+\usepackage{amssymb}
+\usepackage{bbold}
+\usepackage{physics}
+\usepackage{xcolor}
+\usepackage{indentfirst}
+\usepackage{enumerate}
+\usepackage{mathtools}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{listings}
+\newenvironment{changemargin}[2]{%
+\begin{list}{}{%
+\setlength{\topsep}{0pt}%
+\setlength{\leftmargin}{#1}%
+\setlength{\rightmargin}{#2}%
+\setlength{\listparindent}{\parindent}%
+\setlength{\itemindent}{\parindent}%
+\setlength{\parsep}{\parskip}%
+}%
+\item[]}{\end{list}}
+
+\allowdisplaybreaks
+
+\title{Setup Instructions}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+The following code segments set up a python environment that jupyter notebook can use as its kernel. 
+
+\section*{Mac \& Linux}
+
+\begin{lstlisting}[language=bash]
+    git clone -b devel https://github.com/aspuru-guzik-group/tequila.git (path to tequila)
+    conda create --name (conda environment name)
+    conda activate (conda environment name)
+    conda install jupyter
+    conda install -c anaconda ipykernel
+    conda install numpy
+    conda install matplotlib
+    conda install python=3.7.1
+    conda install psi4 -c psi4
+    python -m pip install --user openfermion
+    python -m pip install --user openfermionpyscf
+    cd (path to tequila)/tequila/
+    pip install -e .
+    python -m ipykernel install --user --name=(jupyter kernel name)
+\end{lstlisting}
+
+\section*{Windows}
+The following command may be required before all the commands above. 
+\begin{lstlisting}
+    sudo apt-get install libgomp1
+\end{lstlisting}
+\end{document}
