@@ -1,15 +1,17 @@
 import math
+import itertools
 import numpy as np
 import openfermion
+from copy import deepcopy
 from openfermion import QubitOperator
 from openfermion.hamiltonians import MolecularData
 from openfermionpyscf import run_pyscf
 from openfermion.transforms import get_fermion_operator, bravyi_kitaev, jordan_wigner
-from openfermion.utils import taper_off_qubits
+from openfermion.utils import taper_off_qubits, commutator
 
 from tequila.grouping.binary_rep import BinaryHamiltonian
 from tequila.grouping.binary_utils import binary_null_space
-from tequila import QubitHamiltonian, quantumchemistry
+from tequila import QubitHamiltonian, Variable, quantumchemistry, gates, PauliString, minimize
 
 def get_qubit_hamiltonian(mol, geometry, basis, charge=0, multiplicity=1, qubit_transf='bk'):
     '''
@@ -320,13 +322,13 @@ def obtain_PES(molecule, bond_lengths, basis, method):
 
 def get_bare_stabilizer(H : QubitOperator):
     '''
-    Identify the stabilizer of H. 
-    Currently admits only stabilizer with all z 
+    Identify the stabilizer of H.
+    Currently admits only stabilizer with all z
     since hf can only identifies the value of these terms
     '''
     n = get_number_qubit(H)
     pws = []
-    
+
     for pw, _ in H.terms.items():
         pws.append(pw)
 
@@ -363,7 +365,7 @@ def hf_occ(n_spin_orbitals, n_electrons, BK=False):
 
 def correct_stabilizer_phase(stabs, hf_state):
     '''
-    Accept a hf state in BK encoding. Correct the phase of the z stabilizers. 
+    Accept a hf state in BK encoding. Correct the phase of the z stabilizers.
     '''
     for idx in range(len(stabs)):
         pw, _ = stabs[idx].terms.copy().popitem()
@@ -374,9 +376,322 @@ def correct_stabilizer_phase(stabs, hf_state):
 
 def taper_hamiltonian(H : QubitOperator, n_spin_orbitals, n_electrons):
     '''
-    Taper off the H with the stabilizer in the correct phase based on hf state. 
+    Taper off the H with the stabilizer in the correct phase based on hf state.
     '''
     stabs = get_bare_stabilizer(H)
     hf = hf_occ(n_spin_orbitals, n_electrons, True)
     stabs = correct_stabilizer_phase(stabs, hf)
     return taper_off_qubits(H, stabs)
+
+def xy_permutations(P,n_qubits):
+
+	#generates 2^(k) equivalent entanglers related by x replaced by y & vise versa, while respecting y-parity.
+
+	x_indices = []
+	y_indices = []
+
+	for i,P_i in enumerate(P):
+		if P_i == 'x':
+			x_indices.append(i)
+		elif P_i == 'y':
+ 			y_indices.append(i)
+
+	flip_indices = x_indices + y_indices
+
+	y_parity = len(y_indices)%2
+
+	valid_y_counts = [2*n + (y_parity) for n in range(0,n_qubits) if 2*n + (y_parity) <= n_qubits]
+
+	generated_terms = []
+
+	for ynum in valid_y_counts:
+
+		combs = itertools.combinations(flip_indices, ynum)
+
+		for c in combs:
+
+			generated_term = ['e']*n_qubits
+
+			for index in c:
+				generated_term[index] = 'y'
+
+			for index in flip_indices:
+				if index not in c:
+					generated_term[index] = 'x'
+
+			generated_terms.append(generated_term)
+
+	return generated_terms
+
+def zi_permutations(P,n_qubits):
+
+	#generates 2^(n-k) equivalent entanglers related by trivial-ops replaced by z-ops & vise versa
+
+	equivalent_set = []
+
+	nonflip_indices = []
+	for i,P_i in enumerate(P):
+		if P_i == 'e' or P_i == 'z':
+			nonflip_indices.append(i)
+
+	bit_permutations = ["".join(seq) for seq in itertools.product("01", repeat=len(nonflip_indices))]
+
+	for permutation in bit_permutations:
+
+		generated_P = deepcopy(P)
+
+		for i, bit in enumerate(permutation):
+			if bit == '0': #maps to e
+				generated_P[nonflip_indices[i]] = 'e'
+			else: #maps to z
+				generated_P[nonflip_indices[i]] = 'z'
+
+		equivalent_set.append(generated_P)
+
+	return equivalent_set
+
+def Sort(sub_li):
+
+    # reverse = None (Sorts in Ascending order)
+    # key is set to sort using second element of
+    # sublist lambda has been used
+    sub_li.sort(key = lambda x: x[1], reverse=True)
+    return sub_li
+
+
+def generate_qubitop(P):
+
+    #Converts Pauli representation used in gradient grouping algorithm to QubitOperator.
+
+    pauli_str = ''
+    for c in range(0,len(P)):
+        if P[c] != 'e':
+            pauli_str += P[c].upper() + str(c)+ ' '
+
+    return QubitOperator(pauli_str)
+
+def eval_meanfield_expectation(pauli_operator, mf_angles):
+
+    terms = pauli_operator.terms
+    len_mf_angles = len(mf_angles)
+
+    phis = mf_angles[:len_mf_angles//2]
+    thetas = mf_angles[len_mf_angles//2:]
+
+    expectation = 0
+
+    for pauli, value in terms.items():
+
+        pauli_expectation = 1
+
+        for single_pauli in pauli:
+
+            idx = single_pauli[0]
+
+            if single_pauli[1] == 'X':
+                pauli_expectation *= np.sin(thetas[idx]) * np.cos(phis[idx])
+
+            elif single_pauli[1] == 'Y':
+                pauli_expectation *= np.sin(thetas[idx]) * np.sin(phis[idx])
+
+            elif single_pauli[1] == 'Z':
+                pauli_expectation *= np.cos(thetas[idx])
+
+            else:
+                raise(ValueError('Unexpected Pauli word ' + single_pauli[1]))
+
+        pauli_expectation *= value
+        expectation += pauli_expectation
+
+    return expectation
+
+
+def get_hamiltonian_flipindices(hamiltonian, n_qubits):
+
+    #Return tuples of flip indices present in Hamiltonian.
+
+    flip_indice_sets = []
+
+    for term in hamiltonian.terms:
+
+        flip_indices = [0]*n_qubits
+
+        for i in term:
+
+            if i[1] in ['X','Y']: #flip index
+                flip_indices[i[0]] = 1
+
+        if flip_indices not in flip_indice_sets:
+
+            flip_indice_sets.append(flip_indices)
+
+    return flip_indice_sets
+
+def generate_representative(flip_indices,n_qubits):
+
+    #generates parent with 1 y operation
+
+    term = ['e']*n_qubits
+
+    count = 0
+
+    for i in range(0,n_qubits):
+
+        if flip_indices[i] == 1:
+
+            if count == 0:
+                term[i] = 'y'
+                count = 1
+
+            else:
+                term[i] = 'x'
+
+    return term
+
+def purge_nonentanglers(group, n_qubits): #filters out identity and 1 qubit ops.
+    filtered_group = []
+
+    for P in group:
+        identities = 0
+
+        for p_i in P:
+
+            if p_i == 'e':
+                identities += 1
+
+        if identities <= n_qubits - 2: #minimum cutoff 2-qubit entanglers
+            filtered_group.append(P)
+
+    return filtered_group
+
+def generator_alg(P, n_qubits): #generates all entanglers related to P by transformations phi_1 and phi_2.
+
+    equivalent_set = []
+
+    xy_set = xy_permutations(P, n_qubits)
+
+    for P_i in xy_set:
+        xyze_set = zi_permutations(P_i, n_qubits)
+        equivalent_set += xyze_set
+
+    return purge_nonentanglers(equivalent_set, n_qubits)
+
+def generate_QCC_gradient_groupings(hamiltonian, n_qubits, hf_occ, cutoff=0.001):
+
+    QMF_angles = np.concatenate([np.array([0]*n_qubits), np.pi*hf_occ])
+
+    hamiltonian_flip_indices = get_hamiltonian_flipindices(hamiltonian, n_qubits)
+
+    gradient_groupings = []
+
+    for flip_indices in hamiltonian_flip_indices:
+
+        representative_entangler = generate_qubitop(generate_representative(flip_indices, n_qubits))
+
+        pauli_commutator = commutator(hamiltonian, representative_entangler)
+
+        gradient = abs(1j/2*eval_meanfield_expectation(pauli_commutator, QMF_angles))
+
+        if gradient > cutoff:
+
+            gradient_groupings.append( (flip_indices, round(gradient,4)) )
+
+    gradient_groupings = Sort(gradient_groupings)
+
+    return gradient_groupings
+
+
+def get_QCC_entanglers(DIS, M, n_qubits, lexi_ordering=False):
+
+    #Obtains top M entanglers in the DIS.
+    #If M > number of DIS partitions, 1 entangler is generated for each of the M highest gradient partitions
+    #and, continuously loop over all partitions until M entanglers have been generated (raster scan).
+
+    #lexi_ordering - If True, orders selected entanglers lexicographically. Otherwise, ansatz is ordered by
+    #raster-scanning in direction of descending gradient magnitude.
+
+    if DIS == []:
+        return []
+
+    DIS = [G[0] for G in DIS]
+
+    partitions = []
+
+    for i in range(len(DIS)):
+        repr = generate_representative(DIS[i], n_qubits)
+        partitions.append(generator_alg(repr, n_qubits)) #Generates entangler representations for full DIS partition. Warning: this will be exponential w/ number of qubits.
+
+    entanglers = []
+    selecting = True
+    i = 0
+    while selecting:
+        entanglers.append(partitions[i % len(partitions)].pop(0))
+        i += 1
+        if len(entanglers) >= M:
+            selecting=False
+
+    entanglers = [''.join(ent) for ent in entanglers]
+
+    if lexi_ordering:
+        entanglers = sorted(entanglers, key=str.lower)
+
+    entanglers = [generate_qubitop(list(ent)) for ent in entanglers]
+
+    return entanglers
+
+def construct_QMF_ansatz(n_qubits):
+
+    b = [Variable(name='beta_{}'.format(i)) for i in range(n_qubits)]
+    g = [Variable(name='gamma_{}'.format(i)) for i in range(n_qubits)]
+
+    def euler_rot(beta, gamma, q0):
+        return gates.Rx(target=q0, angle=beta) + gates.Rz(target=q0, angle=gamma)
+
+    for i in range(n_qubits):
+        if i == 0:
+            U = euler_rot(b[i],g[i],i)
+        else:
+            U += euler_rot(b[i],g[i],i)
+
+    return U
+
+def construct_QCC_ansatz(entanglers):
+    #entanglers must be a list of OpenFermion QubitOperators
+    #Returns the QCC unitary circuit ansatz
+
+    t = [Variable(name='tau_{}'.format(i)) for i in range(len(entanglers))]
+
+    for i in range(len(entanglers)):
+        if i == 0:
+            U = gates.ExpPauli(paulistring = PauliString.from_openfermion(list(list(entanglers[i].terms.keys())[0])), angle = t[i])
+        else:
+            U += gates.ExpPauli(paulistring = PauliString.from_openfermion(list(list(entanglers[i].terms.keys())[0])), angle = t[i])
+
+    return U
+
+def minimize_E(objective, method, initial_values, tol, samples):
+    sample_energies = np.zeros(samples)
+
+    for t in range(samples):
+        result = minimize(objective=objective, method=method, initial_values=initial_values, tol=tol, silent=True)
+        E_t = result.energy
+        sample_energies[t] = E_t
+
+    return min(samples_energies)
+
+def init_qcc_params(hf_occ, variables):
+    #initialize Euler angles at HF and entangler amplitudes at zero
+    n_qubits = len(hf_occ)
+    initial_values = {}
+
+    for v in variables:
+        index = str(v)[-1]
+        if 'beta' in str(v):
+            if hf_occ[int(index)] == 1:
+                initial_values[v] = np.pi
+            else:
+                initial_values[v] = 0.0
+        else:
+            initial_values[v] = 0.0
+
+    return initial_values
