@@ -2,16 +2,16 @@
 ## Quantum Bootcamp Cohort Project 2020
 
 The 2020 Cohort Project is an online collaboration bringing together founders in a series of open-source challenges.
-During the four-week bootcamp, founders will form teams to compete and collaborate on a set of challenges 
-designed to engage science, technology, and business founders in problems related to quantum entrepreneurship.
+During the four-week bootcamp, the cohort will be split into teams.  These teams will compete on a set of challenges 
+designed to engage their science, technology, and business skills on problems related to quantum entrepreneurship.
 This year's challenges will focus on Quantum Chemistry.
 
 ### Goals:  
 * Technical: To calculate low-energy quantum properties of some small molecules, identifying the strengths and weaknesses of various modern approaches.
-* Business: To disseminate the results of the collaboration in an open access format accessible to all quantum entrepreneurs; to identify value propositions in the various technical approaches.
+* Business: To communicate the results of the collaboration, and to imagine possible uses of the technology as a solution to a real-world customer.
 
 ### Project Legacy:
-Each week your team will fork this repository to your own GitHub account to work on the challenges.  At the end of the week you will issue a pull request. CDL will choose one team's work to merge into the main upstream repository, where it will become part of the legacy of the 2020 Boot Camp.
+The Cohort Project is open source, and hosted on GitHub. Each Monday at 8:00am EST the teams will fork this repository to their own GitHub account to begin work on the challenges.  By Saturday at 11:59pm EST each team must issue a pull request with their final entry. CDL will revew the pull requests, and choose one team's work to merge into the main upstream repository. From that point on it will become part of the legacy of the 2020 Boot Camp.
 
 ### Weekly Challenges
 
@@ -20,19 +20,8 @@ Each week your team will fork this repository to your own GitHub account to work
 * [Week 3](https://github.com/CDL-Quantum/CohortProject_2020/tree/master/Project_3_Franck_Condon_Factors): Studying molecular rotational and vibronic properties.
 * [Week 4](https://github.com/CDL-Quantum/CohortProject_2020/tree/master/Project_4_Ising_Annealer): Solving molecular chemistry using quantum and classical annealing.
 
-
 ### Reading:
 * Review: Quantum Chemistry in the Age of Quantum Computing: https://arxiv.org/abs/1812.09976
 * Begin your project with [CDL_2020_docs.pdf](https://github.com/CDL-Quantum/CohortProject_2020/blob/master/CDL_2020_docs.pdf) 
-<!-- 
-### Resources include 
-* Data for use in machine learning reconstruction techniques
-* Quantum-inspired classical simulation techniques
-* Quantum hardware including circut-based computers, CV devices, and quantum annealers
 
-* Electronic structure calculations on Ising annealers: https://arxiv.org/abs/1706.00271, https://arxiv.org/abs/1811.05256
-* Calculation of Franck-Condon factors relevant for Xanadu: https://arxiv.org/abs/1811.09597
-* VQE calculations for quantum chemistry on IBM: https://arxiv.org/abs/1704.05018
-* Data-driven reconstruction of molecular rotor groundstates: https://arxiv.org/abs/2003.14273
--->
 
