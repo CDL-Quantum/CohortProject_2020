@@ -51,6 +51,7 @@ The following code segments set up a python environment that jupyter notebook ca
     conda install psi4 -c psi4
     python -m pip install --user openfermion
     python -m pip install --user openfermionpyscf
+    pip install qiskit
     cd (path to tequila)/tequila/
     pip install -e .
     python -m ipykernel install --user --name=(jupyter kernel name)
@@ -60,5 +61,6 @@ The following code segments set up a python environment that jupyter notebook ca
 The following command may be required before all the commands above. 
 \begin{lstlisting}
     sudo apt-get install libgomp1
+    sudo apt install gcc
 \end{lstlisting}
 \end{document}
