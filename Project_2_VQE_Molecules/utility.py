@@ -32,7 +32,18 @@ def get_qubit_hamiltonian(mol, geometry, basis, charge=0, multiplicity=1, qubit_
     else:
         raise(ValueError(qubit_transf, 'Unknown transformation specified'))
 
-    return hamq
+    return remove_complex(hamq)
+
+def remove_complex(H : QubitOperator, tiny=1e-8):
+    '''
+    Removing near-zero complex coefficient
+    '''
+    real_h = QubitOperator.zero()
+    for term, val in H.terms.items():
+        if np.imag(val) < tiny:
+            val = np.real(val)
+        real_h += QubitOperator(term=term, coefficient=val)
+    return real_h
 
 def convert_mol_data_to_xyz_format(mol_data):
     '''
@@ -381,7 +392,7 @@ def taper_hamiltonian(H : QubitOperator, n_spin_orbitals, n_electrons):
     stabs = get_bare_stabilizer(H)
     hf = hf_occ(n_spin_orbitals, n_electrons, True)
     stabs = correct_stabilizer_phase(stabs, hf)
-    return taper_off_qubits(H, stabs)
+    return remove_complex(taper_off_qubits(H, stabs))
 
 def xy_permutations(P,n_qubits):
 
