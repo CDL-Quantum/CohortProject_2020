@@ -11,7 +11,9 @@ This year's challenges will focus on Quantum Chemistry.
 * Business: To communicate the results of the collaboration, and to imagine possible uses of the technology as a solution to a real-world customer.
 
 ### Project Legacy:
-The Cohort Project is open source, and hosted on GitHub. Each Monday at 8:00am EST the teams will fork this repository to their own GitHub account to begin work on the challenges.  By Saturday at 11:59pm EST each team must issue a pull request with their final entry. CDL will revew the pull requests, and choose one team's work to merge into the main upstream repository. From that point on it will become part of the legacy of the 2020 Boot Camp.
+The Cohort Project is open source, and hosted on GitHub. Each Monday at 8:00am EST the teams will 
+[fork](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-forks) 
+this repository to their own GitHub account to begin work on the challenges.  By Saturday at 11:59pm EST each team must issue a pull request with their final entry. CDL will revew the pull requests, and choose one team's work to merge into the main upstream repository. From that point on it will become part of the legacy of the 2020 Boot Camp.
 
 ### Weekly Challenges
 

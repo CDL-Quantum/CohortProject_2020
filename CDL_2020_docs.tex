@@ -35,10 +35,10 @@
 
 The 2020 Cohort Project is an online collaboration bringing together founders in a series of open-source challenges.
 During the four-week bootcamp, founders will form teams to compete and collaborate on a set of challenges on a general topic or theme
-relevant for the Quantum Stream.  Four separate challenges will be issued; one per week.  New teams will be formed by the Academic Director weekly.
+relevant for the Quantum Stream.  Four separate challenges will be issued; one per week.  New teams will be formed by the CDL Quantum team weekly.
 
-Challenges consist of scientific, computational, and business tasks, devised to be tacked in diverse teams of founders with complementary skill sets.  Each year
-the general theme of the Cohort Project will change.  In 2020 it is {\it quantum chemistry}.  Begin your reading with the suggested review.
+Challenges consist of scientific, computational, and business tasks, devised to be tackled in diverse teams of founders with complementary skill sets.  Each year
+the theme of the Cohort Project will change.  In 2020 it is {\it quantum chemistry}.  Begin your reading with the suggested review.
 \footnote{\href{https://arxiv.org/abs/1812.09976}{\textcolor{blue}{https://arxiv.org/abs/1812.09976} }}
 
 
@@ -51,14 +51,15 @@ based companies around classical software, machine learning, quantum-inspired so
 
 One of the central problems of theoretical chemistry is to compute the lowest energy state of a molecular Hamiltonian.
 The behavior of protons and electrons in atoms is governed by the Schrodinger equation
-$i \hbar \frac{\partial }{ \partial t}  | \Psi \rangle = H | \Psi \rangle$, where $H$ is the Hamiltonian, and $\Psi$ is the quantum state or {\it wavefunction}.
-Quite generally, this equation cannot be solved exactly for more than a few particles.
+$i \hbar \frac{\partial }{ \partial t}  | \Psi \rangle = \hat{H} | \Psi \rangle$, where $\hat{H}$ is the Hamiltonian, and $\Psi$ is the quantum state or {\it wavefunction}.
+Quite generally, this equation cannot be solved exactly for more than a few atoms.
 For large molecules this problem is intractable even on todays largest supercomputers.
 
 The standard approach to computational chemistry begins with the Born-Oppenheimer approximation, which assumes that nuclei are fixed classical point charges. These charges create the potential that determines the electronic Hamiltonian, and therefore the electronic wavefunction.
-The low-energy electronic states is where all the action is; solving this given a molecular Hamiltonian $H$ is
+The low-energy electronic states is where all the action is; solving this given a molecular Hamiltonian $\hat{H}$ is
 called the {\it electronic structure} problem.
-Except for simple few-body atoms and molecules, the solution to electronic structure problems can require significant computational resources.  In this cohort project we will largely consider diatomic molecules composed of two bonded atoms, where reasonable computational calculations can be done.
+Except for simple few-body atoms and molecules, the solution to electronic structure problems can require significant computational resources.  In this cohort project we will largely
+(but not exclusively) consider diatomic molecules composed of two bonded atoms, where reasonable computational calculations can be done.
 
 \newpage
 
@@ -73,7 +74,7 @@ GitHub documentation.
 \subsection{Week 1: Machine Learning}
 
 Significant speedups in simulating quantum mechanical systems, such as electrons in molecules, can in principle be achieved with quantum computers.
-As stated in the previous section, determining the behavior of protons and electrons in atoms comprises of computing the lowest energy state of the entity that governs their behavior: the Hamiltonian, $H$.
+As stated in the previous section, determining the behavior of protons and electrons in atoms comprises of computing the lowest energy state of the entity that governs their behavior: the Hamiltonian, $\hat{H}$.
 %To a good approximation (the Born-Oppenheimer approximation), protons can be neglected. 
 For most of the problems in this Project, you will be asked to find a wavefunction given a Hamiltonian.  However for Week 1 we will assume that a quantum
 computer is doing that for us.  In order for this to happen, one must first translate the problem of dealing with electrons in an atom to
@@ -113,7 +114,7 @@ Let's now break down what the training looks like.
 
 \subsubsection{Training}
 
-ML algorithms generally associate how ``well'' they are doing in learning through a ``cost function''; for example the {\it Negative Log-Likelihood}.\footnote{This is related to the {\it Kullback Leibler Divergence}: $\sum_{v} p_{\text{true}}(v) \ln(\frac{p_{\text{true}}(v)}{p_{\text{ML alg.}}(v)})$}
+ML algorithms generally associate how ``well'' they are doing in learning through a cost function; for example the {\it Negative Log-Likelihood}.\footnote{This is related to the {\it Kullback Leibler Divergence}: $\sum_{v} p_{\text{true}}(v) \ln(\frac{p_{\text{true}}(v)}{p_{\text{ML alg.}}(v)})$}
 \begin{equation}
     NLL = -\sum_{v} p_{\text{true}}(v) \ln(p_{\text{ML alg.}}(v))
 \end{equation}
@@ -182,6 +183,10 @@ Briefly, our trial solution is embedded in a quantum circuit through parameteriz
     \end{center}
     \caption{A flowchart of VQE.}
 \end{figure}
+
+Continue with reading the documentation for Project 2.
+\footnote{\href{https://github.com/CDL-Quantum/CohortProject_2020/tree/master/Project_2_VQE_Molecules}
+    {\textcolor{blue}{https://github.com/CDL-Quantum/}}}
 
 \newpage
 
@@ -298,9 +303,9 @@ Once you've mastered these techniques and have finished the tasks, you're encour
 
 \newpage
 
-\subsection{Week 4: Ising Annealer}
-
-\newpage
+%\subsection{Week 4: Ising Annealer}
+%
+%\newpage
 
 \bibliography{refs}
 \bibliographystyle{unsrt}
