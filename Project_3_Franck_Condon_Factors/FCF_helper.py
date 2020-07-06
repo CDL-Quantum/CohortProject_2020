@@ -20,7 +20,7 @@ class FCFSpec():
         - FCFs for each pair of ground and excited vibrational states up to a 
           threshold, using the n_H2 = 0, n_H2+ = 0 Franck-Condon Factor as the 
           reference.
-        - Spectral positions, SP, with a relative FCF greater than 0.001
+        - Spectral positions, SP
     '''
  
     def __init__(self, n_0, n_p):
@@ -80,9 +80,9 @@ class FCFSpec():
 
         all_data = []
 
-        for k in range(self.n_0):
+        for k in range(self.n_0+1):
             E0 = self.H2_energy(k)
-            for l in range(self.n_p):
+            for l in range(self.n_p+1):
                 Ep = self.H2p_energy(l)
 
                 overlap = 0
@@ -100,13 +100,12 @@ class FCFSpec():
                 if (k==0 and l==0):
                     reference = FCF
                 
-                if FCF > 0.001:
-                    FCF /= reference
-                      
-                    data[0] = k
-                    data[1] = l
-                    data[2] = FCF
+                FCF /= reference
 
-                    all_data.append(data)
+                data[0] = k
+                data[1] = l
+                data[2] = FCF
+
+                all_data.append(data)
 
         return np.array(all_data)
