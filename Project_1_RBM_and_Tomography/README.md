@@ -11,7 +11,7 @@ Open up [Project1_LandingPage.pdf](https://github.com/CDL-Quantum/CohortProject_
 
 ## Further Challenges:
 * Additional data has been provided for 
-[LiH and BeH2.(https://github.com/CDL-Quantum/CohortProject_2020/tree/master/datasets/qubit_molecules).
+[LiH and BeH2](https://github.com/CDL-Quantum/CohortProject_2020/tree/master/datasets/qubit_molecules).
 Consider an RBM reconstruction for these more complicated molecules.  What is the fundamental difference between these and the systems studied in the above Tasks?
 * Explore other unsupervised machine learning techniques besides RBMs, such as recurrent neural networks (RNNs). Which can be used to represent molecular wavefunctions?
 * What other quantum wavefunction datasets can you obtain? Is a “standard dataset” for machine learning quantum chemistry possible?
