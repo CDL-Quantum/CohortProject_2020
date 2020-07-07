@@ -359,7 +359,7 @@ def get_bare_stabilizer(H : QubitOperator):
             print('Stabilizer with x/y terms ignored. ')
     return stabs
 
-def hf_occ(n_spin_orbitals, n_electrons, qubit_transf):
+def hf_occ(n_spin_orbitals, n_electrons, qubit_transf='jw'):
     '''
     Returns the HF canonical orbital occupations.
     Assumes Aufbau filling.
