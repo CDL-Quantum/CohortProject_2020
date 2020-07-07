@@ -13,7 +13,7 @@ from tequila.grouping.binary_rep import BinaryHamiltonian
 from tequila.grouping.binary_utils import binary_null_space
 from tequila import QubitHamiltonian, Variable, quantumchemistry, gates, PauliString, minimize
 
-def get_qubit_hamiltonian(mol, geometry, basis, charge=0, multiplicity=1, qubit_transf='bk'):
+def get_qubit_hamiltonian(mol, geometry, basis, charge=0, multiplicity=1, qubit_transf='jw'):
     '''
     Generating qubit hamiltonina of the given molecules with specified geometry, basis sets, charge and multiplicity
     Give its qubit form using specified transformation
@@ -359,7 +359,7 @@ def get_bare_stabilizer(H : QubitOperator):
             print('Stabilizer with x/y terms ignored. ')
     return stabs
 
-def hf_occ(n_spin_orbitals, n_electrons, BK=False):
+def hf_occ(n_spin_orbitals, n_electrons, qubit_transf):
     '''
     Returns the HF canonical orbital occupations.
     Assumes Aufbau filling.
@@ -368,15 +368,17 @@ def hf_occ(n_spin_orbitals, n_electrons, BK=False):
     hf_state[:n_electrons] = 1
     # hf_state = np.expand_dims(hf_state, 1)
 
-    if BK:
+    if qubit_transf == 'bk':
         bk_encoder = openfermion.bravyi_kitaev_code(n_spin_orbitals).encoder.toarray()
         return bk_encoder @ hf_state % 2
-    else:
+    elif qubit_transf == 'jw':
         return hf_state
+    else:
+        raise(ValueError("Unknown transformation specified"))
 
 def correct_stabilizer_phase(stabs, hf_state):
     '''
-    Accept a hf state in BK encoding. Correct the phase of the z stabilizers.
+    Accept a hf state in JW/BK encoding. Correct the phase of the z stabilizers.
     '''
     for idx in range(len(stabs)):
         pw, _ = stabs[idx].terms.copy().popitem()
@@ -385,12 +387,12 @@ def correct_stabilizer_phase(stabs, hf_state):
                 stabs[idx] = stabs[idx] * -1
     return stabs
 
-def taper_hamiltonian(H : QubitOperator, n_spin_orbitals, n_electrons):
+def taper_hamiltonian(H : QubitOperator, n_spin_orbitals, n_electrons, qubit_transf):
     '''
     Taper off the H with the stabilizer in the correct phase based on hf state.
     '''
     stabs = get_bare_stabilizer(H)
-    hf = hf_occ(n_spin_orbitals, n_electrons, True)
+    hf = hf_occ(n_spin_orbitals, n_electrons, qubit_transf)
     stabs = correct_stabilizer_phase(stabs, hf)
     return remove_complex(taper_off_qubits(H, stabs))
 
