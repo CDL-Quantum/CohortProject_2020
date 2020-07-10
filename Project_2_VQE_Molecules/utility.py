@@ -682,15 +682,19 @@ def construct_QCC_ansatz(entanglers):
 
     return U
 
-def minimize_E(objective, method, initial_values, tol, samples):
-    sample_energies = np.zeros(samples)
+def minimize_E_random_guesses(objective, method, tol, n):
+    sample_energies = np.zeros(n)
 
-    for t in range(samples):
+    vars = objective.extract_variables()
+
+    for t in range(n):
+
+        initial_values = {v: np.random.uniform(0, 2*np.pi) for v in vars}
         result = minimize(objective=objective, method=method, initial_values=initial_values, tol=tol, silent=True)
         E_t = result.energy
         sample_energies[t] = E_t
 
-    return min(samples_energies)
+    return min(sample_energies)
 
 def init_qcc_params(hf_occ, variables):
     #initialize Euler angles at HF and entangler amplitudes at zero
