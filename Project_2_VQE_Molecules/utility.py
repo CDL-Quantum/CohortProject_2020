@@ -239,6 +239,22 @@ def get_qwc_unitary(H : QubitOperator):
         U *= 1 / 2 ** (1/2) * (l.to_openfermion() + s.to_openfermion())
     return U
 
+def get_zform_unitary(H_qwc : QubitOperator):
+    '''
+    Get the unitary that transforms qwc operators to all-z form. 
+    '''
+    qwc_ops = {} # dictionary of qub : x/y/z
+    for pw, _ in H_qwc.terms.items():
+        for ps in pw:
+            qwc_ops[ps[0]] = ps[1]
+
+    U = QubitOperator.identity()
+    for qub, op in qwc_ops.items():
+        if op != 'Z':
+            U *= 1/2 ** (1/2) * (QubitOperator(term=op+str(qub)) + QubitOperator(term='Z'+str(qub)))
+
+    return U
+
 def qubit_wise_commuting(a : QubitOperator, b : QubitOperator):
     '''
     Check if a and b are qubit-wise commuting.
