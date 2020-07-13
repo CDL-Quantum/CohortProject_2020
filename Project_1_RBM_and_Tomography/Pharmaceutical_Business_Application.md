@@ -3,7 +3,7 @@
 
 Today, during a global pandemic like COVID-19, it has never been more evident the importance of reducing both time and cost for the discovery of new vaccines and therapeutic drugs.
 
-A repository which explores this more can be found here with key contributions from ________, Skylar Chaney, ________ and Jake Malliaros.
+A repository which explores this more can be found here with key contributions from ________, Skylar Chaney, Alexander Soare and Jake Malliaros.
 https://github.com/CDLQuantum2020-RBM-Team3/CohortProject_2020/tree/master/Project_1_RBM_and_Tomography
 
 ## Step 1: Explain the technical problem you solved in this exercise
