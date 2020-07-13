@@ -27,5 +27,5 @@ For your pull request, consider the following for the presentation of your final
 - Edit this README.md file with a highlight of your main technical results.  Provide links to any other files with your detailed results, e.g. Jupyter notebooks.
 - For your Business Application, feel free to provide your answers directly in the 
 [Business_Application.md](./Business_Application.md) file.
-- Do not directly upload your video file to the repository.  Provide a link e.g. to a YouTube video, or a Google Drive file.
+- Do not directly upload your video file (or any other large files) to the repository.  Instead, provide a link e.g. to a YouTube video, or a Google Drive file.
 - Include a file contributions.md that lists the contributions of each group member.
