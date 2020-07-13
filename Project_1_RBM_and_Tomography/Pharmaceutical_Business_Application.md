@@ -1,7 +1,7 @@
 ![CDL 2020 Cohort Project](../figures/CDL_logo.jpg)
 # Pharmaceutical Business Application
 
-Today, during a global pandemic like COVID-19, it has never been more evident the importance of reducing both time and cost for the discovery of new vaccines and therapeutic drugs. In this business application, we overview the exponential optimization computing advantage of our research, touch on QC collaborations for future work, elaborate on market advantages, and provide finacial insights into key customer demographics and their incentives for partnering with our team. 
+Today, during a global pandemic like COVID-19, it has never been more evident the importance of reducing both time and cost for the discovery of new vaccines and therapeutic drugs. In this business application, we overview the exponential optimization computing advantage of our research, QC collaborations for future work, market advantages, and key customer demographics and their financial incentives for partnering with our team. 
 
 A repository which explores this more can be found here with key contributions from Mario Guzzi, Skylar Chaney, Alexander Soare and Jake Malliaros.
 https://github.com/CDLQuantum2020-RBM-Team3/CohortProject_2020/tree/master/Project_1_RBM_and_Tomography
