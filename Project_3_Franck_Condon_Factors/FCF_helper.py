@@ -28,7 +28,7 @@ class FCFSpec():
         self.n_p = n_p
         
         # unit analysis
-        self.invcm_to_invEh = 100.0*5.29177210903*pow(10.,-11.)*137.036*2*np.pi
+        self.invcm_to_invEh = 1.0/219474.63136320
         self.amu_to_me = 1822.888486209
         self.ang_to_bohr = 1.88973     
         
