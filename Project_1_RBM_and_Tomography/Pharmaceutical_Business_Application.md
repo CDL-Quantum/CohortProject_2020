@@ -9,7 +9,6 @@ https://github.com/CDLQuantum2020-RBM-Team3/CohortProject_2020/tree/master/Proje
 
 ## Step 1: Explain the technical problem you solved in this exercise
 
-*early brainstorming bullets-- feel free to delete/change/simplify and expand on*
 
 Overall: Optimization, in application of studying energy of molecules.
 
@@ -74,18 +73,6 @@ Applications of optimizing molecular data simulation:
     
 
 ## Step 4: Prepare a 90 second video explaining the value proposition of your innovation to this potential customer in non-technical language
-
-**Script (main points-- drafting)**
-
-- "The development of these new Ising machines and the possibility of mapping the electronic structure problem into
-an Ising-type Hamiltonian may grant efficient ways to obtain exact solutions to the Schrödinger equation;
-this being one of the most daunting computational problem present in both chemistry and physics."
-
-
-- COVID comparison!
-
-- exponential reduction in storage, ex) 201 numbers vs 10^30 data points
-    - on top of that, we're quadratically decreasing the testing data necessary, to improve computational speeds
 
 Link to video:
 https://drive.google.com/file/d/1q9Kr6NarcJPbQSPVy6IM22AZEYxfkxpt/view?usp=sharing
