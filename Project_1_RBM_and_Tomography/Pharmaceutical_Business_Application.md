@@ -12,9 +12,8 @@ https://github.com/CDLQuantum2020-RBM-Team3/CohortProject_2020/tree/master/Proje
 
 Overall: Optimization, in application of studying energy of molecules.
 
-- **Task 2**: Optimization problem with exponential speedup: minimized the hidden units and training samples necessary for training the RBM (201 data points vs 10^30 data points)
-- **D-Wave**: Solving the optimization problem on D-Wave resources. Expanding our RBM optimization work to new efficient simulation platforms and building relationships and channels for collaboration with a big quantum hardware company (D-Wave). This work allows us a starting point for further exploration with D-Wave resources for further computationally complex chemistry problems we want to solve where D-Wave resources may provide an advantage (ex. larger molecules).  
-
+- **Task 1 & Task 2**: Optimization problem with exponential speedup: minimized the hidden units and training samples necessary for training the RBM (In the example of Task 2, 201 data points vs 10^30 data points)
+- **D-Wave**: Solving the optimization problem on D-Wave resources. Expanding our RBM optimization work as well as efficiently mapping the problem for simulation. This work allows us a starting point for further exploration with D-Wave resources for further computationally complex chemistry problems we want to solve where D-Wave resources may provide an advantage (ex. larger molecules).
 
 
 ## Step 2: Explain or provide examples of the types of real-world problems this solution can solve
