@@ -7,14 +7,26 @@ from torch.nn.utils import parameters_to_vector
 from itertools import chain
 from math import ceil
 
+from qucumber import _warn_on_missing_gpu
+
 class RBM():
 
-    def __init__(self, n_vis, n_hin):
+    def __init__(self, n_vis, n_hin, gpu=True):
         super(RBM, self).__init__()
         self.n_vis = n_vis
         self.n_hin = n_hin
+
+        _warn_on_missing_gpu(gpu)
+        self.gpu = gpu and torch.cuda.is_available()
+        self.device = torch.device("cuda") if self.gpu else torch.device("cpu")
         
         self.initialize_parameters()
+
+    def __repr__(self):
+        return (
+            f"RBM(n_vis={self.n_vis}, "
+            f"n_hin={self.n_hin}, gpu={self.gpu})"
+        )
 
     def initialize_parameters(self):
         self.weights = torch.randn(
