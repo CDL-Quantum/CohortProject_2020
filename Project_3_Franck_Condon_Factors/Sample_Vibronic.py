@@ -35,7 +35,7 @@ for i in range(nmodes):
 for i in range(nmodes):
     delta[i]=float(inputfile.readline())
 
-T = 0  # temperature
+T = 500  # temperature
 
 #####################################
 ##### CALCULATE GBS PARAMETERS ######
