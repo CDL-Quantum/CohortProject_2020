@@ -106,8 +106,7 @@ Here's what we'd like you to do:
     \item Consult the \texttt{README.md} for how to compile and run the code
      \item Plot the results in your favourite plotting program. 
 \end{enumerate}
-
-\noindent To help you along, here is a summary of the input and outputs of the files.
+To help you along, here is a summary of the input and outputs of the files.
 
 \noindent Input :
 \begin{itemize}
@@ -120,6 +119,8 @@ Here's what we'd like you to do:
 \item \texttt{V3.sticks.out} outputs the spectrum as ``sticks''
 \item \texttt{V3.spec.out} outputs the spectrum, smoothed by a Lorentzian function  
 \end{itemize}
+
+For those of you using MacOS or Linux, please do the following command in terminal in order to compile the program: \texttt{mv makefile-<your OS> makefile}. This copies the contents corresponding to your operating system into \texttt{makefile}
 
 \subsubsection*{Task \#3}
 In this task, you will be simulating a Gaussian Boson Sampling (GBS) ``experiment." This code generates samples for computing a vibronic spectrum. Each sample that is generated starts from the vacuum state and the following gates are performed\cite{killoran2019strawberry, bromley2020applications}:
