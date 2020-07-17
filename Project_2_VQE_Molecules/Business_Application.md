@@ -46,6 +46,7 @@ CF Industries Holdings, Inc. engages in the manufacture and distribution of nitr
 
 Reference : https://cfindustries.q4ir.com/corporate-profile/default.aspx
 
+![CFIndustries](CFIndustries.PNG)
 
 ## Step 4: Prepare a 90 second video explaining the value proposition of your innovation to this potential customer in non-technical language
 
