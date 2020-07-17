@@ -31,10 +31,11 @@ Water Treatment : This market is valued at USD 23.80 billion in 2016. It is expe
 
 Fertlizer Manufacturing : Creating energy efficient processes to manufacture ammonia is a $11 billion problem without a solution. Ammonia is currently produced through the Haber-Bosch process, which utilizes a synthetic reaction with hydrogen and nitrogen gas. This requires extremely high pressure and temperature conditions as well as an expensive metal catalyst. The application of quantum computing capabilities to simulate the dissociation of the triple bond in the nitrogen molecule will help to create a more energy efficient methof of ammonia synthesis.
 
-Efficient Battery production :
+Efficient Battery production : A current disadvantage of electric vehicles is the capacity and speed of charging of their batteries. Quantum computers can be used to model the dipole moment of three lithum containing molecules, bringing us closer to the next-generation lithium sulfur (Li-S) batteries that would be more powerful, longer lasting and cheaper than today’s widely used lithium ion batteries.
 
 References :
 https://digitalcommons.dartmouth.edu/cgi/viewcontent.cgi?article=1031&context=dujs
+https://www.ibm.com/blogs/research/2020/01/next-gen-lithium-sulfur-batteries/
 
 ## Step 3: Identify at least one potential customer for this solution - ie: a business who has this problem and would consider paying to have this problem solved
 
