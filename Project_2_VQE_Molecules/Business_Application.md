@@ -21,7 +21,7 @@ The variational principle bound allows us to use classical computation to run an
 1) Use a classical, non-linear optimizer to minimize the expectation value by varying ansatz parameters
 2) Iterate until convergence
 
-![alt text](https://drive.google.com/file/d/1-AQBZyDlOi1Qgn6umuJsSl9HxQEj6ZER/view?usp=sharing)
+![VQE](../figures/VQE_Diagram.PNG)
 
 ## Step 2: Explain or provide examples of the types of real-world problems this solution can solve
 
