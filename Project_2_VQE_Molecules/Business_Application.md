@@ -35,7 +35,7 @@ Efficient Battery production : A current disadvantage of electric vehicles is th
 
 Nuclear Rocket Reactor Propellant : LiH has been studied as potential nuclear rocket propellant along with Liquid Hydrogen. Currently, the feasibility of using LiH as a nuclear rocket propellant appears remote without the removal of at least all but 1% of the Li/sup 6/ from the Li. Quantum simulation can be used to study this further at a faster and cheaper rate, thus potentially impacting the field of space exploration significantly in the future.
 
-
+![Real World Solutions](RealWorldSolutions.PNG)
 References :
 https://digitalcommons.dartmouth.edu/cgi/viewcontent.cgi?article=1031&context=dujs
 https://www.ibm.com/blogs/research/2020/01/next-gen-lithium-sulfur-batteries/
