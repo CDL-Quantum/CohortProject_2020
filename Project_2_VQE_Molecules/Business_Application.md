@@ -3,19 +3,23 @@
 
 ## Step 1: Explain the technical problem you solved in this exercise
 
-We are using Variational Quantum Eigensolver (VQE) for obtaining the potential energy surfaces (PES) for small molecules. Currently, the variational quantum eigensolver (VQE) is the most feasible technique for solving the electronic structure problem on a near term nosiy quantum computer. The following molecules have been simulated using both classical and quantum simulations : H2, LiH, H2O and N2. H2 and LiH are weakly correlated and H2O and N2 are strongly correlated.
+We use Variational Quantum Eigensolver (VQE) to obtain the potential energy surfaces (PES) for small molecules. Currently, the variational quantum eigensolver (VQE) is the most feasible technique for solving the electronic structure problem on a near term nosiy quantum computers. We study the PES for following molecules using both classical and quantum methods : H2, LiH, H2O and N2. H2 and LiH are weakly correlated while H2O and N2 are strongly correlated systems. Classical state-of-the-art methods like CCSD fail to perform accurate calculations for strongly correlated systems. Thus, quantum computing methods based on VQE provide a potential solution to this problem. These methods not only promise to efficiently perform calculations of larger and complex systems with improved chemical accuracy [1], but also provide an ability to calculate additional properties like charge density, dipole moment etc.[2]
+
+The VQE hybrid quantum-classical algorithm. (insert picture)
 
 The quantum subroutine has two fundamental steps :
-1) Prepare the quantum state called anstz
-2) Measure the expectation value
+1) Prepare the quantum state called ansatz.
+2) Measure the expectation value.
 
 The variational principle bound allows us to use classical computation to run an optimization loop to find their eigenvalue :
-1) Use a classical, non-linear optimizer to minimize the expectation value by varying ansatz parameters
-2) Iterate until convergence
+1) Use a classical, non-linear optimizer to minimize the expectation value by varying ansatz parameters.
+2) Iterate until convergence.
 
 ![VQE](VQE_Diagram.PNG)
 
 ## Step 2: Explain or provide examples of the types of real-world problems this solution can solve
+
+**On the path of achieving quantum advantage for real world applications....**
 
 There are a number of real world problems this solution can solve, including water treatment, fertilizer manufacturing and more efficient battery production processes.
 
