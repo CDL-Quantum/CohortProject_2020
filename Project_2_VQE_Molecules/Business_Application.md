@@ -11,7 +11,17 @@ A brief example for each question is included for the
 
 ## Step 1: Explain the technical problem you solved in this exercise
 
-Example: Finding a global minimum in settings where a classical approach may not be able to find a global minimum.
+We are using Variational Quantum Eigensolver (VQE) for obtaining the potential energy surfaces (PES) for small molecules. Currently, the variational quantum eigensolver (VQE) is the most feasible technique for solving the electronic structure problem on a near term nosiy quantum computer. The following molecules have been simulated using both classical and quantum simulations : H2, LiH, H2O and N2. H2 and LiH are weakly correlated and H2O and N2 are strongly correlated.
+
+The quantum subroutine has two fundamental steps :
+1) Prepare the quantum state called anstz
+2) Measure the expectation value
+
+The variational principle bound allows us to use classical computation to run an optimization loop to find their eigenvalue :
+1) Use a classical, non-linear optimizer to minimize the expectation value by varying ansatz parameters
+2) Iterate until convergence
+
+![alt text](https://drive.google.com/file/d/1-AQBZyDlOi1Qgn6umuJsSl9HxQEj6ZER/view?usp=sharing)
 
 ## Step 2: Explain or provide examples of the types of real-world problems this solution can solve
 
