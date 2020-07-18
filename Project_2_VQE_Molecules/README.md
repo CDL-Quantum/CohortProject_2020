@@ -8,9 +8,6 @@ Open up [Project2_LandingPage.pdf](https://github.com/CDL-Quantum/CohortProject_
 to begin learning about your tasks for this week!
 
 ## Tasks and Challenges
-Using H2 and H2O as examples, you will implement the main steps of the VQE process from the setup of the Hamiltonian to obtaining the circuit for the IBM quantum computer.  A number of additional challenges and 
-business-related questions are suggested in the above.
-
 We have implemented the main steps of the VQE process in the following notebooks :
 
 [Classical Method Solution](https://github.com/tina-seb/CohortProject_2020/blob/master/Project_2_VQE_Molecules/S1_Classical_Methods_Demo.ipynb)
