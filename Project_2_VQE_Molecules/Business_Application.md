@@ -35,7 +35,7 @@ There are a number of real world problems this solution can solve, including wat
 
 **Chemical Industry** : Lithium hydride is used in the production of a variety of reagents for organic synthesis, such as lithium aluminium hydride (LiAlH4) and lithium borohydride (LiBH4). Thus studying it's structure and properties can be imperative in identifying new efficient methods to produce reagents.[4]
 
-**Efficient Battery Production** : A current disadvantage of electric vehicles is the capacity and speed of charging of their batteries. Besides electric vehicles, many smartphone batteries are based on lithium ion- fast charging and efficient storage is a current hot problem that needs to be solved. Quantum computers can be used to model the dipole moment of three lithum containing molecules, bringing us closer to the next-generation lithium sulfur (Li-S)[7] batteries that would be more powerful, longer lasting and cheaper than today’s widely used lithium ion batteries.[5]
+**Efficient Battery Production** : A current disadvantage of electric vehicles is the capacity and speed of charging of their batteries. Besides electric vehicles, many smartphone batteries are based on lithium ion- fast charging and efficient storage is a current hot problem that needs to be solved. A lithium ion battery costs between $7000-$20000 for a vehicle thereby making it most expensive item in cost of vehicle. Additionally, inefficient charging increases electricity consumption. A step towards efficient energy storage and charging mechanisms can reduce electricity consumption too. Quantum computers can be used to model the dipole moment of three lithum containing molecules, bringing us closer to the next-generation lithium sulfur (Li-S)[7] batteries that would be more powerful, longer lasting and cheaper than today’s widely used lithium ion batteries.[5]
 
 **Small Rocket Propellants** : LiH has been studied as potential nuclear rocket propellant along with Liquid Hydrogen. Currently, the feasibility of using LiH as a nuclear rocket propellant appears remote without the removal of at least all but 1% of the Li/sup 6/ from the Li. Quantum simulation can be used to study this further at a faster and cheaper rate, thus potentially impacting the field of space exploration significantly in the future.[6]
 
@@ -57,11 +57,11 @@ CF Industries Holdings, Inc. engages in the manufacture and distribution of nitr
 
 ![CFIndustries](CFIndustries.PNG)
 
-**Water Treatment** :
+**Water Treatment** : Every industry that produces waste water is required to apply initial treatment to it before releasing it in environment. So that opens up room for a lot of potential customers especially in chemical industries where separating water from other toxins is a difficult problem.
 
 **Rocket propellent** : SpaceX , NASA, RocketLab etc.
 
-**Efficient Battery Storage** : Smartphone companies like Samsung, Apple etc. ( add electric vehicle companies and cost estimates if possible)
+**Efficient Battery Storage** : Smartphone companies like Samsung, Apple etc. and electric car comapnies like Tesla, Chevrolet, Nissan. 
 
 
 
