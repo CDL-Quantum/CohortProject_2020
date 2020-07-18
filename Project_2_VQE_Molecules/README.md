@@ -21,7 +21,7 @@ We have implemented the main steps of the VQE process in the following notebooks
 
 [Measurement Summary](https://github.com/tina-seb/CohortProject_2020/blob/master/Project_2_VQE_Molecules/S4_Measurement_Summary.ipynb)
 
-[Measurement Summary](https://github.com/tina-seb/CohortProject_2020/blob/master/Project_2_VQE_Molecules/S4_Measurement_Summary.ipynb)
+[Circuits](https://github.com/tina-seb/CohortProject_2020/blob/master/Project_2_VQE_Molecules/S5_Circuits-H2_on_IBMq-sussex.ipynb)
 
 ## Business Application
 Once again, your team is asked to complete a Business Application. Questions you will be asked are:
