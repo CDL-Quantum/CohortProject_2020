@@ -5,7 +5,7 @@
 
 We use Variational Quantum Eigensolver (VQE) to obtain the potential energy surfaces (PES) for small molecules. Currently, the variational quantum eigensolver (VQE) is the most feasible technique for solving the electronic structure problem on a near term nosiy quantum computers. We study the PES for following molecules using both classical and quantum methods : H2, LiH, H2O and N2. H2 and LiH are weakly correlated while H2O and N2 are strongly correlated systems. Classical state-of-the-art methods like CCSD fail to perform accurate calculations for strongly correlated systems. Thus, quantum computing methods based on VQE provide a potential solution to this problem. These methods not only promise to efficiently perform calculations of larger and complex systems with improved chemical accuracy [1], but also provide an ability to calculate additional properties like charge density, dipole moment etc.[2]
 
-The VQE hybrid quantum-classical algorithm. ##(insert picture)
+The VQE hybrid quantum-classical algorithm. **##(insert picture)**
 
 The quantum subroutine has two fundamental steps :
 1) Prepare the quantum state called ansatz.
@@ -17,7 +17,7 @@ The variational principle bound allows us to use classical computation to run an
 
 ![VQE](VQE_Diagram.PNG) 
 
-/VGG:Credit for the picture(s)?
+
 
 ## Step 2: Explain or provide examples of the types of real-world problems this solution can solve
 
@@ -31,7 +31,7 @@ There are a number of real world problems this solution can solve, including wat
 
 **Chemical Industry** : Lithium hydride is used in the production of a variety of reagents for organic synthesis, such as lithium aluminium hydride (LiAlH4) and lithium borohydride (LiBH4). Thus studying it's structure and properties can be imperative in identifying new efficient methods to produce reagents.[4]
 
-**Efficient Battery Production** : A current disadvantage of electric vehicles is the capacity and speed of charging of their batteries. Quantum computers can be used to model the dipole moment of three lithum containing molecules, bringing us closer to the next-generation lithium sulfur (Li-S)[7] batteries that would be more powerful, longer lasting and cheaper than today’s widely used lithium ion batteries.[5]
+**Efficient Battery Production** : A current disadvantage of electric vehicles is the capacity and speed of charging of their batteries. Besides electric vehicles, many smartphone batteries are based on lithium ion- fast charging and efficient storage is a current hot problem that needs to be solved. Quantum computers can be used to model the dipole moment of three lithum containing molecules, bringing us closer to the next-generation lithium sulfur (Li-S)[7] batteries that would be more powerful, longer lasting and cheaper than today’s widely used lithium ion batteries.[5]
 
 **Small Rocket Propellants** : LiH has been studied as potential nuclear rocket propellant along with Liquid Hydrogen. Currently, the feasibility of using LiH as a nuclear rocket propellant appears remote without the removal of at least all but 1% of the Li/sup 6/ from the Li. Quantum simulation can be used to study this further at a faster and cheaper rate, thus potentially impacting the field of space exploration significantly in the future.[6]
 
@@ -54,6 +54,10 @@ Company Information :
 CF Industries Holdings, Inc. engages in the manufacture and distribution of nitrogen fertilizer. The firm owns and operates nitrogen plants and serves agricultural and industrial customers through its distribution system. It operates through following segments: Ammonia, Granular Urea, UAN, AN, and Other. The Ammonia segment produces anhydrous ammonia, which is company's most concentrated nitrogen fertilizer product as it contains 82% nitrogen. The Granular Urea segment produces granular urea, which contains 46% nitrogen. The UAN segment produces urea ammonium nitrate solution, which is a liquid fertilizer product with a nitrogen content from 28% to 32%, is produced by combining urea and ammonium nitrate. The AN segment produces ammonium nitrate, which is a nitrogen-based product with a nitrogen content between 29% and 35%. The Other segment includes diesel exhaust fluid, nitric acid, urea liquor and aqua ammonia. The company was founded in 1946 and is headquartered in Deerfield, IL.
 
 Reference : https://cfindustries.q4ir.com/corporate-profile/default.aspx
+
+**Water Treatment** :
+**Rocket propellent** : SpaceX , NASA, RocketLab etc.
+**Efficient Battery Storage** : Smartphone companies like Samsung, Apple etc. ( add electric vehicle companies and cost estimates if possible)
 
 ![CFIndustries](CFIndustries.PNG)
 
