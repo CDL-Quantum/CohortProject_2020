@@ -1,11 +1,5 @@
 ![CDL 2020 Cohort Project](../figures/CDL_logo.jpg)
 ## Project 2: VQE
-Within this module, you will explore the Variational Quantum Eigensolver (VQE) for
-constructing potential energy surfaces for small molecules.
-A very brief introduction to the main ideas behind the VQE are 
-[here.](https://github.com/CDL-Quantum/CohortProject_2020/blob/master/CDL_2020_docs.pdf)
-Open up [Project2_LandingPage.pdf](https://github.com/CDL-Quantum/CohortProject_2020/blob/master/Project_2_VQE_Molecules/Project_2_LandingPage.pdf)
-to learn in detail about the project.
 
 ## Tasks and Challenges
 We study classical as well as quantum methods to construct Potential Energy Surface (PES) for several small molecules like H2, H20, LiH, N2. For classical simulation we use standard methods like CCSD, HF, FCI and for quantum simulation we use VQE. The work is presented in following notebooks as follows:
@@ -43,13 +37,3 @@ We also made a [video](https://www.youtube.com/watch?v=__A3Da354DE&feature=youtu
 ## Future work and Possibilities
 
 We intend to explore and implement VQE for obtaining excited states and use VQE subroutines to obtain additional properties like charge density, dipole moment etc. on various hardwares and platforms available today. Additionally, we also consider the possibility of implementing and benchmarking ADAPT-VQE[10] for exact simulations on current hardware. 
-
-**/Delete this subheading below and info under it once done editing readme/**
-## Presenting your results in your pull request
-For your pull request, consider the following for the presentation of your final results:
-- Work entirely in the directory for Project 2.
-- Edit this README.md file with a highlight of your main technical results.  Provide links to any other files with your detailed results, e.g. Jupyter notebooks.
-- For your Business Application, feel free to provide your answers directly in the 
-[Business_Application.md](./Business_Application.md) file.
-- Do not directly upload your video file (or any other large files) to the repository.  Instead, provide a link e.g. to a YouTube video, or a Google Drive file.
-- Include a file contributions.md that lists the contributions of each group member.
