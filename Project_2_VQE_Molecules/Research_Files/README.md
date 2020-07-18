@@ -15,8 +15,9 @@ https://quantum-computing.ibm.com/results/5f0fc5c706b6fe001a0cf890 \
 **H2 caculations** 
 [see S5_Circuits-H2_on_IBMq-sussex.ipynb]
 
-![Confirming the 0.3 energy variation using PennyLane] (PennyLane.png)
-![H2 Calculation](H2-Calculations.png) 
+![H2 Calculation](H2-Calculations.png)
+
+![Confirming the 0.3 energy variation using PennyLane](PennyLane.png)
 
 ![Typical H2 run with 'jw'](H2_run_with_JW.png)\
 https://quantum-computing.ibm.com/results/5f1235e8f3fe2a001bac5a9a
