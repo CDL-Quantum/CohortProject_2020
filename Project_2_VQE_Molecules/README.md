@@ -15,9 +15,11 @@ We have implemented the main steps of the VQE process in the following notebooks
 
 [Classical Method Solution](https://github.com/tina-seb/CohortProject_2020/blob/master/Project_2_VQE_Molecules/S1_Classical_Methods_Demo.ipynb)
 
+In this notebook we obtain the electronic PES in minimal basis (STO-3G) for different molecules using classical methods available in the tequila package. We cover several molecules (H2, H20, LiH, N2) as well as several methods (FCI, HG, CISD, CCSD).
+
 [Hamiltonian Generation Summary](https://github.com/tina-seb/CohortProject_2020/blob/master/Project_2_VQE_Molecules/S2_Hamiltonian_gen_Summary.ipynb)
 
-After running the original h2 example we go over the molecules='h2', 'h4', 'lih', 'h2o', 'n2', 'nh3', basies='sto-3g','6-31g', and qubit_transfms='jw','bk' to assess the scope of the final measurements  by printing out information on the QWC fragments and do Random test of the Unitary ... we suppress printing information for more than 9 mutually commuting fragments.
+After running the original h2 example we go over the molecules='h2', 'h4', 'lih', 'h2o', 'n2', 'nh3', basis='sto-3g','6-31g', and qubit_transfms='jw','bk' to assess the scope of the final measurements  by printing out information on the QWC fragments and do Random test of the Unitary ... we suppress printing information for more than 9 mutually commuting fragments.
 
 [Unitary Ansatz](https://github.com/tina-seb/CohortProject_2020/blob/master/Project_2_VQE_Molecules/S3_Unitary_Ansatz_H2.ipynb)
 
