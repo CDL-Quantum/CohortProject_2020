@@ -57,11 +57,11 @@ CF Industries Holdings, Inc. engages in the manufacture and distribution of nitr
 
 ![CFIndustries](CFIndustries.PNG)
 
-**Water Treatment** : Every industry that produces waste water is required to apply initial treatment to it before releasing it in environment. So that opens up room for a lot of potential customers especially in chemical industries where separating water from other toxins is a difficult problem.
+**Water Treatment** : Every industry that produces waste water is required to apply initial treatment to it before releasing it in environment. So that opens up room for a lot of potential customers especially in chemical industries like Hydronova, Olin etc. where separating water from other toxins is a difficult problem.
 
 **Rocket propellent** : SpaceX , NASA, RocketLab etc.
 
-**Efficient Battery Storage** : Smartphone companies like Samsung, Apple etc. and electric car comapnies like Tesla, Chevrolet, Nissan. 
+**Efficient Battery Storage** : Smartphone companies like Samsung, Apple etc. and electric car comapnies like Tesla, Chevrolet, Nissan are potential customers for this application. 
 
 
 
