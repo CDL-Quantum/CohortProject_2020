@@ -26,3 +26,8 @@ https://quantum-computing.ibm.com/results/5f1235e8f3fe2a001bac5a9a
 https://quantum-computing.ibm.com/results/5f102aed3e5b6a001b4ff992
 
 
+**N2 calculations**
+
+Research notebook prepared for N2 calculations but due to the current restrictions of quantum computing capacity, this was not run. The run will be similar to the H2 calculations, when feasible.
+
+[N2 calculations](https://github.com/tina-seb/CohortProject_2020/blob/master/Project_2_VQE_Molecules/Research_Files/S1_Classical_Methods_N2.ipynb)
