@@ -12,7 +12,7 @@ Using H2 and H2O as examples, you will implement the main steps of the VQE proce
 business-related questions are suggested in the above.
 
 ## Business Application
-One again, your team is asked to complete a Business Application. Questions you will be asked are:
+Once again, your team is asked to complete a Business Application. Questions you will be asked are:
 
 * Explain to a layperson the technical problem you solved in this exercise.
 * Explain or provide examples of the types of real-world problems this solution can solve.
