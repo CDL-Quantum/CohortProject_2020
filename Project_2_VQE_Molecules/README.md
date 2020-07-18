@@ -27,6 +27,8 @@ After running the original h2 example we go over the molecules='h2', 'h4', 'lih'
 
 [Circuits](https://github.com/tina-seb/CohortProject_2020/blob/master/Project_2_VQE_Molecules/S5_Circuits-H2_on_IBMq-sussex.ipynb)
 
+On this notebook we run, using the data obtained from previous notebooks, the experiment on a 5 qubit quantum computer from IBMq. The reuslts show that noise affect considerably. However, it manages to map a considerably good curve and as soon as quantum hardware gets better it is expected to get better results.
+
 ## Business Application
 For the Business Application we consider several plausible applications. For instance:
 - Water Treatment 
