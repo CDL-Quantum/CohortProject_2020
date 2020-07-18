@@ -1,6 +1,6 @@
 ![CDL 2020 Cohort Project](../figures/CDL_logo.jpg)
 ## Project 2: VQE
-This week you will explore the Variational Quantum Eigensolver (VQE) for
+Within this module, you will explore the Variational Quantum Eigensolver (VQE) for
 constructing potential energy surfaces for small molecules.
 A very brief introduction to the main ideas behind the VQE are 
 [here.](https://github.com/CDL-Quantum/CohortProject_2020/blob/master/CDL_2020_docs.pdf)
