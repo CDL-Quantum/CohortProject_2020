@@ -11,6 +11,8 @@ to begin learning about your tasks for this week!
 Using H2 and H2O as examples, you will implement the main steps of the VQE process from the setup of the Hamiltonian to obtaining the circuit for the IBM quantum computer.  A number of additional challenges and 
 business-related questions are suggested in the above.
 
+We have implemented the main steps of the VQE process in the following notebooks :
+
 ## Business Application
 Once again, your team is asked to complete a Business Application. Questions you will be asked are:
 
