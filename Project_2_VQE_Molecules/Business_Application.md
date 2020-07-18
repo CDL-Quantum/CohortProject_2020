@@ -56,7 +56,9 @@ CF Industries Holdings, Inc. engages in the manufacture and distribution of nitr
 Reference : https://cfindustries.q4ir.com/corporate-profile/default.aspx
 
 **Water Treatment** :
+
 **Rocket propellent** : SpaceX , NASA, RocketLab etc.
+
 **Efficient Battery Storage** : Smartphone companies like Samsung, Apple etc. ( add electric vehicle companies and cost estimates if possible)
 
 ![CFIndustries](CFIndustries.PNG)
