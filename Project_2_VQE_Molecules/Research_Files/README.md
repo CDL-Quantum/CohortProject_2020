@@ -1,6 +1,6 @@
 This folder contains research notebooks related to the weeks 2 cohort project topics.
 
-LiH run [see S5_Circuits-LiH]:
+LiH run [see S5_Circuits-LiH.ipynb]:
 
 ![LiH classical caculations:](LiH_Energy-Distance.png)
 
@@ -10,6 +10,8 @@ https://quantum-computing.ibm.com/results/5f124840f3fe2a001bac5b73
 
 for 'bk':\
 https://quantum-computing.ibm.com/results/5f0fc5c706b6fe001a0cf890 \
+
+H2 run [see S5_Circuits-H2_on_IBMq-sussex.ipynb]
 ![H2 Calculation](H2-Calculations.png) 
 
 ![Typical H2 run with 'jw'](H2_run_with_JW.png)\
