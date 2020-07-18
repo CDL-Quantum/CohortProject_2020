@@ -36,7 +36,7 @@ There are a number of real world problems this solution can solve, including wat
 
 ![Real World Solutions](RealWorldSolutions.PNG)
 
-*References*:
+References:
 https://digitalcommons.dartmouth.edu/cgi/viewcontent.cgi?article=1031&context=dujs
 https://www.ibm.com/blogs/research/2020/01/next-gen-lithium-sulfur-batteries/
 https://www.nature.com/articles/nmat2288
