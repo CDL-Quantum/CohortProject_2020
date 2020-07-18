@@ -19,12 +19,16 @@ We identified problem with the energy at R=1.5A the two bases give different ene
 
 [Measurement Summary](https://github.com/tina-seb/CohortProject_2020/blob/master/Project_2_VQE_Molecules/S4_Measurement_Summary.ipynb)
 
-After running the original h2 example we go over the molecules: 'h2', 'h4', 'lih', 'h2o', 'n2', 'nh3', the two bases 'sto-3g' and '6-31g', and the qubit_transfms 'jw' and 'bk' to assess the scope of the final measurements by printing out information on the QWC fragments and doing random tests of the Unitary. 
+After running the original H2 example we go over the molecules: 'H2', 'H4', 'LiH', 'H2O', 'N2', 'NH3', the two bases 'sto-3g' and '6-31g', and the qubit_transfms 'jw' and 'bk' to assess the scope of the final measurements by printing out information on the QWC fragments and doing random tests of the Unitary. 
 We suppress the printing of information for more than 9 mutually commuting fragments.
 
 [Circuits](https://github.com/tina-seb/CohortProject_2020/blob/master/Project_2_VQE_Molecules/S5_Circuits-H2_on_IBMq-sussex.ipynb)
 
 In this notebook we run, using the data obtained from previous notebooks, the experiment on a 5 qubit quantum computer (Sussex) from IBMq. The results show that noise affect considerably. However, it manages to map a considerably good curve and as soon as quantum hardware gets better it is expected to get better results.
+
+[Research Files Readme](https://github.com/tina-seb/CohortProject_2020/blob/master/Project_2_VQE_Molecules/Research_Files/README.md)
+
+We elaborate in more detail the results of our calculations and the problems we encountered in the process.
 
 ## Business Application
 For the Business Application we consider several plausible applications. For instance:
