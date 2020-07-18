@@ -1,4 +1,4 @@
-Members who contributed to the week 2 cohord project:
+Members who contributed to the week 2 cohort project:
 
 # Sabhyata Gupta
 
