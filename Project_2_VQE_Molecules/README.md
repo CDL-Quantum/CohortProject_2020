@@ -38,7 +38,7 @@ For the Business Application we consider several plausible applications. For ins
 
 For more details refer to the [Business Application found here](./Business_Application.md)
 
-We also made a [video]() in which we explain what can be expected of all these applications nowadays and in the near future.
+We also made a [video](https://www.youtube.com/watch?v=__A3Da354DE&feature=youtu.be) in which we explain what can be expected of all these applications nowadays and in the near future.
 
 ## Future work and Possibilities
 
