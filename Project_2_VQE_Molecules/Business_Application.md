@@ -39,8 +39,11 @@ There are a number of real world problems this solution can solve, including wat
 References:
 
 https://digitalcommons.dartmouth.edu/cgi/viewcontent.cgi?article=1031&context=dujs
+
 https://www.ibm.com/blogs/research/2020/01/next-gen-lithium-sulfur-batteries/
+
 https://www.nature.com/articles/nmat2288
+
 https://www.osti.gov/biblio/4764043
 
 ## Step 3: Identify at least one potential customer for this solution - ie: a business who has this problem and would consider paying to have this problem solved
