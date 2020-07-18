@@ -28,14 +28,18 @@ After running the original h2 example we go over the molecules='h2', 'h4', 'lih'
 [Circuits](https://github.com/tina-seb/CohortProject_2020/blob/master/Project_2_VQE_Molecules/S5_Circuits-H2_on_IBMq-sussex.ipynb)
 
 ## Business Application
-Once again, your team is asked to complete a Business Application. Questions you will be asked are:
+For the Business Application we consider several plausible applications. For instance:
+- Water Treatment 
 
-* Explain to a layperson the technical problem you solved in this exercise.
-* Explain or provide examples of the types of real-world problems this solution can solve.
-* Identify at least one potential customer for this solution - ie: a business who has this problem and would consider paying to have this problem solved.
-* Prepare a 90 second video explaining the value proposition of your innovation to this potential customer in non-technical language.
+- Fertlizer Manufacturing 
+
+- Efficient Battery Production 
+
+- Small Rocket Propellants 
 
 For more details refer to the [Business Application found here](./Business_Application.md)
+
+We also make a [video]() on which we explain what can be expected of all these applications nowadays and in the near future.
 
 ## Presenting your results in your pull request
 For your pull request, consider the following for the presentation of your final results:
