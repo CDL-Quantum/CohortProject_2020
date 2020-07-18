@@ -1,6 +1,7 @@
 Members who contributed to the week 2 cohort project:
 
 # Sabhyata Gupta
+umm will do in a while 
 
 # Tina Sebastian
 
