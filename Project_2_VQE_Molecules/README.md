@@ -42,7 +42,7 @@ We also made a [video]() in which we explain what can be expected of all these a
 
 ## Future work and Possibilities
 
-We intend to explore and implement VQE for obtaining excited states and use VQE subroutines to obtain additional properties like charge density, dipole moment etc. on various hardwares and platforms available today. Additionally, we also consider possibility of implementing and benchmarking ADAPT-VQE[10] for exact simulations on current hardware. 
+We intend to explore and implement VQE for obtaining excited states and use VQE subroutines to obtain additional properties like charge density, dipole moment etc. on various hardwares and platforms available today. Additionally, we also consider the possibility of implementing and benchmarking ADAPT-VQE[10] for exact simulations on current hardware. 
 
 **//Delete this subheading below and info under it once done editing readme//**
 ## Presenting your results in your pull request
