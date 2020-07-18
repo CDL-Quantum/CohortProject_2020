@@ -45,5 +45,6 @@ For more details refer to the [Business Application found here](./Business_Appli
 We also made a [video](https://www.youtube.com/watch?v=__A3Da354DE&feature=youtu.be) in which we explain what can be expected of all these applications nowadays and in the near future.
 
 ## Future work and Possibilities
-The first task is to implement noise mitigation of the q-devices, using their calibration, and to test the range variation of the results. This is critical for VQE use.
+The first task is to implement noise mitigation of the q-devices, using their calibration, and to test the range variation of the results.
+[This is critical for VQE use.](https://github.com/tina-seb/CohortProject_2020/blob/master/Project_2_VQE_Molecules/Research_Files/README.md)
 We also intend to explore and implement VQE for obtaining excited states and use VQE subroutines to obtain additional properties like charge density, dipole moment etc. on various hardware and platforms available today. Additionally, we also consider the possibility of implementing and benchmarking ADAPT-VQE[10] for exact simulations on current hardware. 
