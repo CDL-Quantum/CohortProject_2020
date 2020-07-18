@@ -17,7 +17,7 @@ The variational principle bound allows us to use classical computation to run an
 
 ![VQE](VQE_Diagram.PNG) 
 
-/VGG:Credit to the picture?
+/VGG:Credit for the picture(s)?
 
 ## Step 2: Explain or provide examples of the types of real-world problems this solution can solve
 
@@ -37,6 +37,7 @@ There are a number of real world problems this solution can solve, including wat
 ![Real World Solutions](RealWorldSolutions.PNG)
 
 References:
+
 https://digitalcommons.dartmouth.edu/cgi/viewcontent.cgi?article=1031&context=dujs
 https://www.ibm.com/blogs/research/2020/01/next-gen-lithium-sulfur-batteries/
 https://www.nature.com/articles/nmat2288
