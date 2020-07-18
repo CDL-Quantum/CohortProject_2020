@@ -67,4 +67,4 @@ CF Industries Holdings, Inc. engages in the manufacture and distribution of nitr
 
 ## Step 4: Prepare a 90 second video explaining the value proposition of your innovation to this potential customer in non-technical language
 
-![Business Video](https://youtu.be/__A3Da354DE)
+https://www.youtube.com/watch?v=__A3Da354DE&feature=youtu.be
