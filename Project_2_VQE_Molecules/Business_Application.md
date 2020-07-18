@@ -23,6 +23,10 @@ The variational principle bound allows us to use classical computation to run an
 
 **On the path of achieving quantum advantage for real world applications....**
 
+
+![Real World Solutions](RealWorldSolutions.PNG)
+
+
 There are a number of real world problems this solution can solve, including water treatment, fertilizer manufacturing and more efficient battery production processes.
 
 **Water Treatment** : This market is valued at USD 23.80 billion in 2016. It is expected to register a CAGR of 7.1% by 2025. The industry can be classified into residential and non-residential segments. The residential segments account for 115.2 million units. Exponential growth in residential construction across the world is expected to contribute significantly to the growth of this application segment. The world’s move toward greener chemistry — the reduction of hazardous substances in producing chemicals and reducing pollution — requires new ways to replace organic solvents with water, to better understand water’s role in reaction mechanisms, and to better understand how solutes and toxins partition into the environment. Better ways are needed to separate water from other materials, such as organic solids, bacteria, and hydrocarbons. To learn how material properties are encoded within molecular structures requires more than just experiments. It also requires models, theories, and simulations. Without modeling, we cannot interpret observable properties in terms of water’s molecular structure, energetics, and statistical distributions.[3]
@@ -38,7 +42,7 @@ There are a number of real world problems this solution can solve, including wat
 
 
 
-![Real World Solutions](RealWorldSolutions.PNG)
+
 
 
 
