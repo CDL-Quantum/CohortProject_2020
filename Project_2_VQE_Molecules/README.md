@@ -14,7 +14,13 @@ After running the original H2 example we try Hamiltonian generation for other mo
 
 [Unitary Ansatz](https://github.com/tina-seb/CohortProject_2020/blob/master/Project_2_VQE_Molecules/S3_Unitary_Ansatz_H2.ipynb)
 
+Running the and checking the Unitary ansatz for H2 in two possible bases.
+We identified problem with the energy at R=1.5A the two bases give different energies!
+
 [Measurement Summary](https://github.com/tina-seb/CohortProject_2020/blob/master/Project_2_VQE_Molecules/S4_Measurement_Summary.ipynb)
+
+After running the original h2 example we go over the molecules: 'h2', 'h4', 'lih', 'h2o', 'n2', 'nh3', the two bases 'sto-3g' and '6-31g', and the qubit_transfms 'jw' and 'bk' to assess the scope of the final measurements by printing out information on the QWC fragments and doing random tests of the Unitary. 
+We suppress the printing of information for more than 9 mutually commuting fragments.
 
 [Circuits](https://github.com/tina-seb/CohortProject_2020/blob/master/Project_2_VQE_Molecules/S5_Circuits-H2_on_IBMq-sussex.ipynb)
 
@@ -35,5 +41,5 @@ For more details refer to the [Business Application found here](./Business_Appli
 We also made a [video](https://www.youtube.com/watch?v=__A3Da354DE&feature=youtu.be) in which we explain what can be expected of all these applications nowadays and in the near future.
 
 ## Future work and Possibilities
-
-We intend to explore and implement VQE for obtaining excited states and use VQE subroutines to obtain additional properties like charge density, dipole moment etc. on various hardwares and platforms available today. Additionally, we also consider the possibility of implementing and benchmarking ADAPT-VQE[10] for exact simulations on current hardware. 
+The first task is to implement noise mitigation of the q-devices, using their calibration, and to test the range variation of the results. This is critical for VQE use.
+We also intend to explore and implement VQE for obtaining excited states and use VQE subroutines to obtain additional properties like charge density, dipole moment etc. on various hardware and platforms available today. Additionally, we also consider the possibility of implementing and benchmarking ADAPT-VQE[10] for exact simulations on current hardware. 
