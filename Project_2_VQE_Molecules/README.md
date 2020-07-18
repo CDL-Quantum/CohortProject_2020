@@ -13,7 +13,7 @@ business-related questions are suggested in the above.
 
 We have implemented the main steps of the VQE process in the following notebooks :
 
-[Task 1 Olgas V Jupyter notebook](https://github.com/olgOk/CohortProject_2020/blob/oscar_JH_task_1_and_2/Project_1_RBM_and_Tomography/Task1_Olga_V.ipynb)
+[Classical Method](https://github.com/tina-seb/CohortProject_2020/blob/master/Project_2_VQE_Molecules/S1_Classical_Methods_Demo.ipynb)
 
 ## Business Application
 Once again, your team is asked to complete a Business Application. Questions you will be asked are:
