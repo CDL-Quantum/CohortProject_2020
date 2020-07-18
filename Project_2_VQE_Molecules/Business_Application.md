@@ -15,7 +15,9 @@ The variational principle bound allows us to use classical computation to run an
 1) Use a classical, non-linear optimizer to minimize the expectation value by varying ansatz parameters.
 2) Iterate until convergence.
 
-![VQE](VQE_Diagram.PNG)
+![VQE](VQE_Diagram.PNG) 
+
+/VGG:Credit to the picture?
 
 ## Step 2: Explain or provide examples of the types of real-world problems this solution can solve
 
@@ -23,7 +25,7 @@ The variational principle bound allows us to use classical computation to run an
 
 There are a number of real world problems this solution can solve, including water treatment, fertilizer manufacturing and more efficient battery production processes.
 
-**Water Treatment** : This market is valued at USD 23.80 billion in 2016. It is expected to register a CAGR of 7.1% by 2025. The industry can be classified into residential and non-residential segments. The residential segments account for 115.2 million units. Exponential growth in residential construction across the world is expected to contribute significantly to the growth of this application segment. The world’s move toward greener chemistry — the reduction of hazardous substances in producing chemicals and reducing pollution — requires new ways to replace organic solvents with water, to better understand water’s role in reaction mechanisms, and to better understand how solutes and toxins partition into the environment. Better ways are needed to separate water from other materials, such as organic solids, bacteria, and hydrocarbons. To learn how material properties are encoded within molecular structures requires more than just experiments. It also requires models, theories, and simulations. Without modeling, we cannot interpret observable properties in terms of water’s molecular structure, energetics, and population distributions.
+**Water Treatment** : This market is valued at USD 23.80 billion in 2016. It is expected to register a CAGR of 7.1% by 2025. The industry can be classified into residential and non-residential segments. The residential segments account for 115.2 million units. Exponential growth in residential construction across the world is expected to contribute significantly to the growth of this application segment. The world’s move toward greener chemistry — the reduction of hazardous substances in producing chemicals and reducing pollution — requires new ways to replace organic solvents with water, to better understand water’s role in reaction mechanisms, and to better understand how solutes and toxins partition into the environment. Better ways are needed to separate water from other materials, such as organic solids, bacteria, and hydrocarbons. To learn how material properties are encoded within molecular structures requires more than just experiments. It also requires models, theories, and simulations. Without modeling, we cannot interpret observable properties in terms of water’s molecular structure, energetics, and statistical distributions.
 
 **Fertlizer Manufacturing** : Creating energy efficient processes to manufacture ammonia is a $11 billion problem without a solution. Ammonia is currently produced through the Haber-Bosch process, which utilizes a synthetic reaction with hydrogen and nitrogen gas. This requires extremely high pressure and temperature conditions as well as an expensive metal catalyst. The application of quantum computing capabilities to simulate the dissociation of the triple bond in the nitrogen molecule will help to create a more energy efficient methof of ammonia synthesis.
 
@@ -33,7 +35,8 @@ There are a number of real world problems this solution can solve, including wat
 
 
 ![Real World Solutions](RealWorldSolutions.PNG)
-References :
+
+*References*:
 https://digitalcommons.dartmouth.edu/cgi/viewcontent.cgi?article=1031&context=dujs
 https://www.ibm.com/blogs/research/2020/01/next-gen-lithium-sulfur-batteries/
 https://www.nature.com/articles/nmat2288
