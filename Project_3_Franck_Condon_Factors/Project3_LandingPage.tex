@@ -98,7 +98,7 @@ Congratulations, you have now successfully predicted the Franck-Condon Factors o
 
 \subsubsection*{Task \#2}
 
-You are provided with a \texttt{C++} code \texttt{FC.cxx} created by P.-N. Roy \cite{yang1995structure}, which calculates the photoionization spectrum for any molecule up to triple excitations and although we are still in the harmonic oscillator approximation regime, this code allows multimode mixing between states through the Duschinsky matrix. The theory is based on the paper by Ref~\cite{doktorov1977dynamical}. The molecule you will be investigating is $V_3$.
+You are provided with a \texttt{C++} code \texttt{FC.cxx} created by P.-N. Roy \cite{yang1995structure}, which calculates the photoionization spectrum for any molecule up to triple excitations and although we are still in the harmonic oscillator approximation regime, this code allows multimode mixing between states through the Duschinsky matrix. The theory is based on the paper by Ref~\cite{doktorov1977dynamical}. The molecule you will be investigating is $V_3$ and the temperature is $T=500$K.
 
 Here's what we'd like you to do:
 \begin{enumerate}
@@ -142,7 +142,7 @@ Here's what we'd like you to do:
 \item You are provided with a \texttt{python} notebook called \texttt{Task3.ipynb} which calculates all of the information you require. You will be required to use the \texttt{Strawberry Fields} library ~\cite{killoran2019strawberry,bromley2020applications}. Click  \href{https://strawberryfields.readthedocs.io/en/stable/_static/install.html}{\underline{\textbf{here}}} for the install instructions.
     \item To be able to use this code, you require an input file which you will have to create. To do this, we will leverage the fact that we have another code that has done this work already, \texttt{FC.cxx}, which you became familiar with in Task 2.  Your task will be to write the required information from that code (they have been well marked) into a file, which will then be used as your input file to \texttt{Sample\_Vibronic.py}. You will use $V_3$ as your system of choice.
      \item (Optional) The code currently uses a plotting program \texttt{plotly} which you may install, which outputs the spectrum as an interactive html page. However, if you wish, you may write the last piece of code to create the spectrum. If possible, include a Lorentzian smoothing in the same way as FC.cxx and directly compare the results from Task 2. You will notice that since we are using Gaussian Boson Sampling method to generate samples, we can only get ``relative'' peak heights, so you may need to scale the spectrum to agree.
-     \item Run the code to produce the $V_3$ spectrum. Note, this code may take some time to run, so try with 10 samples to ensure it's working first and then try 20000 to get a smooth spectrum. Compare this spectrum to the previous method. What happens if you decrease the number of samples to 10? 100? 1000? At what number of samples do you feel the spectrum is converged?
+     \item Run the code to produce the $V_3$ spectrum at $T=500$K. Note, this code may take some time to run, so try with 10 samples to ensure it's working first and then try 20000 to get a smooth spectrum. Compare this spectrum to the previous method. What happens if you decrease the number of samples to 10? 100? 1000? At what number of samples do you feel the spectrum is converged? 
 \end{enumerate}
 
 \noindent This code takes as input a file which requires the following information:
@@ -157,9 +157,15 @@ Here's what we'd like you to do:
 \section*{Challenges}
 
 \begin{enumerate}
-    \item An alternative and analogous method to calculating these Franck-Condon Factors using matrix elements is to use a loop hafnian approach (see Ref.~\cite{quesadaFranckCondonFactorsCounting2019}. This loop hafnian approach uses Gauss Boson Sampling which would allow these Factors to be calculated using a quantum circuit. Calculate the FCFs using this method.
+    \item An alternative and analogous method to calculating these Franck-Condon Factors using matrix elements is to use a loop hafnian approach (see Ref.~\cite{quesadaFranckCondonFactorsCounting2019}) as opposed to the recursion relations of the Hermite polynomials, which improves the speed at which they can be calculated. This can be applied generally to Gaussian Boson Sampling of two multimode Fock states. Calculate the FCFs using this method.
     \item Construct a Hamiltonian and diagonalize the mass-weighted Hamiltonian for another molecule and use the results as input for \texttt{FC.cxx}. Note: the calculation only works for non-linear molecules.
-    \item Explain briefly the similarities and differences between these three methods.
+    \item Explain briefly the similarities and differences between the three methods of calculating Franck-Condon Factors:
+    \begin{enumerate}
+    \item Using Hermite polynomials (\texttt{FC.cxx})
+    \item Using Gaussian Boson Sampling (\texttt{Sample\_Vibronic.py})
+    \item Loop hafnian approach (see Ref.~\cite{quesadaFranckCondonFactorsCounting2019})
+    \end{enumerate}
+
 \end{enumerate}
 
 \section*{Possible Business Outcomes}
