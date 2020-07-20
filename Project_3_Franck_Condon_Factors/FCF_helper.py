@@ -29,6 +29,7 @@ class FCFSpec():
         
         # unit analysis
         self.invcm_to_invEh = 1.0/219474.63136320
+        self.invcm_to_ev = 0.000123984
         self.amu_to_me = 1822.888486209
         self.ang_to_bohr = 1.88973     
         
@@ -95,7 +96,7 @@ class FCFSpec():
                 FCF = overlap**2.
         
                 # n_0   n_p   FCF
-                data = np.zeros(3)
+                data = np.zeros(4)
 
                 if (k==0 and l==0):
                     reference = FCF
@@ -105,6 +106,7 @@ class FCFSpec():
                 data[0] = k
                 data[1] = l
                 data[2] = FCF
+                data[3] = (Ep - E0) * self.invcm_to_ev
 
                 all_data.append(data)
 
