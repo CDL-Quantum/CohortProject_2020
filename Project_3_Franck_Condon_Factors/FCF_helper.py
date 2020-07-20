@@ -54,7 +54,7 @@ class FCFSpec():
         return self.omega_0*(n + 0.5) / self.invcm_to_invEh
 
     def H2p_energy(self, n):
-        return self.omega_p*(n + 0.5) / self.invcm_to_invEh + self.ionization_energy
+        return (self.omega_p*(n + 0.5) + self.ionization_energy) / self.invcm_to_invEh
 
     def H2_psi(self, x, n):
         # n'th harmonic wavefunction for H2  
