@@ -57,6 +57,8 @@ U_{Dok}=D_\alpha U_2 \Sigma_r U_1    ~.
 A GBS device can be programmed to perform these operations for a particular molecule, therefore can be used to calculate the FCFs and, in turn, the vibronic spectrum of a molecule. You will have an opportunity to simulate this ``experiment'' in Task 3. 
 \newpage
 
+
+
 \subsection*{Your Tasks}
 
 \subsubsection*{Task \#1}
@@ -96,45 +98,80 @@ Congratulations, you have now successfully predicted the Franck-Condon Factors o
 
 \subsubsection*{Task \#2}
 
-You are provided with a \texttt{C++} code \texttt{FC.cxx} created by P.-N. Roy \cite{yang1995structure}, which calculates the photoionization spectrum for any molecule up to triple excitations and goes beyond the harmonic oscillator approximation. The theory is based on the paper by Ref~\cite{doktorov1977dynamical}. The molecule you will be investigating is $V_3$.
-This code takes as input a file which requires the results of diagonalizing the mass-weighted hessian/force-constant matrix (2nd derivative of the Hamiltonian with respect to position). This input file is provided for you (V3).
+You are provided with a \texttt{C++} code \texttt{FC.cxx} created by P.-N. Roy \cite{yang1995structure}, which calculates the photoionization spectrum for any molecule up to triple excitations and although we are still in the harmonic oscillator approximation regime, this code allows multimode mixing between states through the Duschinsky matrix. The theory is based on the paper by Ref~\cite{doktorov1977dynamical}. The molecule you will be investigating is $V_3$ and the temperature is $T=500$K.
 
-Browse the following references (\cite{yang1995structure,doktorov1977dynamical,quesadaFranckCondonFactorsCounting2019}) to understand how the code works, as you will need a basic understanding of this for the next task, but it's not necessary to fully understand it.  Compile and run the code \texttt{./FC\_quick V3}. This code outputs the spectrum \texttt{V3.spec.out}. Plot it in your favourite plotting program. 
+Here's what we'd like you to do:
+\begin{enumerate}
+    \item Browse the following references: Refs.~\cite{yang1995structure,jankowiak2007vibronic} should be looked at to understand the matrix element approach which \texttt{FC.cxx} uses and for those interested Ref.~\cite{quesadaFranckCondonFactorsCounting2019} relates to Gaussian Boson Sampling. You will need a basic understanding of the matrix element approach for the next task, but it's not necessary to fully understand it.
+    \item Consult the \texttt{README.md} for how to compile and run the code
+     \item Plot the results in your favourite plotting program. 
+\end{enumerate}
+To help you along, here is a summary of the input and outputs of the files.
+
+\noindent Input :
+\begin{itemize}
+\item  The input file for this code contains the results of diagonalizing the mass-weighted hessian/force-constant matrix (2nd derivative of the Hamiltonian with respect to position). The input file for this project, \texttt{V3}, is provided for you. To help you understand the input file, please refer to \texttt{filenameformat.txt}. 
+\end{itemize}
+
+\noindent Output: There will be 3 output files generated. 
+\begin{itemize}
+\item  \texttt{V3.fc.tex} which contains the spectrum assignments, the relative Franck-Condon Factors and the signals. This is an executable latex document that will generate a nice pdf for easy viewing. The  {\it relative Franck-Condon Factor} is the FCF divided by that of the 00 band and does not contain the Boltzmann factor for temperature. The {\it signal} contains the Boltzmann factor and is the one reflected in the spectrum. 
+\item \texttt{V3.sticks.out} outputs the spectrum as ``sticks''
+\item \texttt{V3.spec.out} outputs the spectrum, smoothed by a Lorentzian function  
+\end{itemize}
+
+For those of you using MacOS or Linux, please do the following command in terminal in order to compile the program: \texttt{mv makefile-<your OS> makefile}. This copies the contents corresponding to your operating system into \texttt{makefile}. If you are running Windows, compiling \texttt{C++} code is a little different. We tested Task \#2 using VSCode and everything worked just fine.\footnote{See the documentation on the VSCode website on how to \href{https://code.visualstudio.com/docs/cpp/config-mingw}{``Get Started with C++ in VSCode''}.} 
 
 \subsubsection*{Task \#3}
-
-In this task, you will be simulating a Gaussian Boson Sampling (GBS) ``experiment." This code generates samples for computing a vibronic spectrum. Each sample that is generated starts from the vacuum state and the following gates are performed\cite{killoran2019strawberry, bromley2020applications}.
-
-\noindent This code takes as input a file which requires the following information:
+In this task, you will be simulating a Gaussian Boson Sampling (GBS) ``experiment." This code generates samples for computing a vibronic spectrum. Each sample that is generated starts from the vacuum state and the following gates are performed\cite{killoran2019strawberry, bromley2020applications}:
 \begin{enumerate}
 \item Two-mode squeezing on all  $2N$  modes with parameters \texttt{t}
 \item Interferometer \texttt{U1} on the first $ N$ modes
 \item Squeezing on the first $N$ modes with parameters \texttt{r}
 \item Interferometer \texttt{U2} on the first  $N$ modes
-\item Displacement on the first  $N$ modes with parameters \texttt{alpha}
+\item Displacement on the first  $N$ modes with parameters \texttt{alpha} ~.
 \end{enumerate}
 
 The energy of the resultant state is calculated and contributes to the spectrum. After running this simulation over many samples and plotting the energies against their frequency, those states (energies) with a high Franck-Condon Factor will have a larger peak on the spectrum and those with a low Franck-Condon Factor will have a smaller peak. It is important to note that it's not the exact values of the peak heights that we care about in this case (since it's based on a probability distribution), it's the relative heights of the peaks of the spectrum.
 
+
 \hspace{20mm}
 
-You are provided with a \texttt{python} notebook called \texttt{Task3.ipynb} which calculates all of the information you require. You will be required to use the \texttt{Strawberry Fields} library\cite{killoran2019strawberry, bromley2020applications}. Click  \href{https://strawberryfields.readthedocs.io/en/stable/_static/install.html}{\underline{\textbf{here}}} for the install instructions. However, to be able to use this code, you require an input file, which you will have to create. To do this, we will leverage the fact that we have another code that has done this work already, \texttt{FC.cxx}, which you became familiar with in Task 2. Each piece of information that you need to output has been clearly marked in the code and your task is to write that information to a file, which will then be used as your input file to \texttt{Sample\_Vibronic.py}. Once you have that input file, you should be able to produce the spectrum for $V_3$. Compare this spectrum to the previous method. What happens if you decrease the number of samples to 10? 100? 1000? At what number of samples do you feel the spectrum is converged?
+Here's what we'd like you to do:
+\begin{enumerate}
+\item You are provided with a \texttt{python} notebook called \texttt{Task3.ipynb} which calculates all of the information you require. You will be required to use the \texttt{Strawberry Fields} library ~\cite{killoran2019strawberry,bromley2020applications}. Click  \href{https://strawberryfields.readthedocs.io/en/stable/_static/install.html}{\underline{\textbf{here}}} for the install instructions.
+    \item To be able to use this code, you require an input file which you will have to create. To do this, we will leverage the fact that we have another code that has done this work already, \texttt{FC.cxx}, which you became familiar with in Task 2.  Your task will be to write the required information from that code (they have been well marked) into a file, which will then be used as your input file to \texttt{Sample\_Vibronic.py}. You will use $V_3$ as your system of choice.
+     \item (Optional) The code currently uses a plotting program \texttt{plotly} which you may install, which outputs the spectrum as an interactive html page. However, if you wish, you may write the last piece of code to create the spectrum. If possible, include a Lorentzian smoothing in the same way as FC.cxx and directly compare the results from Task 2. You will notice that since we are using Gaussian Boson Sampling method to generate samples, we can only get ``relative'' peak heights, so you may need to scale the spectrum to agree.
+     \item Run the code to produce the $V_3$ spectrum at $T=500$K. Note, this code may take some time to run, so try with 10 samples to ensure it's working first and then try 20000 to get a smooth spectrum. Compare this spectrum to the previous method. What happens if you decrease the number of samples to 10? 100? 1000? At what number of samples do you feel the spectrum is converged? 
+\end{enumerate}
+
+\noindent This code takes as input a file which requires the following information:
+\begin{enumerate}
+    \item Number of atoms in the molecule
+    \item Vibrational frequencies of the molecule in the ground electronic state
+    \item Vibrational frequencies of the molecule in the excited electronic state
+    \item Duschinsky Matrix (encodes information on transformation between ground and excited electronic states)
+    \item Displacement vector
+\end{enumerate}
 
 \section*{Challenges}
 
 \begin{enumerate}
-    \item An alternative and analogous method to calculating these Franck-Condon Factors using matrix elements is to use a loop hafnian approach. This loop hafnian approach uses Gauss Boson Sampling which would allow these Factors to be calculated using a quantum circuit. Use the result of Task 3 to provide data to a skeleton code provided that uses loop hafnians to calculate the Franck-Condon Factors.
-    \item Explain briefly the similarities and differences between these three methods.
+    \item An alternative and analogous method to calculating these Franck-Condon Factors using matrix elements is to use a loop hafnian approach (see Ref.~\cite{quesadaFranckCondonFactorsCounting2019}) as opposed to the recursion relations of the Hermite polynomials, which improves the speed at which they can be calculated. This can be applied generally to Gaussian Boson Sampling of two multimode Fock states. Calculate the FCFs using this method.
+    \item Construct a Hamiltonian and diagonalize the mass-weighted Hamiltonian for another molecule and use the results as input for \texttt{FC.cxx}. Note: the calculation only works for non-linear molecules.
+    \item Explain briefly the similarities and differences between the three methods of calculating Franck-Condon Factors:
+    \begin{enumerate}
+    \item Using Hermite polynomials (\texttt{FC.cxx})
+    \item Using Gaussian Boson Sampling (\texttt{Sample\_Vibronic.py})
+    \item Loop hafnian approach (see Ref.~\cite{quesadaFranckCondonFactorsCounting2019})
+\end{enumerate}    
+    \item {\it Business Application:} These codes use General Public License and Apache 2.0 licenses. Discuss the similarities and differences of these with respect to intellectual property rights of the coder. What are the advantages and disadvantages of codes licensed for the public domain and those that are licensed for private use.
+
+    
+
 \end{enumerate}
 
-\section*{Possible Business Outcomes}
 
-\begin{enumerate}
-    \item Explain to a layperson what theoretical chemistry/physics is, in the general context of Franck-Condon Factors.
-    \item What is the importance of theoretical chemistry/physics from an economic point of view.
-    \item Explain to a layperson what a quantum circuit is and its relationship to theoretical chemistry/physics.
-    \item These codes use General Public License and Apache 2.0 licenses. Discuss the similarities and differences of these with respect to intellectual property rights of the coder. What are the advantages and disadvantages of codes licensed for the public domain and those that are licensed for private use.
-\end{enumerate}
 
 \newpage
 
