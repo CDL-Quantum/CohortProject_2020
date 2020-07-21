@@ -11,7 +11,7 @@ In our [Project3_LandingPage.pdf](https://github.com/CDL-Quantum/CohortProject_2
 # Tasks
 We calculate the Franck-Condon Factors (and spectra) of **molecular Hydrogen**, of more complex **molecule V<sub>3</sub>** and for the latter the same calculations using **vibronic sampling** using Gaussia Boson Sampler, a photonic special-purpose device by Xanadu programmed by their Strawberryfields software ramework.  
 The calculations for first task for the Hydrogen molecule can be found in [Task1 jupyter notebook](https://github.com/hay-k/CohortProject_2020_w3g7/blob/master/Project_3_Franck_Condon_Factors/Task1.ipynb). Particularly, we calculate transitions from n=0 state of $H_2$ to 10 other vibronic levels for $H_2^+$. The figures below show
-![](Vibronic_spectrum.png "our plot") ![](Berkowitz.png "Picture from Berkowitz, et. al") 
+![](Vibronic_spectrum.png "our catterplot") ![](Vibronic_spectrum.png "our plot: sticks")  ![](Berkowitz.png "Picture from Berkowitz, et. al") 
 
 
 ## Further Challenges:
