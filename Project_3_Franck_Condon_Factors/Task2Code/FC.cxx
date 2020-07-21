@@ -328,6 +328,45 @@ int main(int argc,char** argv)
   //d (Eq. 42c) in Quesada 2019 Paper
   vector delta=lambdaion*dvec;
 
+  /* 
+    start writing the file for GBS
+  */
+  std::strstream gbsfilename;
+  gbsfilename << "output/" << filenamein.str() << ".duschinsky.out" << ends;
+  ofstream gbsfile(gbsfilename.str());
+  
+  // write the number of atoms
+  gbsfile << natom << endl;
+
+  // write the normal frequencies of ground state
+  for (int i=0; i<N; i++) {
+    gbsfile << omega(i) << " ";
+  }
+  gbsfile << endl;
+
+  // write the normal frequencies of excited state
+  for (int i=0; i<N; i++) {
+    gbsfile << omegaion(i) << " ";
+  }
+  gbsfile << endl;
+
+  // write the Duschinsky matrix
+  for (int i=0; i<N; i++) {
+    for (int j=0; j<N; j++) {
+      gbsfile << Smat(i, j) << " ";
+    }
+    gbsfile << endl;
+  }
+
+  // write the displacement vector
+  for (int i=0; i<N; i++) {
+    gbsfile << delta(i) << " ";
+  }
+  gbsfile << endl;
+  /* 
+    end writing the file for GBS
+  */
+
   /*  <0|0> transition  */
   for (j=0;j<N;j++) int00*=(omegaion(j)/omega(j));
   int00=pow(int00,.25);
@@ -348,12 +387,12 @@ int main(int argc,char** argv)
 
   std::strstream specname;
   std::strstream specfname;
-  specname<<filenamein.str()<<".sticks.out"<<ends;
-  specfname<<filenamein.str()<<".spec.out"<<ends;
+  specname << "output/" << filenamein.str() << ".sticks.out" << ends;
+  specfname << "output/" << filenamein.str() << ".spec.out" << ends;
   ofstream spec(specname.str());
   ofstream specf(specfname.str());
   std::strstream fcfilename;
-  fcfilename<<filenamein.str()<<".fc.tex"<<ends;
+  fcfilename << "output/" << filenamein.str() << ".fc.tex"<<ends;
   ofstream fcfile(fcfilename.str());
 	fcfile<<"\\documentclass[12pt]{article}"<<std::endl;
 	fcfile<<"\\begin{document}"<<std::endl;
