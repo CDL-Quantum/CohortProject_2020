@@ -10,9 +10,10 @@ In the [Project3_LandingPage.pdf](https://github.com/CDL-Quantum/CohortProject_2
 
 # Tasks
 We calculate the Franck-Condon Factors (and spectra) of **molecular Hydrogen**, of more complex **Vanadium3 (V<sub>3</sub>) molecule**, and for the latter, the same calculations using **vibronic sampling** using Gaussia Boson Sampler - a photonic special-purpose device by Xanadu programmed by their Strawberryfields software ramework.  
-The calculations for first task for the Hydrogen molecule can be found in [Task1 jupyter notebook](https://github.com/hay-k/CohortProject_2020_w3g7/blob/master/Project_3_Franck_Condon_Factors/Task1.ipynb). Particularly, we calculate transitions from n=0 state of $H_2$ to 10 other vibronic levels for $H_2^+$. The figures below show
+The calculations for first task for the Hydrogen molecule can be found in [Task1 jupyter notebook](https://github.com/hay-k/CohortProject_2020_w3g7/blob/master/Project_3_Franck_Condon_Factors/Task1.ipynb). Particularly, we calculate transitions from n=0 state of $H_2$ to 10 other vibronic levels for $H_2^+$. The figures below show the simulation results from our code implemented in `FCF_helper.py` file which does all the calculations, and the snapshot below is from the paper by Berkowitz and Spohr. _Journal of Electron Spectroscopy and Related Phenomena_, **2**(2):143–152 (1973). The points or vertical bars in our plots correspond to the peak values in the original figure. We can see the great resemblance of our result with the original paper. 
 ![](Vibronic_spectrum.png "our catterplot") ![](Vibronic_sticks.png "our plot: sticks") 
-<img src="Berkowitz.png" width="1200"/> 
+<img src="Berkowitz.png" width="900"/> 
+
 
 
 ## Further Challenges:
