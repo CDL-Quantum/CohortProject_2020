@@ -6,12 +6,12 @@ In this project we calculate Franck-Condon Factors, which is related to the inte
 A very brief introduction to the main ideas behind the project are
 [here.](https://github.com/CDL-Quantum/CohortProject_2020/blob/master/CDL_2020_docs.pdf)
 
-In our [Project3_LandingPage.pdf](https://github.com/CDL-Quantum/CohortProject_2020/blob/master/Project_3_Franck_Condon_Factors/Project3_LandingPage.pdf), we provide more technical information about the chemistry and physics behind these Franck-Condon Factors.
+In the [Project3_LandingPage.pdf](https://github.com/CDL-Quantum/CohortProject_2020/blob/master/Project_3_Franck_Condon_Factors/Project3_LandingPage.pdf), a more technical information about the chemistry and physics behind these Franck-Condon Factors is given. There, you can also find the descriptions of whose solutions are provided below.
 
 # Tasks
-We calculate the Franck-Condon Factors (and spectra) of **molecular Hydrogen**, of more complex **molecule V<sub>3</sub>** and for the latter the same calculations using **vibronic sampling** using Gaussia Boson Sampler, a photonic special-purpose device by Xanadu programmed by their Strawberryfields software ramework.  
+We calculate the Franck-Condon Factors (and spectra) of **molecular Hydrogen**, of more complex **Vanadium3 (V<sub>3</sub>) molecule**, and for the latter, the same calculations using **vibronic sampling** using Gaussia Boson Sampler - a photonic special-purpose device by Xanadu programmed by their Strawberryfields software ramework.  
 The calculations for first task for the Hydrogen molecule can be found in [Task1 jupyter notebook](https://github.com/hay-k/CohortProject_2020_w3g7/blob/master/Project_3_Franck_Condon_Factors/Task1.ipynb). Particularly, we calculate transitions from n=0 state of $H_2$ to 10 other vibronic levels for $H_2^+$. The figures below show
-![](Vibronic_spectrum.png "our catterplot") ![](Vibronic_sticks.png "our plot: sticks")  ![](Berkowitz.png "Picture from Berkowitz, et. al") 
+![](Vibronic_spectrum.png "our catterplot") ![](Vibronic_sticks.png "our plot: sticks")  ![](Berkowitz.png "Picture from Berkowitz, et. al" =100x20) 
 
 
 ## Further Challenges:
