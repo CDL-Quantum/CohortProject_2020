@@ -1,17 +1,18 @@
 ![CDL 2020 Cohort Project](../figures/CDL_logo.jpg)
 ## Project 3: Franck-Condon Factors
 
-This project will guide you through calculating Franck-Condon Factors, which is related to the intensities in spectra of vibrational transitions across electronic surfaces. Spectra can be measured through experiments, but having accurate theoretical calculations of these Franck-Condon Factors allow scientists to instead predict these experimental results. This is especially useful if the chemical species is expensive, difficult to acquire or difficult to study or if the experiment itself is expensive or difficult.
+In this project we calculate Franck-Condon Factors, which is related to the intensities in spectra of vibrational transitions across electronic surfaces. Spectra can be measured through experiments, but having accurate theoretical calculations of these Franck-Condon Factors allow scientists to instead predict these experimental results. This is especially useful if the chemical species is expensive, difficult to acquire or difficult to study or if the experiment itself is expensive or difficult.
 
 A very brief introduction to the main ideas behind the project are
 [here.](https://github.com/CDL-Quantum/CohortProject_2020/blob/master/CDL_2020_docs.pdf)
 
-In our [Project3_LandingPage.pdf](https://github.com/CDL-Quantum/CohortProject_2020/blob/master/Project_3_Franck_Condon_Factors/Project3_LandingPage.pdf), we provide more technical information about the chemistry and physics behind these Franck-Condon Factors and we encourage you to explore more literature if interested.  Click on this link to begin learning about your tasks for this week!
+In our [Project3_LandingPage.pdf](https://github.com/CDL-Quantum/CohortProject_2020/blob/master/Project_3_Franck_Condon_Factors/Project3_LandingPage.pdf), we provide more technical information about the chemistry and physics behind these Franck-Condon Factors.
 
-## Tasks include:
-* Calculate the Franck-Condon Factors (and spectra) of molecular Hydrogen using a simple model
-* Calculate the Franck-Condon Factors (and spectra) of a more complex molecule (V<sub>3</sub>) using matrix elements
-* Calculate the Franck-Condon Factors (and spectra) of that molecule using vibronic sampling. This calculation involves Gaussian Boson Sampling (GBS), which would allow these factors to be calculated using a quantum circuit.
+# Tasks
+We calculate the Franck-Condon Factors (and spectra) of **molecular Hydrogen**, of more complex **molecule V<sub>3</sub>** and for the latter the same calculations using **vibronic sampling** using Gaussia Boson Sampler, a photonic special-purpose device by Xanadu programmed by their Strawberryfields software ramework.  
+The calculations for first task for the Hydrogen molecule can be found in [Task1 jupyter notebook](https://github.com/hay-k/CohortProject_2020_w3g7/blob/master/Project_3_Franck_Condon_Factors/Task1.ipynb](https://github.com/hay-k/CohortProject_2020_w3g7/blob/master/Project_3_Franck_Condon_Factors/Task1.ipynb). Particularly, we calculate transitions from n=0 state of $H_2$ to 10 other vibronic levels for $H_2^+$. The figures below show
+![](Vibronic spectrum.png "our plot") ![](Berkowitz.png "Picture from Berkowitz, et. al") 
+
 
 ## Further Challenges:
 * An alternative and analogous method to calculating these Franck-Condon Factors using matrix elements is to use a loop hafnian approach. This loop hafnian approach uses GBS which would allow these factors to be calculated using a quantum circuit. Use the result of Task 3 to provide data to a skeleton code provided that uses loop hafnians to calculate the Franck-Condon Factors.
