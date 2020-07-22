@@ -340,13 +340,13 @@ int main(int argc,char** argv)
 
   // write the normal frequencies of ground state
   for (int i=0; i<N; i++) {
-    gbsfile << omega(i) << " ";
+    gbsfile << omega(i) * hatocm << " ";
   }
   gbsfile << endl;
 
   // write the normal frequencies of excited state
   for (int i=0; i<N; i++) {
-    gbsfile << omegaion(i) << " ";
+    gbsfile << omegaion(i) * hatocm << " ";
   }
   gbsfile << endl;
 
