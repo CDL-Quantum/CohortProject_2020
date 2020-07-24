@@ -29,7 +29,6 @@ class FCFSpec():
         
         # unit analysis
         self.invcm_to_invEh = 1.0/219474.63136320
-        self.invcm_to_ev = 0.000123984
         self.amu_to_me = 1822.888486209
         self.ang_to_bohr = 1.88973     
         
@@ -43,7 +42,7 @@ class FCFSpec():
         self.omega_p = self.invcm_to_invEh*2322.0
         self.x_eq_0 = self.ang_to_bohr*0.742
         self.x_eq_p = self.ang_to_bohr*1.057
-        self.ionization_energy = self.invcm_to_invEh*124418.457
+        self.ionization_energy = 124418.457
 
     def initialize_integration_params(self):
         # to calculate overlap integral numerically
@@ -55,7 +54,7 @@ class FCFSpec():
         return self.omega_0*(n + 0.5) / self.invcm_to_invEh
 
     def H2p_energy(self, n):
-        return (self.omega_p*(n + 0.5) + self.ionization_energy) / self.invcm_to_invEh
+        return self.omega_p*(n + 0.5) / self.invcm_to_invEh + self.ionization_energy
 
     def H2_psi(self, x, n):
         # n'th harmonic wavefunction for H2  
@@ -106,7 +105,7 @@ class FCFSpec():
                 data[0] = k
                 data[1] = l
                 data[2] = FCF
-                data[3] = (Ep - E0) * self.invcm_to_ev
+                data[3] = Ep - E0
 
                 all_data.append(data)
 
