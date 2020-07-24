@@ -295,7 +295,15 @@ Once you've mastered these techniques and have finished the tasks, you're encour
 
 \subsection{Week 4: Ising Annealer}
 
-Numerical methods are often developed with little consideration for application in the sciences. Early Monte Carlo methods were no exception. Initially, Monte Carlo methods were designed to approximate very difficult integrals (i.e. functions that behave unidealy and very high dimensional integrals). We encourage you to visit the Wikipedia article\footnote{\href{http://en.wikipedia.org/wiki/Monte\_Carlo\_integration}{wikipedia.org/wiki/Monte\_Carlo\_integration}} on MC integration methods. There are some interesting examples to work through! For now, let's focus on how we will be employing MC methods to solve your week 4 tasks. 
+This week we will return to the problem of electronic structure.  Like you've encountered many times by now, a central problem in quantum chemistry is finding the lowest 
+energy of a given Hamiltonian.  We've explored several ways of obtaining groundstates of diatomic molecules, such as machine learning
+and VQE.  At the heart of these and other methods lies an {\it optimization problem}, which asks what is the ``best'' configuration among a number of choices.
+As we will see this week, one strategy to solve for the groundstate of electronic structure Hamiltonians is to map the problem to an effective classical problem
+(e.g.~a generalized Ising model),
+then to employ classical numerical methods to attempt to solve the optimization problem.  We will use Monte Carlo methods which implements thermal
+{\it annealing} for this task.
+
+Numerical methods are often developed with little consideration for application in the sciences. Early Monte Carlo methods were no exception. Initially, Monte Carlo methods were designed to approximate very difficult integrals (i.e. functions that behave poorly, and very high dimensional integrals). We encourage you to visit the Wikipedia article\footnote{\href{http://en.wikipedia.org/wiki/Monte\_Carlo\_integration}{wikipedia.org/wiki/Monte\_Carlo\_integration}} on MC integration methods. There are some interesting examples to work through! For now, let's focus on how we will be employing MC methods to solve your week 4 tasks. 
 
 \subsubsection{Monte Carlo Simulations (Metropolis-Hastings)}
 
