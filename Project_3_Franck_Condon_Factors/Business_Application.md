@@ -16,6 +16,9 @@ The focus of this project is to study spectroscopy from a quantum viewpoint. The
 
 #### Astronomical Studies:
   >Astronomers leverage astronomical spectroscopy in the study of chemical compositions belonging to distant stars. The absorption lines of the sun and the emission spectra of different gases help identify the chemical constituents of the stars.
+  
+#### Food and Beverage:
+>The food industry currently leverages spectroscopy in the analyses required to improve the quality control of foods and beverages. Vendors can determine the falsification, adulterations, identification of origin, the origin and variety of wine. 
 
 ## Step 3: Identify at least one potential customer for this solution - ie: a business who has this problem and would consider paying to have this problem solved
 
