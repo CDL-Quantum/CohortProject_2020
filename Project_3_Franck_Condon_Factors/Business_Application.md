@@ -1,4 +1,7 @@
 ![CDL 2020 Cohort Project](../figures/CDL_logo.jpg)
+
+**TODO** let's give a name to the Business Application, note to remove the text about each " ... each weekly project ..." and at the end about the "Example: By travelling to all destinations ..." we will have to add refernces to Liv-ex and the other sources for statistical data...
+
 # Quantum Cohort Project Business Application
 
 For each weekly project, your team is asked to complete the below business application exercise.
@@ -10,7 +13,7 @@ A brief example for each question is included for the
 [Traveling Salesman Problem.](https://en.wikipedia.org/wiki/Travelling_salesman_problem)
 
 ## Step 1: Explain the technical problem you solved in this exercise
-The focus of this project is to study spectroscopy from a quantum viewpoint. The Frank Codon Factor explains the intensity of vibronic transitions. Vibronic transitions are the changes in the electronic and vibrational energy of molecules when interacting with electromagnetic radiation. Spectroscopy is the study of matter and its interaction with electromagnetic radiation. Through spectroscopy and Frank Codon Factors, we can study and understand the properties of molecules. 
+The focus of this project is to study spectroscopy from a quantum viewpoint. The Frank Condon Factor explains the intensity of vibronic transitions. Vibronic transitions are the changes in the electronic and vibrational energy of molecules when interacting with electromagnetic radiation. Spectroscopy is the study of matter and its interaction with electromagnetic radiation. Through spectroscopy and Frank Condon Factors, we can study and understand the properties of molecules. 
 
 ## Step 2: Explain or provide examples of the types of real-world problems this solution can solve
 
@@ -18,7 +21,7 @@ The focus of this project is to study spectroscopy from a quantum viewpoint. The
   >Astronomers leverage astronomical spectroscopy in the study of chemical compositions belonging to distant stars. The absorption lines of the sun and the emission spectra of different gases help identify the chemical constituents of the stars.
   
 #### Food and Beverage:
-  >The food industry currently leverages spectroscopy in the analyses required to improve the quality control of foods and beverages. Vendors can determine the falsification, adulterations, identification of origin, the origin and variety of wine. 
+  >The food industry currently leverages spectroscopy in the analyses required to improve the quality control of foods and beverages. Vendors can determine the falsification, adulterations, identification of origin, the origin and variety of food, beverages, and especially wine. 
   
 #### Forensic Applications
   >Forensic Scientists will use spectroscopy for :
