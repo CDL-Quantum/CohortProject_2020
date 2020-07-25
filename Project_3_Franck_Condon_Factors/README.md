@@ -70,6 +70,7 @@ We investigate the advantages and disadvantages of codes licensed for the public
 From the business perspective, we first provide a non-technical description of the problem, then we give examples of real-world problems that could use the above methods. We then identify two potential customers who would consider paying to have this problem solved. Finally we present a short video explaining in a non-technical language the value proposition of these innovations to the potential customers.  
 For more details refer to the [Business Application found here](./Business_Application.md)
 
+**TODO:** remove the text below after verifing the tasks and so on ... 
 ## Presenting your results in your pull request
 For your pull request, consider the following for the presentation of your final results:
 - Work entirely in the directory for Project 3.
