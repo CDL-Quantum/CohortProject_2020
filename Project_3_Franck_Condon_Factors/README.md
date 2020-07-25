@@ -32,15 +32,14 @@ In this challenge we are given a freedom to pick a molecule of our liking, and i
 
 **Challenge 3:** 
 We analyze and report all the advantages and disadvantages of all tools used above to calculate the Franck-Condon factors (FCFs). Three methods are carried out using: (a) Hermite polynomials, (b) Gaussian boson sampling (GBS) and (c) loop Hafnian approach.
-In all three methods, the determination of the FCFs is the same: calculate the square of the overlap between a _vibronic state within electronic ground_ state and another _vibronic state within electronic excited state_ (these states are connected by the arrow in the figure).   
+In all three methods, the determination of the FCFs is the same: calculate the square of the overlap between a _vibronic state within electronic ground_ state and another _vibronic state within electronic excited state_ (these states are connected by the arrow in the figure). Also common to all three methods is that all are in the harmonic oscillator approximation regime where one approximates the region near the minima in the above curves as parabolas. The disadvantage is that it deviates from correct results in the regions where the exact energy surface is no longer an approximation of parabola. These are the regions where the interatomic distances are too small or too large. 
 <div style="text-align:center"><img src="figures/potential_energy_curve.png" width="250"/></div> 
 
-In the Hermite polynomial approach, one approximates the region near the minimums in the above curves as parabola. Then the energy levels are those of a harmonic oscilator, for which case the states are the elegant Hermite polynomials. 
-<div style="text-align:center"><img src="figures/Harmonic_Oscillator.png" width="200"/></div>  
+<div style="text-align:center"><img src="figures/Harmonic_Oscillator.png" width="200"/></div>
+In the Hermite polynomial approach, one directly uses the states of harmonic oscillator, which involves the elegant Hermite polynomials. <div style="text-align:center"><img src="https://render.githubusercontent.com/render/math?math=\psi_{v,n}(x) = \frac{1}{\sqrt{2^n n!}}\Big(\frac{\mu\omega}{\pi\hbar}\Big)\exp{\Big(-\frac{\mu\omega(x-x_{eq})^2}{2\hbar}\Big)}H_n\Big(\sqrt{\frac{\mu\omega}{\hbar}}(x-x_{eq})\Big) \hspace{2cm} n=0,1,2,\ldots " width="700"></div> 
+While it's easer to compute FCF's using Hermite polynomials, one cannot use this method to go beyond the diatomic molecules. In the case of non-linear molecules with more than 2 atoms, the `FC.cxx` tool has funcionality to compute the FCFs via Duschinsky matrix. These approaches are used in Tasks 1 and 2. 
 
-<div style="text-align:center"><img src="https://render.githubusercontent.com/render/math?math=H_n(x) = (-1)^n e^{x^2} \frac{d^n}{dx^n}e^{-x^2}" width="250"></div>    
-
-
+In the GBS approach, one relies on sampling approach instead of calculating "exact" probabilities. In this sampling approach, one uses the fact that the normal modes in the harmonic approximation regime are bosonic modes, hence the Gaussian boson sampler (GBS) nicely fits for computing the FCFs. While this method is impractical to simulate classically, one could use the GBS hardware to sample...
 
 **Challenge 4:** 
 We investigate the advantages and disadvantages of codes licensed for the public domain and those that are licensed for private use
