@@ -18,7 +18,19 @@ The focus of this project is to study spectroscopy from a quantum viewpoint. The
   >Astronomers leverage astronomical spectroscopy in the study of chemical compositions belonging to distant stars. The absorption lines of the sun and the emission spectra of different gases help identify the chemical constituents of the stars.
   
 #### Food and Beverage:
->The food industry currently leverages spectroscopy in the analyses required to improve the quality control of foods and beverages. Vendors can determine the falsification, adulterations, identification of origin, the origin and variety of wine. 
+  >The food industry currently leverages spectroscopy in the analyses required to improve the quality control of foods and beverages. Vendors can determine the falsification, adulterations, identification of origin, the origin and variety of wine. 
+  
+#### Forensic Applications
+  >Forensic Scientists will use spectroscopy for :
+  
+>Toxicology Analysis:
+	Forensic analysts can identify the presence of toxic substances and their concentrations found in tissue samples and bodily fluids. Investigators can gain valuable information about the time and dosage of any poison. 
+  
+>Trace Evidence:
+	Investigators can analyze trace elements such as fibers, glass fragments, or paint flakes. Spectroscopy can determine the exact combination of dyes used in carpet fibers and constituent components of any material analyzed. 
+  
+>Arson Investigations:
+	investigators can analyze any residue found at a crime scene and generate accurate reports on the molecular makeup of the substance.
 
 ## Step 3: Identify at least one potential customer for this solution - ie: a business who has this problem and would consider paying to have this problem solved
 
