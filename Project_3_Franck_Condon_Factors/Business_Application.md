@@ -13,7 +13,7 @@ A brief example for each question is included for the
 [Traveling Salesman Problem.](https://en.wikipedia.org/wiki/Travelling_salesman_problem)
 
 ## Step 1: Explain the technical problem you solved in this exercise
-The focus of this project is to study spectroscopy from a quantum viewpoint. The Frank Condon Factor explains the intensity of vibronic transitions. Vibronic transitions are the changes in the electronic and vibrational energy of molecules when interacting with electromagnetic radiation. Spectroscopy is the study of matter and its interaction with electromagnetic radiation. Through spectroscopy and Frank Condon Factors, we can study and understand the properties of molecules. 
+The focus of this project is to study spectroscopy from a quantum viewpoint. The Frank Condon Factor explains the intensity of vibronic transitions. Vibronic transitions are the changes in the electronic and vibrational energy of molecules when interacting with electromagnetic radiation. Spectroscopy is the study of matter and its interaction with electromagnetic radiation. Through spectroscopy and Frank Condon Factors, we can study and understand the properties of molecules. A comparison of the spectroscopic data from a sample can tell us about its temperature and chemical composition. The spectroscopic data is a fingerprint! It can be compared to other well-known sample templates to pin-down the origin and location of the sample.
 
 ## Step 2: Explain or provide examples of the types of real-world problems this solution can solve
 
