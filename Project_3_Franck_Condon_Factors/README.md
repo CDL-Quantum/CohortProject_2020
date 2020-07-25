@@ -15,7 +15,7 @@ On the technical side, we are studying different theoretical methods to investig
 **Task 1:**   
 In this task we use a very simple theoretical model to study the properties of the simplest molecule in the world, **molecular Hydrogen**. The purpose of this task is twofold - a) this is educational, and any newcommer to the field can quickly get familiar with the technical basics; b) In this task we show, that the basic theoretical model (harmonic oscillator approximation) used throughout the project is sound. To this end, we do the theoretical calculations for hydrogen, then compare the results with actual experimental data, and verify that the theory gives correct predictions.  
 The calculations for first task for the Hydrogen molecule can be found in [Task1 jupyter notebook](https://github.com/hay-k/CohortProject_2020_w3g7/blob/master/Project_3_Franck_Condon_Factors/Task1.ipynb). Particularly, we calculate transitions from n=0 state of H<sub>2</sub> to 10 other vibronic levels for H<sub>2</sub><sup>+</sup>. The figures below show the simulation results from our code implemented in `FCF_helper.py` file which does all the calculations, and the snapshot below is from the paper by Berkowitz and Spohr, _Journal of Electron Spectroscopy and Related Phenomena_, **2**(2):143–152 (1973). The points or vertical bars in our plots correspond to the peak values in the original figure. We can see the great resemblance of our result with the original paper.                                                                              
-![](figures/Vibronic_spectrum.png "our catterplot") ![](figures/Vibronic_sticks.png "our plot: sticks")  
+![](figures/Vibronic_spectrum.png "our scatterplot") ![](figures/Vibronic_sticks.png "our plot: sticks")  
 <img src="figures/Berkowitz.png" width="850"/> 
 
 **Task 2:**  
@@ -31,7 +31,16 @@ In this challenge we further investigate the tool introduced in Task3 to reveal 
 In this challenge we are given a freedom to pick a molecule of our liking, and investigate its properties. As discussed during the call, this is a good point for business proposal entrance, so we need to choose a nice molecule for investigation, which can have some interesting business applications
 
 **Challenge 3:** 
-We analyze and report all the advantages and disadvantages of all tools used above.
+We analyze and report all the advantages and disadvantages of all tools used above to calculate the Franck-Condon factors (FCFs). Three methods are carried out using: (a) Hermite polynomials, (b) Gaussian boson sampling (GBS) and (c) loop Hafnian approach.
+In all three methods, the determination of the FCFs is the same: calculate the square of the overlap between a _vibronic state within electronic ground_ state and another _vibronic state within electronic excited state_ (these states are connected by the arrow in the figure).   
+<div style="text-align:center"><img src="figures/potential_energy_curve.png" width="250"/></div> 
+
+In the Hermite polynomial approach, one approximates the region near the minimums in the above curves as parabola. Then the energy levels are those of a harmonic oscilator, for which case the states are the elegant Hermite polynomials. 
+<div style="text-align:center"><img src="figures/Harmonic_Oscillator.png" width="200"/></div>  
+
+<div style="text-align:center"><img src="https://render.githubusercontent.com/render/math?math=H_n(x) = (-1)^n e^{x^2} \frac{d^n}{dx^n}e^{-x^2}" width="250"></div>    
+
+
 
 **Challenge 4:** 
 We investigate the advantages and disadvantages of codes licensed for the public domain and those that are licensed for private use
