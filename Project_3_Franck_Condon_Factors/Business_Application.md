@@ -1,6 +1,6 @@
 ![CDL 2020 Cohort Project](../figures/CDL_logo.jpg)
 
-**TODO** let's give a name to the Business Application, note to remove the text about each " ... each weekly project ..." and at the end about the "Example: By travelling to all destinations ..." we will have to add refernces to Liv-ex and the other sources for statistical data...
+**TODO** let's give a name to the Business Application, note to remove the text about each " ... each weekly project ..." and at the end about the "Example: By travelling to all destinations ..." we will have to add references to Liv-ex and the other sources for statistical data...
 
 # Quantum Cohort Project Business Application
 
