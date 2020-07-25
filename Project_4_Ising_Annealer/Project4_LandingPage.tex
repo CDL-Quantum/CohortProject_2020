@@ -41,9 +41,7 @@ This week, we'll re-cast the problem into one that can be explored with the well
 At the end of a Monte Carlo simulation we do not obtain a compressed version of something much larger (like the wavefunction).
 Rather, we use a Monte Carlo procedure to produce samples, correctly distributed, from a low-energy state.
 
-%%%%
-{\it Motivate Annealing here}
-%%%%
+Thermal annealing exploits thermal fluctuations to discover the groundstate of a system. In a Monte Carlo simulation the temperature can be slowly decreased. If this decrease is slow enough the system remains close to equilibrium, and at the end of annealing the typical configurations encountered will be those typical of the system in its groundstate.\footnote{Of course, in addition to thermal fluctuations, one can envision the use of quantum fluctuations to accelerate the exploration of the configuration space in a similar manner}
 
 Monte Carlo simulations can be {\it very, very} efficient and fast.\footnote{You now see the daily struggles of computational scientists: which algorithm or method do I use to solve my problem?!} This week, your tasks will involve the use of a single-spin-flip Metropolis-Hastings (MH) MC simulation. Let's dive into your tasks!
 

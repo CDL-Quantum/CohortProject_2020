@@ -311,7 +311,8 @@ In statistical physics at finite temperature, the partition function,
 \begin{equation} \label{eq:partition_fn}
     Z = \sum_{\sigma} e^{-\beta E(\sigma)},
 \end{equation}
-is what we wish to calculate in order to fully determine the equilibrium properties of a system of interest. Here, $\sigma$ describes one of many possible microscopic configurations that a system can be in, $E(\sigma)$ is the corresponding energy of the configuration $\sigma$, and $\beta \propto \frac{1}{T}$ where $T$ is the temperature of the system. It turns out the the probability of the system being in a configuration $\sigma$ is\footnote{We are disregarding any degeneracies here.}
+is what we wish to calculate in order to fully determine the equilibrium properties of a system of interest. Here, $\sigma$ describes one of many possible microscopic configurations that a system can be in, $E(\sigma)$ is the corresponding energy (the classical Hamiltonian)
+of the configuration $\sigma$, and $\beta \propto \frac{1}{T}$ where $T$ is the temperature of the system. It turns out the the probability of the system being in a configuration $\sigma$ is\footnote{We are disregarding any degeneracies here.}
 \begin{equation} \label{eq:probability}
     p(\sigma) = \frac{e^{-\beta E(\sigma)}}{Z}.
 \end{equation}
@@ -336,7 +337,9 @@ Of course, we've intentionally kept this introduction to Monte Carlo methods ver
 
 \subsubsection{Annealing}
 
-MC simulations that use the single-flip MH algorithm as outlined previously work well in a lot of cases. However, sometimes these simulations fail at lower and lower temperatures. Consider for moment that we performed a MC simulation at a higher temperature $T_1$ and we've obtained good samples from the system of interest at temperature $T_1$. If we were to look at the system at a slightly lower temperature $T_1 - \varepsilon$, where $\varepsilon << 1$, we should expect that the samples we obtained from the simulation at $T_1$ would be very similarly distributed to samples obtained from a good simulation at $T_1 - \varepsilon$. So, if we use the samples from the $T_1$ simulation as our starting configurations for a simulation at $T_1 - \varepsilon$ we should have a much easier time with completing a simulation at $T_1 - \varepsilon$.
+MC simulations that use the single-flip MH algorithm as outlined previously work well in a lot of cases. However, sometimes these simulations fail at lower and lower temperatures, since single-spin flips can easily get ``stuck'' in configurations that don't contribute much to the groundstate distribution.  In order to combat this, the simulation can be slowly cooled toward the groundstate.
+
+Consider for moment that we performed a MC simulation at a higher temperature $T_1$ and we've obtained good samples from the system of interest at temperature $T_1$. If we were to look at the system at a slightly lower temperature $T_1 - \varepsilon$, where $\varepsilon << 1$, we should expect that the samples we obtained from the simulation at $T_1$ would be very similarly distributed to samples obtained from a good simulation at $T_1 - \varepsilon$. So, if we use the samples from the $T_1$ simulation as our starting configurations for a simulation at $T_1 - \varepsilon$ we should have a much easier time with completing a simulation at $T_1 - \varepsilon$.
 
 Suppose now that our end goal is to have samples from a system at a temperature $T_2$ and that performing a MC simulation directly at $T_2$ is difficult. However, a MC simulation at $T_1$ is relatively easy. A procedure to get to an efficient simulation at $T_2$ is if we do exactly what was outlined above but many, many more times until we reach $T_2$. This is called an {\it annealing procedure}. 
 
