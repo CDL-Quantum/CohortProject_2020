@@ -55,9 +55,12 @@ where $\sigma_i$ are classical spin-$1/2$ variables ($-1$ or $1$). You will be w
 
 \subsubsection*{Task \#1}
 
-Navigate to the \texttt{Task\_1.ipynb} notebook. We've given you a full solution to a MC simulation employing the MH algorithm for a 2D ferromagnetic ($J > 0$) on a square lattice with periodic boundary conditions. Code blocks 1 to 5 outline a MC simulation for this system for a temperature $T = 1.0$. After this, we now wish to perform a simulation at a temperature $T_{\text{final}} = 0.01$ using an annealing procedure starting at $T_{\text{initial}} = 100$. Here, we employed an annealing procedure that decreases $T_{\text{initial}}$ exponentially (see code block 7). Run this notebook and make sure that you understand what is going on under the hood (see \texttt{abstract\_ising.py} and \texttt{ising\_animator.py}).
+Navigate to the \texttt{Task\_1.ipynb} notebook. We've given you a full solution to a MC simulation employing the MH algorithm for a 2D ferromagnetic ($J > 0$) on a square lattice with periodic boundary conditions. Code blocks 1 to 5 outline a MC simulation for this system for a temperature $T = 1.0$. After this, we now wish to perform a simulation at a temperature $T_{\text{final}} = 0.01$ using an annealing procedure starting at $T_{\text{initial}} = 100$. Here, we employed an annealing procedure that decreases $T_{\text{initial}}$ exponentially (see code block 7). Run this notebook and make sure that you understand what is going on under the hood (see \texttt{abstract\_ising.py} and \texttt{ising\_animator.py}).  
 
 \subsubsection*{Task \#2}
+
+Above, we used an exponential annealing ``schedule''.  However, there are many other functional forms that you could use to define the annealing procedure (e.g.~linear).
+In this task you should explore different possibilities, to see what works best (by giving the lowest energy at the end of the anneal).
 Navigate to \texttt{Task\_2.ipynb}. Here's what we'd like you to do!
 \begin{enumerate}
     \item Having understood Task \#1, we're now going to task you with finding an annealing procedure for the random-bond Ising model in 1D,
@@ -135,6 +138,10 @@ Hamiltonian in order to find the ground state energy of $H_2$.
           Compare the energies you get from annealing this Hamiltonian to the energies
           you got from applying annealing to the original $k$-local Hamiltonian. Does it seem to
           be more or less difficult to find the ground state with classical thermal annealing?
+
+\item If you have a trustworthy $2$-local Hamiltonian from the above challenge, compare your home-grown 
+	thermal annealing procedure to open-source commercial software (e.g.~D-Wave Leap).  Benchmark
+	performance.  Contrast and compare any differences in annealing approaches.
 
     \item Map your favorite NP-complete complete Hamiltonian to an Ising Spin Glass, and perform
           an annealed MC simulation to try to solve to problem. See \cite{ising_np} for some

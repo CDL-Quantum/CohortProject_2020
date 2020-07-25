@@ -18,6 +18,7 @@ Click on this link to begin learning about your tasks for this week!
 ## Further Challenges:
 * Explore the annealing procedure on the Mattis glass.
 * Devise a 2-local Ising Hamiltonian for the Hydrogen molecule, and compare your results.
+* Solve your 2-local Hamiltonian (or any Hamiltonian) on open-source commercial software, and compare the performance.
 * Go wild and try thermal annealing on your favorite NP-hard problem!
 
 ## Business Application
