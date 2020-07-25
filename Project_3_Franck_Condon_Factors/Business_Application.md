@@ -14,7 +14,8 @@ The focus of this project is to study spectroscopy from a quantum viewpoint. The
 
 ## Step 2: Explain or provide examples of the types of real-world problems this solution can solve
 
-Example: A courier has to deliver parcels to several locations and is looking to minimize its travel time. (e.g., “the travelling salesman problem”).
+#### Astronomical Studies:
+  >Astronomers leverage astronomical spectroscopy in the study of chemical compositions belonging to distant stars. The absorption lines of the sun and the emission spectra of different gases help identify the chemical constituents of the stars.
 
 ## Step 3: Identify at least one potential customer for this solution - ie: a business who has this problem and would consider paying to have this problem solved
 
