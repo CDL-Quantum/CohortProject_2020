@@ -10,8 +10,7 @@ A brief example for each question is included for the
 [Traveling Salesman Problem.](https://en.wikipedia.org/wiki/Travelling_salesman_problem)
 
 ## Step 1: Explain the technical problem you solved in this exercise
-
-Example: Finding a global minimum in settings where a classical approach may not be able to find a global minimum.
+The focus of this project is to study spectroscopy from a quantum viewpoint. The Frank Codon Factor explains the intensity of vibronic transitions. Vibronic transitions are the changes in the electronic and vibrational energy of molecules when interacting with electromagnetic radiation. Spectroscopy is the study of matter and its interaction with electromagnetic radiation. Through spectroscopy and Frank Codon Factors, we can study and understand the properties of molecules. 
 
 ## Step 2: Explain or provide examples of the types of real-world problems this solution can solve
 
