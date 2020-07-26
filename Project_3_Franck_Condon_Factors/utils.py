@@ -53,40 +53,66 @@ def get_state(
     return eng.run(prog).state
 
 
-def lorentzian_smoothing(sticks, gamma=100.0):
+def lorentzian_smoothing(sticks, gamma=100.0, points=1000):
+    """
+    Lorentzian smothing of sticks containting intensities of energies. Intensity here is a 
+    broad term, it can be the FCF factors, counts, etc.
+    
+    Args:
+        sticks: 2D numpy array [[energies], [intensities]]
+        points: Number of points to divide the interval into
+        gamma: The width (at half maximum) of Lorentzian function
+        
+    Return:
+        A 2D numpy array of size points*points containing [[energies], [smoothed_intensities]]
+    """
     energies = sticks[0, :]
-    FCFs = sticks[1, :]
+    intensities = sticks[1, :]
     
-    emin = min(energies) - 1000
-    emax = max(energies) + 1000
+    _min, _max = min(energies), max(energies)
+    emin = _min - 0.1 * (_max - _min)
+    emax = _max + 0.1 * (_max - _min) 
     
-    x = np.linspace(emin, emax, int(emax - emin))
-    y = 0
-    for energy, FCF in zip(energies, FCFs):
-        y += FCF / (1 + ((x - energy) **2 / ((gamma / 2) **2)))
+    x = np.linspace(emin, emax, points)
+    y = np.zeros(points)
+    for energy, intensity in zip(energies, intensities):
+        y += intensity / (1 + ((x - energy) **2 / ((gamma / 2) **2)))
         
     return np.vstack([x, y])
 
 
-def plot_spectrum(sticks, title, smoothing=True):
+def plot_spectrum(sticks, description, xlim=None, smoothing=True, gamma=100.0, points=None):
+    """
+    Args:
+        sticks: Spectrum sticks to plot. 2D numpy array [[energies], [intensities]]
+        xlim: tuple (xmin, xmax)
+        description: dictionary, containing title, xlabel, ylabel
+        smoothing: If True, does Lorentzian smoothing and plots it as well
+        points: If smoothing=True, indicates the number of points to use within the energy spaning interval
+    """
     energies = sticks[0, :]
     FCFs = sticks[1, :]
     
+    if xlim:
+        plt.xlim(xlim[0], xlim[1])
+        
     plt.vlines(energies, 0, FCFs)
     if (smoothing):
-        ls = lorentzian_smoothing(sticks)
+        if not points:
+            points = int(max(energies) - min(energies))
+        ls = lorentzian_smoothing(sticks, gamma=gamma, points=points)
         plt.plot(ls[0, :], ls[1, :])
     
-    plt.title(title)
-    plt.xlabel('Energy ($cm^{-1}$)')
-    plt.ylabel('Intensity')
+    plt.title(description.get('title', ''))
+    plt.xlabel(description.get('xlabel', ''))
+    plt.ylabel(description.get('ylabel', ''))
     plt.show()
     
 
-def plot_spectrum_from_samples(energies, title, smoothing=True): 
+def plot_spectrum_from_samples(energies, description, xlim=None, smoothing=True, gamma=100.0,  points=1000): 
     energy_counts = {}
     for e in energies:
         energy_counts[e] = energy_counts.get(e, 0) + 1
     
     sticks = np.vstack([list(energy_counts.keys()), list(energy_counts.values())])
-    plot_spectrum(sticks, title, smoothing)
+    plot_spectrum(sticks, description, xlim, smoothing, gamma, points)
