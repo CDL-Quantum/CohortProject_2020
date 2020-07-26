@@ -56,9 +56,9 @@ Also common to all three methods is that all are in the harmonic oscillator appr
 </p>  
 Then the formula for calculating the FCF is given by  
 <p align="center">
-<img src="https://render.githubusercontent.com/render/math?math=\text{FCF} = \text{overlap}(\psi_{v,before}(x), \psi_{v,after}(x)) " width="400">
+<img src="https://render.githubusercontent.com/render/math?math=\text{FCF} = \text{overlap}\langle\psi_{\text{v,before}}(x), \psi_{\text{v,after}}(x)\rangle" width="400">
 </p>  
-where the overlap can be understood as dot product. 
+where <img src="https://render.githubusercontent.com/render/math?math=\psi_{\text{v,before/after}}" width="100"> is the state before/after the transition and the overlap can be understood as dot product. This calculation is implemented in the `FCF_helper.py` file. 
 While it's easer to compute FCF's using Hermite polynomials, one cannot use this method to go beyond the diatomic molecules. In the case of non-linear molecules with more than 2 atoms, the `FC.cxx` tool has funcionality to compute the FCFs via Duschinsky matrix. These approaches are used in Tasks 1 and 2. 
 
 - In the GBS approach, one relies on sampling instead of calculating "exact" probabilities. In this sampling approach, one uses the fact that the normal modes in the harmonic approximation regime are bosonic modes, hence the Gaussian boson sampler (GBS) nicely fits for computing the FCFs. While this method is impractical to simulate classically, one could use the GBS hardware to sample.
