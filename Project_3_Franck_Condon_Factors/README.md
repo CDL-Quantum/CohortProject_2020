@@ -41,8 +41,10 @@ In this challenge we further investigate the tool introduced in Task3 to reveal 
 </p>
 
 **Challenge 2:**   
-**Todo: Rewrite this section in accord with work done (or remove)**  
-In this challenge we are given a freedom to pick a molecule of our liking, and investigate its properties. As discussed during the call, this is a good point for business proposal entrance, so we need to choose a nice molecule for investigation, which can have some interesting business applications. 
+In this challenge we are given a freedom to pick a molecule of our liking, and investigate its properties. As a nice molecule for investigation, we chose ammonia NH<sub>3</sub>. The reason for the choice is connected to the business application where we discuss the role of spectroscopy in "wine authentication". Nitrogenous compounds are a vital part of all living organisms and plays a vital role in the winemaking process. Ammonia is one of the essential nitrogenous compounds. Ammonia’s role in the fermentation process is it helps serve as nutrients for growth and metabolic activity of yeast during fermentation.  
+The challelnge 2 computations are added to the [Task 2 jupyter notebook](https://github.com/hay-k/CohortProject_2020_w3g7/blob/master/Project_3_Franck_Condon_Factors/Task2.ipynb) where we use external resources to solve the task. Particularly, we take the geometrical data for NH<sub>3</sub> and NH<sub>3</sub><sup>+<sup> from the [NIST website](https://cccbdb.nist.gov/geom1x.asp), then we use `pyscf` library to preprocess the data before creating the format (via `dump_frequency_analysis` function in `utils.py`) needed to prceed with the usual steps.
+
+
 
 **Challenge 3:** 
 We analyze and report all the advantages and disadvantages of all tools used above to calculate the Franck-Condon factors (FCFs). Three methods are carried out using: (a) **Hermite polynomials**, (b) **Gaussian boson sampling** (GBS) and (c) **loop Hafnian** approach.
@@ -58,7 +60,9 @@ Then the formula for calculating the FCF is given by
 <p align="center">
 <img src="https://render.githubusercontent.com/render/math?math=\text{FCF} = \text{overlap}(\psi_{\text{v,before}}(x), \psi_{\text{v,after}}(x)) " width="400">
 </p>  
-where <img src="https://render.githubusercontent.com/render/math?math=\psi_{\text{v,before / after}}" width="90"> is the state before/after the transition, and the overlap can be understood as dot product. This calculation is implemented in the `FCF_helper.py` file. 
+
+where <img src="https://render.githubusercontent.com/render/math?math=\psi_{\text{v,before / after}}" width="90"> is the state before/after the transition, and the overlap can be understood as dot product. 
+This calculation is implemented in the `FCF_helper.py` file. 
 While it's easer to compute FCF's using Hermite polynomials, one cannot use this method to go beyond the diatomic molecules. In the case of non-linear molecules with more than 2 atoms, the `FC.cxx` tool has funcionality to compute the FCFs via Duschinsky matrix. These approaches are used in Tasks 1 and 2. 
 
 - In the GBS approach, one relies on sampling instead of calculating "exact" probabilities. In this sampling approach, one uses the fact that the normal modes in the harmonic approximation regime are bosonic modes, hence the Gaussian boson sampler (GBS) nicely fits for computing the FCFs. While this method is impractical to simulate classically, one could use the GBS hardware to sample.
