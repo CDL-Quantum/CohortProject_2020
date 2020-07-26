@@ -148,11 +148,11 @@ def sample(
     nodes = len(A)
 
     p = sf.Program(nodes)
-    if engine=='X8':
-    	#VGG check you engine using sf.ping()
-    	eng=sf.RemoteEngine("X8")
+    if engine=='X8': #VGG check you engine using sf.ping()
+      print("Will try to use X8 ...")
+      eng=sf.RemoteEngine("X8")
     else:
-      	eng = sf.LocalEngine(backend="gaussian")
+      eng = sf.LocalEngine(backend="gaussian")
 
     mean_photon_per_mode = n_mean / float(nodes)
 
@@ -171,11 +171,11 @@ def sample(
 
     with warnings.catch_warnings():
         warnings.filterwarnings("ignore", category=UserWarning, message="Cannot simulate non-")
-         if engine=='X8':
-    		#VGG check you engine using sf.ping()
+        if engine=='X8':
+          #VGG check you engine using sf.ping()
 	        s = eng.run(p, shots=n_samples,state=True).samples
-	    else:
-	    	s = eng.run(p, shots=n_samples).samples
+        else:
+          s = eng.run(p, shots=n_samples).samples
 
     return s.tolist()
 
@@ -341,11 +341,11 @@ def vibronic(
 
     n_modes = len(t)
 
-    if engine=='X8':
-    	#VGG check you engine using sf.ping()
-    	sf.RemoteEngine("X8")
+    if engine=='X8': #VGG check you engine using sf.ping()
+      print("Atemting to use X8 ... ")
+      eng = sf.RemoteEngine("X8")
     else:
-      	eng = sf.LocalEngine(backend="gaussian")
+      eng = sf.LocalEngine(backend="gaussian")
 
     if np.any(t != 0):
         gbs = sf.Program(n_modes * 2)
@@ -378,11 +378,10 @@ def vibronic(
     with warnings.catch_warnings():
         warnings.filterwarnings("ignore", category=UserWarning, message="Cannot simulate non-")
 
-        if engine=='X8':
-    		#VGG check you engine using sf.ping()
-    		s = eng.run(gbs, shots=n_samples,,state=True).samples
-    	else:
-    		s = eng.run(gbs, shots=n_samples).samples
+        if engine=='X8': #VGG check you engine using sf.ping()
+          s = eng.run(gbs,shots=n_samples,state=True).samples
+        else:
+          s = eng.run(gbs, shots=n_samples).samples
 
     s = np.array(s).tolist()  # convert all generated samples to list
 
