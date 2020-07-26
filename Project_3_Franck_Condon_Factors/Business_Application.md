@@ -1,6 +1,6 @@
 ![CDL 2020 Cohort Project](../figures/CDL_logo.jpg)
 
-**TODO** let's give a name to the Business Application, note to remove the text about each " ... each weekly project ..." and at the end about the "Example: By travelling to all destinations ..." we will have to add references to Liv-ex and the other sources for statistical data...
+# In Vino Veritas: Wine Authentication
 
 ## Step 1: Explain the technical problem you solved in this exercise
 The focus of this project is to study spectroscopy from a quantum viewpoint. The Frank Condon Factor explains the intensity of vibronic transitions. Vibronic transitions are the changes in the electronic and vibrational energy of molecules when interacting with electromagnetic radiation. Spectroscopy is the study of matter and its interaction with electromagnetic radiation. Through spectroscopy and Frank Condon Factors, we can study and understand the properties of molecules. A comparison of the spectroscopic data from a sample can tell us about its temperature and chemical composition. The spectroscopic data is a fingerprint! It can be compared to other well-known sample templates to pin-down the origin and location of the sample.
@@ -129,4 +129,4 @@ Make sure your team consults the right people to make the right decisions.
     
 ## Step 4: Prepare a 90 second video explaining the value proposition of your innovation to this potential customer in non-technical language
 
-https://youtu.be/vgmyN519Mew
+[![Introduction](../figures/video.png)](https://youtu.be/vgmyN519Mew)
