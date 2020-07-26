@@ -46,22 +46,18 @@ In this challenge we are given a freedom to pick a molecule of our liking, and i
 
 **Challenge 3:** 
 We analyze and report all the advantages and disadvantages of all tools used above to calculate the Franck-Condon factors (FCFs). Three methods are carried out using: (a) Hermite polynomials, (b) Gaussian boson sampling (GBS) and (c) loop Hafnian approach.
-In all three methods, the determination of the FCFs is the same: calculate the square of the overlap between a _vibronic state within electronic ground_ state and another _vibronic state within electronic excited state_ (these states are connected by the arrow in the figure). Also common to all three methods is that all are in the harmonic oscillator approximation regime where one approximates the region near the minima in the above curves as parabolas. The disadvantage is that it deviates from correct results in the regions where the exact energy surface is no longer an approximation of parabola. These are the regions where the interatomic distances are too small or too large. 
-<p align="center">
-<img src="figures/potential_energy_curve.png" width="250"/>
-</p>
+In all three methods, the determination of the FCFs is the same: calculate the square of the overlap between a _vibronic state within electronic ground_ state and another _vibronic state within electronic excited state_ (these states are connected by the arrow in the figure). 
+<img src="figures/potential_energy_curve.png" width="250" align='left'/>
+Also common to all three methods is that all are in the harmonic oscillator approximation regime where one approximates the region near the minima in the above curves as parabolas. <img src="figures/Harmonic_Oscillator.png" width="300" align='right'/>  The disadvantage is that it deviates from correct results in the regions where the exact energy surface is no longer an approximation of parabola. These are the regions where the interatomic distances are too small or too large.    
 
-<p align="center">
-<img src="figures/Harmonic_Oscillator.png" width="200"/>
-</p>
 
 - In the Hermite polynomial approach, one directly uses the states of harmonic oscillator, which involves the elegant Hermite polynomials. 
 <p align="center">
-<div style="text-align:center"><img src="https://render.githubusercontent.com/render/math?math=\psi_{v,n}(x) = \frac{1}{\sqrt{2^n n!}}\Big(\frac{\mu\omega}{\pi\hbar}\Big)\exp{\Big(-\frac{\mu\omega(x-x_{eq})^2}{2\hbar}\Big)}H_n\Big(\sqrt{\frac{\mu\omega}{\hbar}}(x-x_{eq})\Big) \hspace{1cm} n=0,1,2,\ldots " width="700"></div>
+<img src="https://render.githubusercontent.com/render/math?math=\psi_{v,n}(x) = \frac{1}{\sqrt{2^n n!}}\Big(\frac{\mu\omega}{\pi\hbar}\Big)\exp{\Big(-\frac{\mu\omega(x-x_{eq})^2}{2\hbar}\Big)}H_n\Big(\sqrt{\frac{\mu\omega}{\hbar}}(x-x_{eq})\Big) \hspace{1cm} n=0,1,2,\ldots " width="700">
 </p>
 Then the formula for calculating the FCF is given by 
 <p align="center">
-<div style="text-align:center"><img src="https://render.githubusercontent.com/render/math?math=\text{FCF} = \text{overlap}(\psi_{v,before}(x), \psi_{v,after}(x)) " width="400"></div>
+<img src="https://render.githubusercontent.com/render/math?math=\text{FCF} = \text{overlap}(\psi_{v,before}(x), \psi_{v,after}(x)) " width="400">
 </p>
 where the overlap can be understood as dot product. 
 While it's easer to compute FCF's using Hermite polynomials, one cannot use this method to go beyond the diatomic molecules. In the case of non-linear molecules with more than 2 atoms, the `FC.cxx` tool has funcionality to compute the FCFs via Duschinsky matrix. These approaches are used in Tasks 1 and 2. 
@@ -72,7 +68,7 @@ While it's easer to compute FCF's using Hermite polynomials, one cannot use this
 Calculating the loop hafnian is impractical <img src="https://render.githubusercontent.com/render/math?math=(O(P^3 2^{P/2}))" width="70"> but for small numbers of vibrational quanta per normal mode the formula (113) in Quesada's paper significantly improves the calculation of FCFs. 
 
 **Challenge 4:** 
-We investigate the advantages and disadvantages of codes licensed for the public domain and those that are licensed for private use. The discussion can be found in our [Business Application file.](./Business_Application.md)
+We investigate the advantages and disadvantages of codes licensed for the public domain and those that are licensed for private use. The discussion is a part of the business aplication and can be found in our [Business Application file.](./Business_Application.md)
 
 # Business Application
 From the business perspective, we first provide a non-technical description of the problem, then we give examples of real-world problems that could use the above methods. We then identify two potential customers who would consider paying to have this problem solved. Next, we provide our opinion about pros and cons of public and private code, also recommend to talk to a lawyer when it comes to your startup and IP related issues. Finally we present a short video explaining in a non-technical language the value proposition of these innovations to the potential customers.  
