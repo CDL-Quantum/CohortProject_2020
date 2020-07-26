@@ -13,12 +13,13 @@ Added Vibronic spectra for Formic Acid and coordinated the final team effort.
 Added a few sentences here and there in the project README.md, and the Business_Application.md.
 
 # Hakob Avetisyan: 
-Participated to technical and business discussions and updated the README.md file.
+Participated in the technical and business discussions and updated the README.md file.
 
 ## Mario Guzzi:
-Addresssed Challenge 4 - now in the Challenge4.md file.
+Addressed Challenge 4 - now in the Challenge4.md file.
 
 ## Pravin Yogarajah:
+Produced the Business_Application.md and coordinated video pitch. 
 
 ## Rebecca Krauthamer:
 Created the 90 seconds video.
