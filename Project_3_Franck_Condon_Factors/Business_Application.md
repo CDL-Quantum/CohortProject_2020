@@ -58,6 +58,17 @@ The global wine market in 2018 had a valuation of 354.7 billion U.S dollars. The
 #### What are "Permissive" licenses?:
 >Permissive software licenses are "non-copyleft" licenses. Permissive licenses include **GNU All-permissive License, MIT License, BSD licenses, Apple Public Source License and Apache license**
 
+#### GNU Public License (GPL):
+>GPL in software essentially means this: **If you modify a version of a GPL license code, your work must be under GPL also**
+So in our introduction example, if your software uses any GPL code, or depends on using (not even modifying) a third-party library that is under GPL, your entire software product must be released under GPL. 
+
+>This has the following implications (among others) for your software: 
+	
+	First, you need to have the GPL license text with your code, indicating it is subject to GPL
+    	Your source code must be made available to the public.
+    	Therefore, you cannot declare your code as Intellectual Property to avoid disclosing the source
+
+
 ## Step 4: Prepare a 90 second video explaining the value proposition of your innovation to this potential customer in non-technical language
 
 Example: By travelling to all destinations via the shortest route, a courier can generate the same revenue that it would have generated following any other route, but will minimize travel costs (e.g., fuel costs). By minimizing travel costs, the courier will be more profitable than it would have been had it travelled through any other route.
