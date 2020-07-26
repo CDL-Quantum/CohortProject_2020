@@ -28,7 +28,7 @@ In this task we introduce a more sophisticated technical tool (FC.cxx), which ca
 
 
 **Task 3:**  
-In this task we introduce yet another sophisticated technical tool, Gaussia Boson Sampler (GBS) - a photonic special-purpose sampling device by Xanadu programmed via their Strawberryfields software framework. GBS tackles the problem from a completely different viewpoint than the tool in the previous task. We investigate the properties of the V<sub>3</sub> molecule with this tool and verify that the results are in line with the results produced by the tool in the previous task. One important advantage of this new tool compared to the previous one is that it runs significantly faster for large molecules, and enables theoretical investigation of a few molecules, which are very time consuming and difficult with the previous tool. The investigations are visualized in our [Task3 jupyter notebook](./Task3.ipynb).   
+In this task we introduce yet another sophisticated technical tool, Gaussian Boson Sampler (GBS) - a photonic special-purpose sampling device by Xanadu programmed via their Strawberryfields software framework. GBS tackles the problem of Franck-Condon factors from a completely different viewpoint than the tool in the previous task. We investigate the properties of the V<sub>3</sub> molecule with this tool and verify that the results are in line with the results produced by the tool in the previous task. One important advantage of this new tool compared to the previous one is that it runs significantly faster for large molecules. The investigations are visualized in our [Task3 jupyter notebook](./Task3.ipynb).   
 
 
 # Challenges  
