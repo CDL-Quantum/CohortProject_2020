@@ -71,7 +71,8 @@ While it's easer to compute FCF's using Hermite polynomials, one cannot use this
 Calculating the loop hafnian is impractical <img src="https://render.githubusercontent.com/render/math?math=(O(P^3 2^{P/2}))" width="85"> but for small numbers of vibrational quanta per normal mode the formula (113) in Quesada's paper significantly improves the calculation of FCFs. 
 
 **Challenge 4:** 
-We investigate the advantages and disadvantages of codes licensed for the public domain and those that are licensed for private use. The discussion is a part of the business aplication and can be found in our [Business Application file.](./Business_Application.md)
+We investigate the advantages and disadvantages of codes licensed for the public domain and those that are licensed for private use. The discussion is a part of the business aplication and can be found in our discussion on the [Software Licensing.](./Challenge4.md)
+
 
 # Business Application
 From the business perspective, we first provide a non-technical description of the problem, then we give examples of real-world problems that could use the above methods. We then identify two potential customers who would consider paying to have this problem solved. Next, we provide our opinion about pros and cons of public and private code, also recommend to talk to a lawyer when it comes to your startup and IP related issues as what we discuss there are not opinions of lawyers. Finally we present a short video explaining in a non-technical language the value proposition of these innovations to the potential customers.  
