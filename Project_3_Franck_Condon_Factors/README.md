@@ -69,7 +69,7 @@ While it's easer to compute FCF's using Hermite polynomials, one cannot use this
 Calculating the loop hafnian is impractical <img src="https://render.githubusercontent.com/render/math?math=(O(P^3 2^{P/2}))" width="85"> but for small numbers of vibrational quanta per normal mode the formula (113) in Quesada's paper significantly improves the calculation of FCFs. 
 
 **Challenge 4:** 
-We investigate the advantages and disadvantages of codes licensed for the public domain and those that are licensed for private use. The discussion is a part of the business aplication and can be found in our [challenge 4 file.](./Challenge4.md)
+We investigate the advantages and disadvantages of codes licensed for the public domain and those that are licensed for private use. The business aplication and other discussions can be found in our [challenge 4 file.](./Challenge4.md)
 
 # Business Application
 
