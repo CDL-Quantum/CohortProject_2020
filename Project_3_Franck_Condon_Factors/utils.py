@@ -116,3 +116,48 @@ def plot_spectrum_from_samples(energies, description, xlim=None, smoothing=True,
     
     sticks = np.vstack([list(energy_counts.keys()), list(energy_counts.values())])
     plot_spectrum(sticks, description, xlim, smoothing, gamma, points)
+
+    
+def dump_frequency_analysis(
+    filename,
+    geom_neutral,
+    geom_cation,
+    freq_info_neutral, 
+    freq_info_cation, 
+    atom_mass_list
+):
+    """
+    """
+    natoms = len(geom_neutral)
+    nmodes = 3 * natoms - 6
+    with open(filename, 'w') as fh:
+        fh.write('A\n')
+        fh.write(str(natoms) + '\n')
+        fh.write('\n'.join(map(str, atom_mass_list)) + '\n')
+        for item in geom_neutral:
+            fh.write(' '.join(map(str, item[1:])) + '\n')
+
+        for i in range(nmodes):
+            fh.write(str(freq_info_neutral['freq_wavenumber'][i]) + '\n')
+            for item in freq_info_neutral['norm_mode'][i, :, :]:
+                    fh.write(' '.join(map(str, item)) + '\n')
+
+        for item in geom_cation:
+            fh.write(' '.join(map(str, item[1:])) + '\n')
+
+        for i in range(nmodes):
+            fh.write(str(freq_info_cation['freq_wavenumber'][i].real) + '\n')
+            for item in freq_info_cation['norm_mode'][i, :, :]:
+                    fh.write(' '.join(map(str, item)) + '\n')
+                    
+        
+        #######
+        fh.write("-300\n")  # Omega_min (cm-1)
+        fh.write("2000\n")  # Omega_max (cm-1)
+        fh.write("100\n")  # Temperature, T (Kelvin)
+        fh.write("5\n")  # Full Width at Half Maximum for Lorentzian Distribution (ex. 5)
+        fh.write("1\n")  # Omega Resolution (number of omega grid points)
+        fh.write("0\n")  # Band Position,v00 (cm-1)
+        fh.write("6\n")  # Neutral Quanta of vibration
+        fh.write("10\n")  # Cation Quanta of vibration
+        fh.write("0.001\n")  # Label Limit: Signal amplitudes are reported above this threshold (ex. 0.01)
