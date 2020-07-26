@@ -48,7 +48,7 @@ In this challenge we are given a freedom to pick a molecule of our liking, and i
 We analyze and report all the advantages and disadvantages of all tools used above to calculate the Franck-Condon factors (FCFs). Three methods are carried out using: (a) Hermite polynomials, (b) Gaussian boson sampling (GBS) and (c) loop Hafnian approach.
 In all three methods, the determination of the FCFs is the same: calculate the square of the overlap between a _vibronic state within electronic ground_ state and another _vibronic state within electronic excited state_ (these states are connected by the arrow in the figure). 
 <img src="figures/potential_energy_curve.png" width="250" align='left'/>
-Also common to all three methods is that all are in the harmonic oscillator approximation regime where one approximates the region near the minima in the above curves as parabolas. <img src="figures/Harmonic_Oscillator.png" width="350" align='right'/>  The disadvantage is that it deviates from correct results in the regions where the exact energy surface is no longer an approximation of parabola. These are the regions where the interatomic distances are too small or too large.    
+Also common to all three methods is that all are in the harmonic oscillator <img src="figures/Harmonic_Oscillator.png" width="350" align='right'/>  approximation regime where one approximates the region near the minima in the above curves as parabolas. The disadvantage is that it deviates from correct results in the regions where the exact energy surface is no longer an approximation of parabola. These are the regions where the interatomic distances are too small or too large.    
 
 
 - In the Hermite polynomial approach, one directly uses the states of harmonic oscillator, which involves the elegant Hermite polynomials. 
@@ -65,14 +65,14 @@ While it's easer to compute FCF's using Hermite polynomials, one cannot use this
 - In the GBS approach, one relies on sampling instead of calculating "exact" probabilities. In this sampling approach, one uses the fact that the normal modes in the harmonic approximation regime are bosonic modes, hence the Gaussian boson sampler (GBS) nicely fits for computing the FCFs. While this method is impractical to simulate classically, one could use the GBS hardware to sample.
 
 - In the loop Hafnian approach, calculating the FCFs is equivalent to calculating the number of perfect matchings of a weighted graph with loops that has P = N + M vertices, where N and M are the vibrational quanta in the potential energy surfaces (see above figure). The number of perfect matchings is the loop Hafnian of the adjacency matrix of the graph. The approach is formalized in the [paper by N. Quesada](https://aip.scitation.org/doi/10.1063/1.5086387).
-Calculating the loop hafnian is impractical <img src="https://render.githubusercontent.com/render/math?math=(O(P^3 2^{P/2}))" width="70"> but for small numbers of vibrational quanta per normal mode the formula (113) in Quesada's paper significantly improves the calculation of FCFs. 
+Calculating the loop hafnian is impractical <img src="https://render.githubusercontent.com/render/math?math=(O(P^3 2^{P/2}))" width="80"> but for small numbers of vibrational quanta per normal mode the formula (113) in Quesada's paper significantly improves the calculation of FCFs. 
 
 **Challenge 4:** 
 We investigate the advantages and disadvantages of codes licensed for the public domain and those that are licensed for private use. The discussion is a part of the business aplication and can be found in our [Business Application file.](./Business_Application.md)
 
 # Business Application
-From the business perspective, we first provide a non-technical description of the problem, then we give examples of real-world problems that could use the above methods. We then identify two potential customers who would consider paying to have this problem solved. Next, we provide our opinion about pros and cons of public and private code, also recommend to talk to a lawyer when it comes to your startup and IP related issues. Finally we present a short video explaining in a non-technical language the value proposition of these innovations to the potential customers.  
-For more details refer to the [Business Application found here.](./Business_Application.md)
+From the business perspective, we first provide a non-technical description of the problem, then we give examples of real-world problems that could use the above methods. We then identify two potential customers who would consider paying to have this problem solved. Next, we provide our opinion about pros and cons of public and private code, also recommend to talk to a lawyer when it comes to your startup and IP related issues as what we discuss there are not opinions of lawyers. Finally we present a short video explaining in a non-technical language the value proposition of these innovations to the potential customers.  
+For more details refer to our [Business Application file.](./Business_Application.md)
 
 ## Todo
 - Do not directly upload your video file (or any other large files) to the repository.  Instead, provide a link e.g. to a YouTube video, or a Google Drive file.
