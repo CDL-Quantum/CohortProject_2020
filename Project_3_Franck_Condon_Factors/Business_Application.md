@@ -31,40 +31,40 @@ The global wine market in 2018 had a valuation of 354.7 billion U.S dollars. The
 ## Impact of GPL, Apache2.0 on intellectual property rights of the coder:
 #### Business Application:
 
->The codes in Project 3 (FCF_calc) use General Public License and Apache 2.0 licenses.  Discuss the similarities and differences of these with respect to intellectual property rights of the coder.  What are the advantages and disadvantages of codes licensed for the public domain and those that are licensed for private use?
+The codes in Project 3 (FCF_calc) use General Public License and Apache 2.0 licenses.  Discuss the similarities and differences of these with respect to intellectual property rights of the coder.  What are the advantages and disadvantages of codes licensed for the public domain and those that are licensed for private use?
 
 #### Pros and Cons of Public Domain code and Private code:
 ###### Note: The following is an opinion created as part of a training exercise, may not be correct and certainly does not count as a legal opinion on the matter of software Licensing. Feel free to make it an item of discussion.
 
 #### IP and your Startup:
->You have been working and hacking away at code to solve interesting problems. You may have created some of your own original code and/or also may have leveraged public domain code. Eureka! your work is now your secret sauce for your new product for your startup and you intend on protecting your IP. 
+You have been working and hacking away at code to solve interesting problems. You may have created some of your own original code and/or also may have leveraged public domain code. Eureka! your work is now your secret sauce for your new product for your startup and you intend on protecting your IP. 
 
->Oh, but wait ... can you actually do that? After all you have only used one GPL licensed piece of code of about 1000 lines, slightly modified. Surely your secret sauce that accounts for 100,000 lines of code, makes that modified 1000 lines insignificant, right?
+Oh, but wait ... can you actually do that? After all you have only used one GPL licensed piece of code of about 1000 lines, slightly modified. Surely your secret sauce that accounts for 100,000 lines of code, makes that modified 1000 lines insignificant, right?
 
->Well, no, you cannot. 
+Well, no, you cannot. 
 
->If you use GPL license code in your product, your code is also under GPL. You will not be able keep your code secret. 
+If you use GPL license code in your product, your code is also under GPL. You will not be able keep your code secret. 
 
->We do not explore the legal ramifications of various combinations here (do talk to a lawyer for your specific cases), but it is important to incorporate an IP strategy, relating to new or existing work, into your startup.
+We do not explore the legal ramifications of various combinations here (do talk to a lawyer for your specific cases), but it is important to incorporate an IP strategy, relating to new or existing work, into your startup.
 
 #### Licenses:
->There are various types of licenses but most license applicable to open source software are designed to foster collaboration between creators with de-risking relative liability and royalty payments that could impair technological advancement. They only ask, with variations, that original creators be credited and that the new work be subject of similar constraints. Often that means one may not be able to keep their code secret. 
+There are various types of licenses but most license applicable to open source software are designed to foster collaboration between creators with de-risking relative liability and royalty payments that could impair technological advancement. They only ask, with variations, that original creators be credited and that the new work be subject of similar constraints. Often that means one may not be able to keep their code secret. 
 
 #### What is "Copyleft"?
->Copyleft is the practice of granting the right to freely distribute and modify intellectual property with the requirement that the same rights be preserved in derivative works created from that property. 
+Copyleft is the practice of granting the right to freely distribute and modify intellectual property with the requirement that the same rights be preserved in derivative works created from that property. 
 
->Copyleft licenses include the **GNU General Public License (GPL)**. 
+Copyleft licenses include the **GNU General Public License (GPL)**. 
 
 #### What are "Permissive" licenses?:
->Permissive software licenses are "non-copyleft" licenses. Permissive licenses include **GNU All-permissive License, MIT License, BSD licenses, Apple Public Source License and Apache license**
+Permissive software licenses are "non-copyleft" licenses. Permissive licenses include **GNU All-permissive License, MIT License, BSD licenses, Apple Public Source License and Apache license**
 
 #### GNU Public License (GPL):
->GPL in software essentially means this: **If you modify a version of a GPL license code, your work must be under GPL also**
+GPL in software essentially means this: **If you modify a version of a GPL license code, your work must be under GPL also**
 So in our introduction example, if your software uses any GPL code, or depends on using (not even modifying) a third-party library that is under GPL, your entire software product must be released under GPL. 
 
->This has the following implications (among others) for your software: 
+This has the following implications (among others) for your software: 
 	
-		First, you need to have the GPL license text with your code, indicating it is subject to GPL
+	First, you need to have the GPL license text with your code, indicating it is subject to GPL
     	Your source code must be made available to the public.
     	Therefore, you cannot declare your code as Intellectual Property to avoid disclosing the source
 
