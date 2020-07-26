@@ -64,11 +64,60 @@ So in our introduction example, if your software uses any GPL code, or depends o
 
 This has the following implications (among others) for your software: 
 	
-	First, you need to have the GPL license text with your code, indicating it is subject to GPL
+		First, you need to have the GPL license text with your code, indicating it is subject to GPL
     	Your source code must be made available to the public.
     	Therefore, you cannot declare your code as Intellectual Property to avoid disclosing the source
 
+#### MIT License:
+On the other hand, MIT and Apache licenses (see below for Apache) are more permissive. They require little more than attributing the original portions of the licensed code to the original developers in your own code and/or documentation. 
 
+For example, with an MIT license (as the one used for the CDL Github, i.e. your work at CDL), 
+
+**you can**: 
+    
+    re-use the code freely for your own use 
+    re-use the code freely for non-commercial AND commercial re-distribution, whether in source or binary form.
+
+**you cannot**: 
+    
+    Claim authorship of the software,
+    Therefore, you cannot attack the original author for using or publishing his original version.
+
+#### Apache License:
+
+The Apache License, like MIT, is also a permissive license. However, it has stringent terms when it comes to modifications:
+
+    You are required to explicitly list out all the modifications that you have done in the original software
+    You cannot name your product in any way that hints at the product being endorsed by Apache. 
+
+#### Advantages and Disadvantages of GPL vs MIT/Apache:
+
+The advantages of GPL for your new original work allows you to preserve the credits to the original work and prevents others from trying to assimilate it into proprietary. It also protects you in that GPL states that no warranties are offered. 
+
+The disadvantage as a user of original GPL work into your own work, is that you may not be able to keep your work proprietary. This is important to consider especially under a code audit for when, let's say, you are executing an exit strategy for your successful startup.
+
+The advantage of an Apache or MIT, for the few restrictions relating to giving credit where credit is due, is that you may be able to create proprietary software whilst using third-party software. 
+
+#### Advantages and Disadvantages of Private vs Public:
+Now, regardless of the public licenses you may use, there remains the question of whether you keep your code public or private. 
+
+Keeping your code private protects your IP at the cost of higher responsibility for your code. The buck stops with you. 
+Putting you code in the public domain, if it does not hurt the business plan, can de-risk part of your venture.
+
+It should also be noted that the rate of change in public product source code is often different that that of private products. If your code depends on third parties, you need the ability to mitigate sudden conflicting changes. Privately held software may offer a lower rate of change thus having lesser risk to your product integrity.  
+
+There are examples where firms use both license: Private and Public. One can consider the case of MySQL AB, Red Hat and others, who offer both public and private licenses, as a means to circumvent the restrictions of GPL by offering the choice of a paid-for version or a free to use version with published source code. 
+
+#### Conclusion
+
+There are two major considerations with dealing with Licenses in your startup:
+
+    What licenses will you choose for your products
+    What licenses are active with the code and products you are using that have a critical impact on your business
+    
+Make sure your team consults the right people to make the right decisions.
+
+    
 ## Step 4: Prepare a 90 second video explaining the value proposition of your innovation to this potential customer in non-technical language
 
 Example: By travelling to all destinations via the shortest route, a courier can generate the same revenue that it would have generated following any other route, but will minimize travel costs (e.g., fuel costs). By minimizing travel costs, the courier will be more profitable than it would have been had it travelled through any other route.
