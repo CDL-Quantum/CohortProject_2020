@@ -50,21 +50,21 @@ In all three methods, the determination of the FCFs is the same: <img src="figur
 Also common to all three methods is that all are in the harmonic oscillator approximation regime where one approximates the region near the minima in the above curves as parabolas. The disadvantage is that it deviates from correct results in the regions where the exact energy surface is no longer an approximation of parabola. These are the regions where the interatomic distances are too small or too large.    
 
 
-- In the Hermite polynomial approach, one directly uses the states of harmonic oscillator, which involves the elegant Hermite polynomials. 
+- In the Hermite polynomial approach, one directly uses the states of harmonic oscillator, which involves the elegant Hermite polynomials.  
 <p align="center">
 <img src="https://render.githubusercontent.com/render/math?math=\psi_{v,n}(x) = \frac{1}{\sqrt{2^n n!}}\Big(\frac{\mu\omega}{\pi\hbar}\Big)\exp{\Big(-\frac{\mu\omega(x-x_{eq})^2}{2\hbar}\Big)}H_n\Big(\sqrt{\frac{\mu\omega}{\hbar}}(x-x_{eq})\Big) \hspace{1cm} n=0,1,2,\ldots " width="700">
-</p>
-Then the formula for calculating the FCF is given by 
+</p>  
+Then the formula for calculating the FCF is given by  
 <p align="center">
 <img src="https://render.githubusercontent.com/render/math?math=\text{FCF} = \text{overlap}(\psi_{v,before}(x), \psi_{v,after}(x)) " width="400">
-</p>
+</p>  
 where the overlap can be understood as dot product. 
 While it's easer to compute FCF's using Hermite polynomials, one cannot use this method to go beyond the diatomic molecules. In the case of non-linear molecules with more than 2 atoms, the `FC.cxx` tool has funcionality to compute the FCFs via Duschinsky matrix. These approaches are used in Tasks 1 and 2. 
 
 - In the GBS approach, one relies on sampling instead of calculating "exact" probabilities. In this sampling approach, one uses the fact that the normal modes in the harmonic approximation regime are bosonic modes, hence the Gaussian boson sampler (GBS) nicely fits for computing the FCFs. While this method is impractical to simulate classically, one could use the GBS hardware to sample.
 
 - In the loop Hafnian approach, calculating the FCFs is equivalent to calculating the number of perfect matchings of a weighted graph with loops that has P = N + M vertices, where N and M are the vibrational quanta in the potential energy surfaces (see above figure). The number of perfect matchings is the loop Hafnian of the adjacency matrix of the graph. The approach is formalized in the [paper by N. Quesada](https://aip.scitation.org/doi/10.1063/1.5086387).
-Calculating the loop hafnian is impractical <img src="https://render.githubusercontent.com/render/math?math=(O(P^3 2^{P/2}))" width="80"> but for small numbers of vibrational quanta per normal mode the formula (113) in Quesada's paper significantly improves the calculation of FCFs. 
+Calculating the loop hafnian is impractical <img src="https://render.githubusercontent.com/render/math?math=(O(P^3 2^{P/2}))" width="85"> but for small numbers of vibrational quanta per normal mode the formula (113) in Quesada's paper significantly improves the calculation of FCFs. 
 
 **Challenge 4:** 
 We investigate the advantages and disadvantages of codes licensed for the public domain and those that are licensed for private use. The discussion is a part of the business aplication and can be found in our [Business Application file.](./Business_Application.md)
