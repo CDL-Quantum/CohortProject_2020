@@ -48,7 +48,7 @@ In this challenge we are given a freedom to pick a molecule of our liking, and i
 We analyze and report all the advantages and disadvantages of all tools used above to calculate the Franck-Condon factors (FCFs). Three methods are carried out using: (a) Hermite polynomials, (b) Gaussian boson sampling (GBS) and (c) loop Hafnian approach.
 In all three methods, the determination of the FCFs is the same: calculate the square of the overlap between a _vibronic state within electronic ground_ state and another _vibronic state within electronic excited state_ (these states are connected by the arrow in the figure). 
 <img src="figures/potential_energy_curve.png" width="250" align='left'/>
-Also common to all three methods is that all are in the harmonic oscillator approximation regime where one approximates the region near the minima in the above curves as parabolas. <img src="figures/Harmonic_Oscillator.png" width="300" align='right'/>  The disadvantage is that it deviates from correct results in the regions where the exact energy surface is no longer an approximation of parabola. These are the regions where the interatomic distances are too small or too large.    
+Also common to all three methods is that all are in the harmonic oscillator approximation regime where one approximates the region near the minima in the above curves as parabolas. <img src="figures/Harmonic_Oscillator.png" width="350" align='right'/>  The disadvantage is that it deviates from correct results in the regions where the exact energy surface is no longer an approximation of parabola. These are the regions where the interatomic distances are too small or too large.    
 
 
 - In the Hermite polynomial approach, one directly uses the states of harmonic oscillator, which involves the elegant Hermite polynomials. 
@@ -74,11 +74,6 @@ We investigate the advantages and disadvantages of codes licensed for the public
 From the business perspective, we first provide a non-technical description of the problem, then we give examples of real-world problems that could use the above methods. We then identify two potential customers who would consider paying to have this problem solved. Next, we provide our opinion about pros and cons of public and private code, also recommend to talk to a lawyer when it comes to your startup and IP related issues. Finally we present a short video explaining in a non-technical language the value proposition of these innovations to the potential customers.  
 For more details refer to the [Business Application found here.](./Business_Application.md)
 
-## Presenting your results in your pull request
-For your pull request, consider the following for the presentation of your final results:
-- Work entirely in the directory for Project 3.
-- Edit this README.md file with a highlight of your main technical results.  Provide links to any other files with your detailed results, e.g. Jupyter notebooks.
-- For your Business Application, feel free to provide your answers directly in the 
-[Business_Application.md](./Business_Application.md) file.
+## Todo
 - Do not directly upload your video file (or any other large files) to the repository.  Instead, provide a link e.g. to a YouTube video, or a Google Drive file.
 - Include a file contributions.md that lists the contributions of each group member.
