@@ -38,7 +38,9 @@ In our research, there are two main concerns around counterfeit wine for which w
 2) An even more lucrative problem to solve is that of reputation protection. In the wine industry, it is very important that producers maintain the prestige of their brand, and a scandal involving counterfeit wine can cost them much more than just the lost revenue.
 
 ## Software Licensing
-https://github.com/hay-k/CohortProject_2020_w3g7/blob/master/Project_3_Franck_Condon_Factors/Challenge4.md
+
+[Software Licensing.](./Challenge4.md)
+
 
 ## Step 4: Prepare a 90 second video explaining the value proposition of your innovation to this potential customer in non-technical language
 

@@ -14,24 +14,21 @@ On the technical side, we are studying different theoretical methods to investig
 
 **Task 1:**   
 In this task we use a very simple theoretical model to study the properties of the simplest molecule in the world, the **molecular Hydrogen**. The purpose of this task is twofold - a) this is educational, and any newcommer to the field can quickly get familiar with the technical basics; b) In this task we show, that the basic theoretical model (harmonic oscillator approximation) used throughout the project is sound. To this end, we do the theoretical calculations for hydrogen, then compare the results with actual experimental data, and verify that the theory gives correct predictions.  
-The calculations for first task for the Hydrogen molecule can be found in [Task1 jupyter notebook](https://github.com/hay-k/CohortProject_2020_w3g7/blob/master/Project_3_Franck_Condon_Factors/Task1.ipynb). There, we calculate transitions from n=0 vibrionic state of molecular Hydrogen H<sub>2</sub> to 10 other vibronic levels for the ion H<sub>2</sub><sup>+</sup>. The figures below show the simulation results from our code implemented in `FCF_helper.py` file which does all the calculations, and the snapshot below is from the paper by Berkowitz and Spohr, _Journal of Electron Spectroscopy and Related Phenomena_, **2**(2):143–152 (1973). The points or vertical bars in our plots correspond to the peak values in the original figure. We can see the great resemblance of our result with the original paper.                                                                              
+The calculations for first task for the Hydrogen molecule can be found in [Task1 jupyter notebook](./Task1.ipynb). There, we calculate transitions from n=0 vibrionic state of molecular Hydrogen H<sub>2</sub> to 10 other vibronic levels for the ion H<sub>2</sub><sup>+</sup>. The figure below show the simulation results from our code implemented in `FCF_helper.py` file which does all the calculations, and the snapshot on the right is from the paper by Berkowitz and Spohr, _Journal of Electron Spectroscopy and Related Phenomena_, **2**(2):143–152 (1973). We can see the great resemblance of our result with the original paper.                                                                              
 <p align="center">
-<img src="figures/Vibronic_spectrum.png" width="350"/> <img src="figures/Vibronic_sticks.png" width="350"/>
-</p>
+<img src="figures/Vibronic_spectrum.png" width="300"/> <img src="figures/Berkowitz.png" width="450"/>
+</p>  
 
-<p align="center">
-<img src="figures/Berkowitz.png" width="650"/>
-</p>
 
 **Task 2:**  
-In this task we introduce a more sophisticated technical tool (FC.cxx), which can calculate the same chemical properties of molecules as in Task 1, but it can do it for a wide range of molecules, not only for hydrogen. This tool is created by a huge research effort in a university, and has been extensively tested and verified with experimental results. We do not need to test the tool. We just use this tool to investigate the properties of the **Vanadium3 (V<sub>3</sub>) molecule**. For the visualization specifics of the results output from FC.cxx tool see our [Task2 jupyter notebook](https://github.com/hay-k/CohortProject_2020_w3g7/blob/master/Project_3_Franck_Condon_Factors/Task2.ipynb). Here is a plot for photionization spectrum for V<sub>3</sub>.
+In this task we introduce a more sophisticated technical tool (FC.cxx), which can calculate the same chemical properties of molecules as in Task 1, but it can do it for a wide range of molecules, not only for hydrogen. This tool is created by a huge research effort in a university, and has been extensively tested and verified with experimental results. We do not need to test the tool. We just use this tool to investigate the properties of the **Vanadium3 (V<sub>3</sub>) molecule**. For the visualization specifics of the results output from FC.cxx tool see our [Task2 jupyter notebook](./Task2.ipynb). Here is a plot for photionization spectrum for V<sub>3</sub>.
 <p align="center">
 <img src="figures/photoionization_spectrum.png" width="850"/>
 </p> 
 
 
 **Task 3:**  
-In this task we introduce yet another sophisticated technical tool, Gaussia Boson Sampler (GBS) - a photonic special-purpose sampling device by Xanadu programmed via their Strawberryfields software framework. GBS tackles the problem from a completely different viewpoint than the tool in the previous task. We investigate the properties of the V<sub>3</sub> molecule with this tool and verify that the results are in line with the results produced by the tool in the previous task. One important advantage of this new tool compared to the previous one is that it runs significantly faster for large molecules, and enables theoretical investigation of a few molecules, which are very time consuming and difficult with the previous tool. The investigations are visualized in our [Task3 jupyter notebook](https://github.com/hay-k/CohortProject_2020_w3g7/blob/master/Project_3_Franck_Condon_Factors/Task3.ipynb).   
+In this task we introduce yet another sophisticated technical tool, Gaussia Boson Sampler (GBS) - a photonic special-purpose sampling device by Xanadu programmed via their Strawberryfields software framework. GBS tackles the problem from a completely different viewpoint than the tool in the previous task. We investigate the properties of the V<sub>3</sub> molecule with this tool and verify that the results are in line with the results produced by the tool in the previous task. One important advantage of this new tool compared to the previous one is that it runs significantly faster for large molecules, and enables theoretical investigation of a few molecules, which are very time consuming and difficult with the previous tool. The investigations are visualized in our [Task3 jupyter notebook](./Task3.ipynb).   
 
 
 **Challenge 1:**  
@@ -71,7 +68,7 @@ While it's easer to compute FCF's using Hermite polynomials, one cannot use this
 Calculating the loop hafnian is impractical <img src="https://render.githubusercontent.com/render/math?math=(O(P^3 2^{P/2}))" width="85"> but for small numbers of vibrational quanta per normal mode the formula (113) in Quesada's paper significantly improves the calculation of FCFs. 
 
 **Challenge 4:** 
-We investigate the advantages and disadvantages of codes licensed for the public domain and those that are licensed for private use. The discussion is a part of the business aplication and can be found in our [Business Application file.](./Business_Application.md)
+We investigate the advantages and disadvantages of codes licensed for the public domain and those that are licensed for private use. The discussion is a part of the business aplication and can be found in our [challenge 4 file.](./Challenge4.md)
 
 # Business Application
 From the business perspective, we first provide a non-technical description of the problem, then we give examples of real-world problems that could use the above methods. We then identify two potential customers who would consider paying to have this problem solved. Next, we provide our opinion about pros and cons of public and private code, also recommend to talk to a lawyer when it comes to your startup and IP related issues as what we discuss there are not opinions of lawyers. Finally we present a short video explaining in a non-technical language the value proposition of these innovations to the potential customers.  
