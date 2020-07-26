@@ -19,7 +19,7 @@ Participated in the technical and business discussions and organized the README.
 Addressed Challenge 4 - now in the Challenge4.md file.
 
 ## Pravin Yogarajah:
-Produced the Business_Application.md and coordinated video pitch. 
+Researched and Produced Business_Application.md
 
 ## Rebecca Krauthamer:
-Created the 90 seconds video.
+Researched and Produced Business_Application.md. Produced the 90-second video pitch.
