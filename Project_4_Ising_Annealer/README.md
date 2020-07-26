@@ -15,7 +15,7 @@ Click on this link to begin learning about your tasks for this week!
 * Perform thermal annealing to solve for the groundstate of disordered Ising models.
 * Apply what you have learned to solve the Hydrogen molecule groundstate.
 
-## Further Challenges:
+## Further Challenges: 
 * Explore the annealing procedure on the Mattis glass.
 * Devise a 2-local Ising Hamiltonian for the Hydrogen molecule, and compare your results.
 * Solve your 2-local Hamiltonian (or any Hamiltonian) on open-source commercial software, and compare the performance.
