@@ -31,6 +31,8 @@ In this task we introduce a more sophisticated technical tool (FC.cxx), which ca
 In this task we introduce yet another sophisticated technical tool, Gaussia Boson Sampler (GBS) - a photonic special-purpose sampling device by Xanadu programmed via their Strawberryfields software framework. GBS tackles the problem from a completely different viewpoint than the tool in the previous task. We investigate the properties of the V<sub>3</sub> molecule with this tool and verify that the results are in line with the results produced by the tool in the previous task. One important advantage of this new tool compared to the previous one is that it runs significantly faster for large molecules, and enables theoretical investigation of a few molecules, which are very time consuming and difficult with the previous tool. The investigations are visualized in our [Task3 jupyter notebook](./Task3.ipynb).   
 
 
+# Challenges  
+
 **Challenge 1:**  
 In this challenge we further investigate the tool introduced in Task3 to reveal more cons and pros about it. This time calculations are done using the loop hafnian approach. The loop hafnian approach uses GBS which would allow the Franck-Condon factors to be calculated using a quantum circuit. We use the result of Task 3 to provide data to a skeleton code provided that uses loop hafnians to calculate the Franck-Condon Factors. Particularly, instead of sampling a photonic device and approximating the probabilities of output energies based on the sampling results, we compute the exact probabilities of the outputs using loop hafnians. The figure below is plotted using those exact probabilities.
 <p align="center">
@@ -39,8 +41,7 @@ In this challenge we further investigate the tool introduced in Task3 to reveal 
 
 **Challenge 2:**   
 In this challenge we are given a freedom to pick a molecule of our liking, and investigate its properties. As a nice molecule for investigation, we chose ammonia NH<sub>3</sub>. The reason for the choice is connected to the business application where we discuss the role of spectroscopy in "wine authentication". Nitrogenous compounds are a vital part of all living organisms and plays a vital role in the winemaking process. Ammonia is one of the essential nitrogenous compounds. Ammonia’s role in the fermentation process is it helps serve as nutrients for growth and metabolic activity of yeast during fermentation.  
-The challelnge 2 computations are added to the [Task 2 jupyter notebook](https://github.com/hay-k/CohortProject_2020_w3g7/blob/master/Project_3_Franck_Condon_Factors/Task2.ipynb) where we use external resources to solve the task. Particularly, we take the geometrical data for NH<sub>3</sub> and NH<sub>3</sub><sup>+</sup> from the [NIST website](https://cccbdb.nist.gov/geom1x.asp), then we use `pyscf` library to preprocess the data before creating the format (via `dump_frequency_analysis` function in `utils.py`) needed to prceed with the usual steps.
-
+The challelnge 2 computations are added to the [Task 2 jupyter notebook](./Task2.ipynb) where we use external resources to solve the task. Particularly, we take the geometrical data for NH<sub>3</sub> and NH<sub>3</sub><sup>+</sup> from the [NIST website](https://cccbdb.nist.gov/geom1x.asp), then we use `pyscf` library to preprocess the data before creating the format (via `dump_frequency_analysis` function in `utils.py`) needed to prceed with the usual steps.
 
 
 **Challenge 3:** 
@@ -71,9 +72,7 @@ Calculating the loop hafnian is impractical <img src="https://render.githubuserc
 We investigate the advantages and disadvantages of codes licensed for the public domain and those that are licensed for private use. The discussion is a part of the business aplication and can be found in our [challenge 4 file.](./Challenge4.md)
 
 # Business Application
+
 From the business perspective, we first provide a non-technical description of the problem, then we give examples of real-world problems that could use the above methods. We then identify two potential customers who would consider paying to have this problem solved. Next, we provide our opinion about pros and cons of public and private code, also recommend to talk to a lawyer when it comes to your startup and IP related issues as what we discuss there are not opinions of lawyers. Finally we present a short video explaining in a non-technical language the value proposition of these innovations to the potential customers.  
 For more details refer to our [Business Application file.](./Business_Application.md)
 
-## Todo
-- Do not directly upload your video file (or any other large files) to the repository.  Instead, provide a link e.g. to a YouTube video, or a Google Drive file.
-- Include a file contributions.md that lists the contributions of each group member.
