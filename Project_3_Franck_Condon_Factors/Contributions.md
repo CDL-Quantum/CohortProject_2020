@@ -4,7 +4,7 @@ Hayk Sargsyan:
 
 Vesselin Gueorguiev:
 
-Hakob Avetisyan:
+Hakob Avetisyan: Participated to technical and business discussions and updated the README.md file.
 
 Mario Guzzi:
 
