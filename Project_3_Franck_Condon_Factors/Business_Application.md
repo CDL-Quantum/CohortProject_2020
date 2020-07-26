@@ -2,16 +2,6 @@
 
 **TODO** let's give a name to the Business Application, note to remove the text about each " ... each weekly project ..." and at the end about the "Example: By travelling to all destinations ..." we will have to add references to Liv-ex and the other sources for statistical data...
 
-# Quantum Cohort Project Business Application
-
-For each weekly project, your team is asked to complete the below business application exercise.
-To complement the technical tasks, please consdier the four questions below.
-You are free to format your response to these four questions as you wish (with the final question done as a short recorded video), and to include
-the content (or links to the content) on your forked repository.
-
-A brief example for each question is included for the 
-[Traveling Salesman Problem.](https://en.wikipedia.org/wiki/Travelling_salesman_problem)
-
 ## Step 1: Explain the technical problem you solved in this exercise
 The focus of this project is to study spectroscopy from a quantum viewpoint. The Frank Condon Factor explains the intensity of vibronic transitions. Vibronic transitions are the changes in the electronic and vibrational energy of molecules when interacting with electromagnetic radiation. Spectroscopy is the study of matter and its interaction with electromagnetic radiation. Through spectroscopy and Frank Condon Factors, we can study and understand the properties of molecules. A comparison of the spectroscopic data from a sample can tell us about its temperature and chemical composition. The spectroscopic data is a fingerprint! It can be compared to other well-known sample templates to pin-down the origin and location of the sample.
 
