@@ -45,10 +45,9 @@ In this challenge we further investigate the tool introduced in Task3 to reveal 
 In this challenge we are given a freedom to pick a molecule of our liking, and investigate its properties. As discussed during the call, this is a good point for business proposal entrance, so we need to choose a nice molecule for investigation, which can have some interesting business applications. 
 
 **Challenge 3:** 
-We analyze and report all the advantages and disadvantages of all tools used above to calculate the Franck-Condon factors (FCFs). Three methods are carried out using: (a) Hermite polynomials, (b) Gaussian boson sampling (GBS) and (c) loop Hafnian approach.
-In all three methods, the determination of the FCFs is the same: calculate the square of the overlap between a _vibronic state within electronic ground_ state and another _vibronic state within electronic excited state_ (these states are connected by the arrow in the figure). 
-<img src="figures/potential_energy_curve.png" width="250" align='left'/>
-Also common to all three methods is that all are in the harmonic oscillator <img src="figures/Harmonic_Oscillator.png" width="350" align='right'/>  approximation regime where one approximates the region near the minima in the above curves as parabolas. The disadvantage is that it deviates from correct results in the regions where the exact energy surface is no longer an approximation of parabola. These are the regions where the interatomic distances are too small or too large.    
+We analyze and report all the advantages and disadvantages of all tools used above to calculate the Franck-Condon factors (FCFs). Three methods are carried out using: (a) **Hermite polynomials**, (b) **Gaussian boson sampling** (GBS) and (c) **loop Hafnian** approach.
+In all three methods, the determination of the FCFs is the same: <img src="figures/potential_energy_curve.png" width="250" align='left'/> <img src="figures/Harmonic_Oscillator.png" width="350" align='right'/> calculate the square of the overlap between a _vibronic state within electronic ground_ state and another _vibronic state within electronic excited state_ (these states are connected by the arrow in the figure).
+Also common to all three methods is that all are in the harmonic oscillator approximation regime where one approximates the region near the minima in the above curves as parabolas. The disadvantage is that it deviates from correct results in the regions where the exact energy surface is no longer an approximation of parabola. These are the regions where the interatomic distances are too small or too large.    
 
 
 - In the Hermite polynomial approach, one directly uses the states of harmonic oscillator, which involves the elegant Hermite polynomials. 
