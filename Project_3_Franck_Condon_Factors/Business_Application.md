@@ -64,7 +64,7 @@ So in our introduction example, if your software uses any GPL code, or depends o
 
 >This has the following implications (among others) for your software: 
 	
-	First, you need to have the GPL license text with your code, indicating it is subject to GPL
+		First, you need to have the GPL license text with your code, indicating it is subject to GPL
     	Your source code must be made available to the public.
     	Therefore, you cannot declare your code as Intellectual Property to avoid disclosing the source
 
