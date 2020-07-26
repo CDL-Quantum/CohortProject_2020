@@ -33,7 +33,7 @@ The global wine market in 2018 had a valuation of 354.7 billion U.S dollars. The
 
 >The codes in Project 3 (FCF_calc) use General Public License and Apache 2.0 licenses.  Discuss the similarities and differences of these with respect to intellectual property rights of the coder.  What are the advantages and disadvantages of codes licensed for the public domain and those that are licensed for private use?
 
-## Pros and Cons of Public Domain code and Private code:
+### Pros and Cons of Public Domain code and Private code:
 ###### Note: The following is an opinion created as part of a training exercise, may not be correct and certainly does not count as a legal opinion on the matter of software Licensing. Feel free to make it an item of discussion.
 
  
