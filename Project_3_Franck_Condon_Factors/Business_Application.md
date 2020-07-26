@@ -31,7 +31,7 @@ The global wine market in 2018 had a valuation of 354.7 billion U.S dollars. The
 ## Impact of GPL, Apache2.0 on intellectual property rights of the coder:
 #### Business Application:
 
-The codes in Project 3 (FCF_calc) use General Public License and Apache 2.0 licenses.  Discuss the similarities and differences of these with respect to intellectual property rights of the coder.  What are the advantages and disadvantages of codes licensed for the public domain and those that are licensed for private use?
+>The codes in Project 3 (FCF_calc) use General Public License and Apache 2.0 licenses.  Discuss the similarities and differences of these with respect to intellectual property rights of the coder.  What are the advantages and disadvantages of codes licensed for the public domain and those that are licensed for private use?
 
  
 ## Step 4: Prepare a 90 second video explaining the value proposition of your innovation to this potential customer in non-technical language
