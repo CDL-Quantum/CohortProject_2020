@@ -26,7 +26,13 @@ The focus of this project is to study spectroscopy from a quantum viewpoint. The
 	investigators can analyze any residue found at a crime scene and generate accurate reports on the molecular makeup of the substance.
 
 ## Step 3: Identify at least one potential customer for this solution - ie: a business who has this problem and would consider paying to have this problem solved
-The global wine market in 2018 had a valuation of 354.7 billion U.S dollars. The projected market growth is 21% by 2023 to a value of 429 billion U.S dollars.  However, the market is currently facing a wave of counterfeit products. Counter fitters are flooding the market with sub-par products, which not only takes profit away from the vineyards but also poses a threat to brand reputability. Estimates place at least 20% of the world wine supply as fake. Liv-ex a worldwide secondary market for wine with a believed approximate value of $5 billion. If as much as 20% of their wine is fake, then the counterfeit trade for their product is currently worth $1 billion. With such large sums of money lost to fraud, the wine industry is in desperate need of a solution that can verify the authenticity of their products. 
+The global wine market in 2018 had a valuation of 354.7 billion U.S dollars. The projected market growth is 21% by 2023 to a value of 429 billion U.S dollars.  However, the market is currently facing a wave of counterfeit products. Counter fitters are flooding the market with sub-par products, which not only takes profit away from the vineyards but also poses a threat to brand reputability. Estimates place at least 20% of the world wine supply as fake. Liv-ex a worldwide secondary market for wine with a believed approximate value of $5 billion. If as much as 20% of their wine is fake, then the counterfeit trade for their product is currently worth $1 billion. With such large sums of money lost to fraud, the wine industry is in desperate need of a solution that can verify the authenticity of their products.
+
+## Impact of GPL, Apache2.0 on intellectual property rights of the coder:
+#### Business Application:
+
+The codes in Project 3 (FCF_calc) use General Public License and Apache 2.0 licenses.  Discuss the similarities and differences of these with respect to intellectual property rights of the coder.  What are the advantages and disadvantages of codes licensed for the public domain and those that are licensed for private use?
+
  
 ## Step 4: Prepare a 90 second video explaining the value proposition of your innovation to this potential customer in non-technical language
 
