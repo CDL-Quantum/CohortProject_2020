@@ -1,7 +1,7 @@
 ![CDL 2020 Cohort Project](../figures/CDL_logo.jpg)
 ## Project 3: Franck-Condon Factors
 
-In this project we calculate Franck-Condon Factors, which is related to the intensities in spectra of vibrational transitions across electronic surfaces. Spectra can be measured through experiments, but having accurate theoretical calculations of these Franck-Condon Factors allow scientists to instead predict these experimental results. This is especially useful if the chemical species is expensive, difficult to acquire or difficult to study or if the experiment itself is expensive or difficult.
+In this project we calculate Franck-Condon factors, which is related to the intensities in spectra of vibrational transitions across electronic surfaces. Spectra can be measured through experiments, but having accurate theoretical calculations of these Franck-Condon Factors allow scientists to instead predict these experimental results. This is especially useful if the chemical species is expensive, difficult to acquire or difficult to study or if the experiment itself is expensive or difficult.
 
 A very brief introduction to the main ideas behind the project are presented
 [here.](https://github.com/CDL-Quantum/CohortProject_2020/blob/master/CDL_2020_docs.pdf)
@@ -58,7 +58,7 @@ Then the formula for calculating the FCF is given by
 <p align="center">
 <img src="https://render.githubusercontent.com/render/math?math=\text{FCF} = \text{overlap}(\psi_{\text{v,before}}(x), \psi_{\text{v,after}}(x)) " width="400">
 </p>  
-where <img src="https://render.githubusercontent.com/render/math?math=\psi_{\text{v,before/after}}" width="90"> is the state before/after the transition, and the overlap can be understood as dot product. This calculation is implemented in the `FCF_helper.py` file. 
+where <img src="https://render.githubusercontent.com/render/math?math=\psi_{\text{v,before / after}}" width="90"> is the state before/after the transition, and the overlap can be understood as dot product. This calculation is implemented in the `FCF_helper.py` file. 
 While it's easer to compute FCF's using Hermite polynomials, one cannot use this method to go beyond the diatomic molecules. In the case of non-linear molecules with more than 2 atoms, the `FC.cxx` tool has funcionality to compute the FCFs via Duschinsky matrix. These approaches are used in Tasks 1 and 2. 
 
 - In the GBS approach, one relies on sampling instead of calculating "exact" probabilities. In this sampling approach, one uses the fact that the normal modes in the harmonic approximation regime are bosonic modes, hence the Gaussian boson sampler (GBS) nicely fits for computing the FCFs. While this method is impractical to simulate classically, one could use the GBS hardware to sample.
