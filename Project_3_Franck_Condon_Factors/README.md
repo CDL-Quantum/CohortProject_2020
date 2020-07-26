@@ -58,7 +58,7 @@ Also common to all three methods is that all are in the harmonic oscillator appr
 </p>  
 Then the formula for calculating the FCF is given by  
 <p align="center">
-<img src="https://render.githubusercontent.com/render/math?math=\text{FCF} = \text{overlap}(\psi_{\text{v,before}}(x), \psi_{\text{v,after}}(x)) " width="400">
+<img src="https://render.githubusercontent.com/render/math?math=\text{FCF} = \left|\text{overlap}(\psi_{\text{v,before}}(x), \psi_{\text{v,after}}(x))\right|^2 " width="400">
 </p>  
 
 where <img src="https://render.githubusercontent.com/render/math?math=\psi_{\text{v,before / after}}" width="90"> is the state before/after the transition, and the overlap can be understood as dot product. 
