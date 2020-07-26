@@ -6,31 +6,23 @@ In this project we calculate Franck-Condon Factors, which is related to the inte
 A very brief introduction to the main ideas behind the project are
 [here.](https://github.com/CDL-Quantum/CohortProject_2020/blob/master/CDL_2020_docs.pdf)
 
-In the [Project3_LandingPage.pdf](https://github.com/CDL-Quantum/CohortProject_2020/blob/master/Project_3_Franck_Condon_Factors/Project3_LandingPage.pdf), a more technical information about the chemistry and physics behind these Franck-Condon Factors is given. There, you can also find the descriptions of whose solutions are provided below.
+In the [Project 3 Landing Page](https://github.com/CDL-Quantum/CohortProject_2020/blob/master/Project_3_Franck_Condon_Factors/Project3_LandingPage.pdf), a more technical information about the chemistry and physics behind these Franck-Condon Factors is given. There, you can also find the descriptions of whose solutions are provided below.
 
 # Tasks
 This whole project is about theoretical quantum chemistry and spectroscopy in particular.  
 On the technical side, we are studying different theoretical methods to investigate and predict chemical properties of molecules. In particular we are focusing on the so called the vibronic transitions and Franck-Condon factors of molecules.  
 
 **Task 1:**   
-In this task we use a very simple theoretical model to study the properties of the simplest molecule in the world, **molecular Hydrogen**. 
-The purpose of this task is twofold:
-
-a) this is educational, and any newcommer to the field can quickly get familiar with the technical basics;
-
-b) In this task we show, that the basic theoretical model (harmonic oscillator approximation) used throughout the project is sound.
-
-To this end, we do the theoretical calculations for hydrogen, then compare the results with actual experimental data, and verify that the theory gives correct predictions.
+In this task we use a very simple theoretical model to study the properties of the simplest molecule in the world, **molecular Hydrogen**. The purpose of this task is twofold - a) this is educational, and any newcommer to the field can quickly get familiar with the technical basics; b) In this task we show, that the basic theoretical model (harmonic oscillator approximation) used throughout the project is sound. To this end, we do the theoretical calculations for hydrogen, then compare the results with actual experimental data, and verify that the theory gives correct predictions.  
 The calculations for first task for the Hydrogen molecule can be found in [Task1 jupyter notebook](https://github.com/hay-k/CohortProject_2020_w3g7/blob/master/Project_3_Franck_Condon_Factors/Task1.ipynb). Particularly, we calculate transitions from n=0 state of H<sub>2</sub> to 10 other vibronic levels for H<sub>2</sub><sup>+</sup>. The figures below show the simulation results from our code implemented in `FCF_helper.py` file which does all the calculations, and the snapshot below is from the paper by Berkowitz and Spohr, _Journal of Electron Spectroscopy and Related Phenomena_, **2**(2):143–152 (1973). The points or vertical bars in our plots correspond to the peak values in the original figure. We can see the great resemblance of our result with the original paper.                                                                              
-![](figures/Vibronic_spectrum.png "our scatterplot") ![](figures/Vibronic_sticks.png "our plot: sticks")  
-<img src="figures/Berkowitz.png" width="850"/> 
+![](figures/Vibronic_spectrum.png "our scatterplot") ![](figures/Vibronic_sticks.png "our plot: sticks") ![](figures/Berkowitz.png) 
 
 **Task 2:**  
 In this task we introduce a more sophisticated technical tool (FC.cxx), which can calculate the same chemical properties of molecules as in Task 1, but it can do it for a wide range of molecules, not only hydrogen. This tool is created by a huge research effort in a university, and has been extensively tested already and verified with experimental results. We do not need to test the tool. We just use this tool to investigate the properties of the **Vanadium3 (V<sub>3</sub>) molecule**. For the visualizations of the results output from FC.cxx tool see our [Task2 jupyter notebook](https://github.com/hay-k/CohortProject_2020_w3g7/blob/master/Project_3_Franck_Condon_Factors/Task2.ipynb).  
 **Todo**: add figures
 
 **Task 3:**  
-In this task we introduce yet another sophisticated technical tool Gaussia Boson Sampler (GBS) - a photonic special-purpose sampling device by Xanadu programmed via their Strawberryfields software ramework. GBS which tackles the problem from a completely different viewpoint than the tool in the previous task. We investigate the properties of the V3 molecule with this tool and verify that the results are in line with the results produced by the tool in the previous task. One important advantage of this new tool compared to the previous one is that it runs significantly faster for large molecules, and enables theoretical investigation of a few molecules, which are very time consuming and difficult with the previous tool. We have noticed that the time for creating the GBS spales is the most time consuming, less than a minute for 100 samples, about a few minutes for 1000 samples, and too long (more than an hour) for 10k samples using Google Colab backend to run the function. However, if an X8 processor is used to create such samples this would speed up the calculation significantly. The investigations are visualized in our [Task3 jupyter notebook](https://github.com/hay-k/CohortProject_2020_w3g7/blob/master/Project_3_Franck_Condon_Factors/Task3.ipynb). 
+In this task we introduce yet another sophisticated technical tool Gaussia Boson Sampler (GBS) - a photonic special-purpose sampling device by Xanadu programmed via their Strawberryfields software ramework. GBS which tackles the problem from a completely different viewpoint than the tool in the previous task. We investigate the properties of the V3 molecule with this tool and verify that the results are in line with the results produced by the tool in the previous task. One important advantage of this new tool compared to the previous one is that it runs significantly faster for large molecules, and enables theoretical investigation of a few molecules, which are very time consuming and difficult with the previous tool. The investigations are visualized in our [Task3 jupyter notebook](https://github.com/hay-k/CohortProject_2020_w3g7/blob/master/Project_3_Franck_Condon_Factors/Task3.ipynb).   
 **Todo**: add figures
 
 **Challenge 1:** 
@@ -40,19 +32,15 @@ In this challenge we further investigate the tool introduced in Task3 to reveal 
 In this challenge we are given a freedom to pick a molecule of our liking, and investigate its properties. As discussed during the call, this is a good point for business proposal entrance, so we need to choose a nice molecule for investigation, which can have some interesting business applications
 
 **Challenge 3:** 
-We analyze and report all the advantages and disadvantages of all tools used above to calculate the Franck-Condon factors (FCFs). Three methods are carried out using: 
-
-(a) Hermite polynomials, 
-
-(b) Gaussian boson sampling (GBS) and 
-
-(c) loop Hafnian approach.
-
+We analyze and report all the advantages and disadvantages of all tools used above to calculate the Franck-Condon factors (FCFs). Three methods are carried out using: (a) Hermite polynomials, (b) Gaussian boson sampling (GBS) and (c) loop Hafnian approach.
 In all three methods, the determination of the FCFs is the same: calculate the square of the overlap between a _vibronic state within electronic ground_ state and another _vibronic state within electronic excited state_ (these states are connected by the arrow in the figure). Also common to all three methods is that all are in the harmonic oscillator approximation regime where one approximates the region near the minima in the above curves as parabolas. The disadvantage is that it deviates from correct results in the regions where the exact energy surface is no longer an approximation of parabola. These are the regions where the interatomic distances are too small or too large. 
-<div style="text-align:center"><img src="figures/potential_energy_curve.png" width="250"/></div> 
+<p align="center">
+<img src="figures/potential_energy_curve.png" width="250"/>
+</p>
 
-<div style="text-align:center"><img src="figures/Harmonic_Oscillator.png" width="200"/></div>
-
+<p align="center">
+<img src="figures/Harmonic_Oscillator.png" width="200"/>
+</p>
 - In the Hermite polynomial approach, one directly uses the states of harmonic oscillator, which involves the elegant Hermite polynomials. <div style="text-align:center"><img src="https://render.githubusercontent.com/render/math?math=\psi_{v,n}(x) = \frac{1}{\sqrt{2^n n!}}\Big(\frac{\mu\omega}{\pi\hbar}\Big)\exp{\Big(-\frac{\mu\omega(x-x_{eq})^2}{2\hbar}\Big)}H_n\Big(\sqrt{\frac{\mu\omega}{\hbar}}(x-x_{eq})\Big) \hspace{1cm} n=0,1,2,\ldots " width="700"></div>
 **TODO:** add the formula for calculating FCFs.
  
@@ -64,13 +52,12 @@ While it's easer to compute FCF's using Hermite polynomials, one cannot use this
 Calculating the loop hafnian is impractical <img src="https://render.githubusercontent.com/render/math?math=(O(P^3 2^{P/2}))" width="70"> but for small numbers of vibrational quanta per normal mode the formula (113) in Quesada's paper significantly improves the calculation of FCFs. 
 
 **Challenge 4:** 
-We investigate the advantages and disadvantages of codes licensed for the public domain and those that are licensed for private use
+We investigate the advantages and disadvantages of codes licensed for the public domain and those that are licensed for private use. The discussion can be found in our [Business Application file.](./Business_Application.md)
 
 # Business Application
-From the business perspective, we first provide a non-technical description of the problem, then we give examples of real-world problems that could use the above methods. We then identify two potential customers who would consider paying to have this problem solved. Finally we present a short video explaining in a non-technical language the value proposition of these innovations to the potential customers.  
-For more details refer to the [Business Application found here](./Business_Application.md)
+From the business perspective, we first provide a non-technical description of the problem, then we give examples of real-world problems that could use the above methods. We then identify two potential customers who would consider paying to have this problem solved. Next, we provide our opinion about pros and cons of public and private code, also recommend to talk to a lawyer when it comes to your startup and IP related issues. Finally we present a short video explaining in a non-technical language the value proposition of these innovations to the potential customers.  
+For more details refer to the [Business Application found here.](./Business_Application.md)
 
-**TODO:** remove the text below after verifing the tasks and so on ... 
 ## Presenting your results in your pull request
 For your pull request, consider the following for the presentation of your final results:
 - Work entirely in the directory for Project 3.
