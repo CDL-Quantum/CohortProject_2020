@@ -33,7 +33,7 @@ For more details refer to the [Business Application found here](./Business_Appli
 
 ## Presenting your results in your pull request
 For your pull request, consider the following for the presentation of your final results:
-- Work entirely in the directory for Project 3.
+- Work entirely in the directory for Project 4.
 - Edit this README.md file with a highlight of your main technical results.  Provide links to any other files with your detailed results, e.g. Jupyter notebooks.
 - For your Business Application, feel free to provide your answers directly in the 
 [Business_Application.md](./Business_Application.md) file.
