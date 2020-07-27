@@ -30,6 +30,7 @@ In this task we introduce a more sophisticated technical tool (FC.cxx), which ca
 **Task 3:**  
 In this task we introduce yet another sophisticated technical tool, Gaussia Boson Sampler (GBS) - a photonic special-purpose sampling device by Xanadu programmed via their Strawberryfields software framework. GBS tackles the problem from a completely different viewpoint than the tool in the previous task. We investigate the properties of the V<sub>3</sub> molecule with this tool and verify that the results are in line with the results produced by the tool in the previous task. One important advantage of this new tool compared to the previous one is that it runs significantly faster for large molecules, and enables theoretical investigation of a few molecules, which are very time consuming and difficult with the previous tool. The investigations are visualized in our [Task3 jupyter notebook](./Task3.ipynb).   
 
+As part of this Task 3, we tried to utilize the Xanadu X8 quantum processor for GBS by modifying the function sample.py from as [sampleX.py](./sampleX.py) more details are in the Google Colab [Task123+more Jupiter notebook] (./Task123+more.ipynb). Unfortunately, we were not able to successfully run on X8 due to "CircuitError: The operation Sgate cannot be used with the target 'X8_01'" which we didn't have time to resolve.
 
 # Challenges  
 
@@ -43,6 +44,9 @@ In this challenge we further investigate the tool introduced in Task3 to reveal 
 In this challenge we are given a freedom to pick a molecule of our liking, and investigate its properties. As a nice molecule for investigation, we chose ammonia NH<sub>3</sub>. The reason for the choice is connected to the business application where we discuss the role of spectroscopy in "wine authentication". Nitrogenous compounds are a vital part of all living organisms and plays a vital role in the winemaking process. Ammonia is one of the essential nitrogenous compounds. Ammonia’s role in the fermentation process is it helps serve as nutrients for growth and metabolic activity of yeast during fermentation.  
 The challelnge 2 computations are added to the [Task 2 jupyter notebook](./Task2.ipynb) where we use external resources to solve the task. Particularly, we take the geometrical data for NH<sub>3</sub> and NH<sub>3</sub><sup>+</sup> from the [NIST website](https://cccbdb.nist.gov/geom1x.asp), then we use `pyscf` library to preprocess the data before creating the format (via `dump_frequency_analysis` function in `utils.py`) needed to prceed with the usual steps.
 
+We also looked at the Vibronic spectra for Formic Acid since it is one of the example molecules from the Xanadus Quantum Chemistry package via StrawberryFields.
+The Hayk's functions for generating the input file for the FC.xcc code was utilized and the steps similar to Task 3 were repeated to generate and compare the spectral graphs.
+Results are in the appropriate section of the [Task123+more Jupiter notebook] (./Task123+more.ipynb). This notebook is set up for running the Tasks under Google Colab.
 
 **Challenge 3:** 
 We analyze and report all the advantages and disadvantages of all tools used above to calculate the Franck-Condon factors (FCFs). Three methods are carried out using: (a) **Hermite polynomials**, (b) **Gaussian boson sampling** (GBS) and (c) **loop Hafnian** approach.
