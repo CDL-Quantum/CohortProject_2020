@@ -42,7 +42,10 @@ In this challenge we further investigate the tool introduced in Task3 to reveal 
 
 **Challenge 2:**   
 In this challenge we are given a freedom to pick a molecule of our liking, and investigate its properties. As a nice molecule for investigation, we chose ammonia NH<sub>3</sub>. The reason for the choice is connected to the business application where we discuss the role of spectroscopy in "wine authentication". Nitrogenous compounds are a vital part of all living organisms and plays a vital role in the winemaking process. Ammonia is one of the essential nitrogenous compounds. Ammonia’s role in the fermentation process is it helps serve as nutrients for growth and metabolic activity of yeast during fermentation.  
-The challelnge 2 computations are added to the [Task 2 jupyter notebook](./Task2.ipynb) where we use external resources to solve the task. Particularly, we take the geometrical data for NH<sub>3</sub> and NH<sub>3</sub><sup>+</sup> from the [NIST website](https://cccbdb.nist.gov/geom1x.asp), then we use `pyscf` library to preprocess the data before creating the format (via `dump_frequency_analysis` function in `utils.py`) needed to prceed with the usual steps.
+The challelnge 2 computations are added to the [Task 2 jupyter notebook](./Task2.ipynb) where we use external resources to solve the task. Particularly, we take the geometrical data for NH<sub>3</sub> and NH<sub>3</sub><sup>+</sup> from the [NIST website](https://cccbdb.nist.gov/geom1x.asp), then we use `pyscf` library to preprocess the data before creating the format (via `dump_frequency_analysis` function in `utils.py`) needed to proceed with the usual steps. Here is the Vibronic spectrum we got for NH3
+<p align="center">
+<img src="figures/NH3.png" width="450"/>
+</p>
 
 We also looked at the Vibronic spectra for Formic Acid since it is one of the example molecules from the Xanadus Quantum Chemistry package via StrawberryFields.
 The Hayk's functions for generating the input file for the FC.xcc code was utilized and the steps similar to Task 3 were repeated to generate and compare the spectral graphs.
