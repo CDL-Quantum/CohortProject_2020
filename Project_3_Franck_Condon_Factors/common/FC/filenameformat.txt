@@ -1,0 +1,34 @@
+(input data)
+#Units {A = Angstrom, B = Bohr}
+#Number of Atoms
+#Mass of Atom 1 (amu)
+#Mass of Atom 2 (amu)
+...
+#Mass of Atom N (amu)
+#Coordinates of Eq. Geometry of Atom 1 of Neutral Molecule (Units)
+...
+#Coordinates of Eq. Geometry of Atom N of Neutral Molecule (Units)
+#Frequency of Mode 1 of Neutral Molecule (Wavenumbers)
+#Normal Mode Matrix of Mode 1 of Neutral Molecule (eigenvectors of mass-weighted Hessian)
+...
+#Frequency of Mode 3N-6 of Neutral Molecule (Wavenumbers)
+#Normal Mode Matrix of Mode 3N-6 of Neutral Molecule (eigenvectors of mass-weighted Hessian)
+#Coordinates of Eq. Geometry of Atom 1 of Cation (Units)
+...
+#Coordinates of Eq. Geometry of Atom N of Cation (Units)
+#Frequency of Mode 1 of Cation (Wavenumbers)
+#Normal Mode Matrix of Mode 1 of Cation (eigenvectors of mass-weighted Hessian)
+...
+#Frequency of Mode 3N-6 of Cation (Wavenumbers)
+#Normal Mode Matrix of Mode 3N-6 of Cation (eigenvectors of mass-weighted Hessian)
+
+(output data file resolution)
+#Omega_min (cm-1)
+#Omega_max (cm-1)
+#Temperature, T (Kelvin)
+#Full Width at Half Maximum for Lorentzian Distribution (ex. 5)
+#Omega Resolution (number of omega grid points)
+#Band Position,v00 (cm-1)
+#Neutral Quanta of vibration
+#Cation Quanta of vibration
+#Label Limit: Signal amplitudes are reported above this threshold (ex. 0.01)
