@@ -36,10 +36,10 @@
 
 If we go back to a couple of weeks ago to Projects 1 and 2, you were able to simulate molecules in a couple of different ways: using machine learning (Restricted Boltzmann machines) and using the Variational Quantum Eigensolver (VQE). In Project 1, you were able to see that machine learning gives a huge advantage in data-driven problems in terms of outputting a compressed version of something quite large (exponential scaling -- $2^{100}$ -- versus a few hundred numbers). Not only this, you saw that if we needed to collaborate with an experimentalist in a lab, machine learning doesn't  demand much from experimentalists (we don't need that much data from them). In Project 2, you saw that solving chemistry problems via simulation on a quantum circuit also has compression benefits, but we didn't need any input data to actually solve our problem like in Project 1. Rather, the {\it variational method} just requires knowledge of the Hamiltonian, and a tunable {\it trial solution} to our problem that we then change based on how good of an energy it gives.
 
-At the end of the day, VQE and machine learning are both extremely useful in different settings, but at heart of each is an {\it optimization problem}.\footnote{In machine learning we must optimize the cost function and in VQE we must optimize the energy.} Sometimes this optimization problem can be extremely difficult to tackle. 
-This week, we'll re-cast the problem into one that can be explored with the well-known simulation method called Monte Carlo (MC). 
+At the end of the day, VQE and machine learning are both extremely useful in different settings, but at the heart of each is an {\it optimization problem}.\footnote{In machine learning we must optimize the cost function and in VQE we must optimize the energy.} Sometimes this optimization problem can be extremely difficult to tackle.
+This week, we'll re-cast the problem into one that can be explored with the well-known simulation method called Monte Carlo (MC).
 At the end of a Monte Carlo simulation we do not obtain a compressed version of something much larger (like the wavefunction).
-Rather, we use a Monte Carlo procedure to produce samples, correctly distributed, from a low-energy state.
+Rather, we use a Monte Carlo procedure to produce samples, correctly distributed, from a thermal state.
 
 Thermal annealing exploits thermal fluctuations to discover the groundstate of a system. In a Monte Carlo simulation the temperature can be slowly decreased. If this decrease is slow enough the system remains close to equilibrium, and at the end of annealing the typical configurations encountered will be those typical of the system in its groundstate.\footnote{Of course, in addition to thermal fluctuations, one can envision the use of quantum fluctuations to accelerate the exploration of the configuration space in a similar manner}
 
@@ -51,11 +51,11 @@ This week, you will be tasked with performing various MC simulations on the Isin
 \begin{equation}
     H = -J\sum_{\langle i,j \rangle} \sigma_i \sigma_j,
 \end{equation}
-where $\sigma_i$ are classical spin-$1/2$ variables ($-1$ or $1$). You will be walked through a simulation we've provided along with an annealing procedure. Then, you'll be given slight variations to the Ising model where you must come up with an annealing procedure yourself!
+where $\sigma_i$ are classical spin-$1/2$ variables ($-1$ or $1$), and $\sum_{\langle i,j \rangle}$ denotes summation over nearest neighbour pairs. You will be walked through a simulation we've provided along with an annealing procedure. Then, you'll be given slight variations to the Ising model where you must come up with an annealing procedure yourself!
 
 \subsubsection*{Task \#1}
 
-Navigate to the \texttt{Task\_1.ipynb} notebook. We've given you a full solution to a MC simulation employing the MH algorithm for a 2D ferromagnetic ($J > 0$) on a square lattice with periodic boundary conditions. Code blocks 1 to 5 outline a MC simulation for this system for a temperature $T = 1.0$. After this, we now wish to perform a simulation at a temperature $T_{\text{final}} = 0.01$ using an annealing procedure starting at $T_{\text{initial}} = 100$. Here, we employed an annealing procedure that decreases $T_{\text{initial}}$ exponentially (see code block 7). Run this notebook and make sure that you understand what is going on under the hood (see \texttt{abstract\_ising.py} and \texttt{ising\_animator.py}).  
+Navigate to the \texttt{Task\_1.ipynb} notebook. We've given you a full solution to a MC simulation employing the MH algorithm for a 2D ferromagnetic ($J > 0$) Ising Model on a square lattice with periodic boundary conditions. Code blocks 1 to 5 outline a MC simulation for this system at temperature $T = 1.0$. After this, we now wish to perform a simulation at a temperature $T_{\text{final}} = 0.01$ using an annealing procedure starting at $T_{\text{initial}} = 100$. Here, we employed an annealing procedure that decreases $T_{\text{initial}}$ exponentially (see code block 7). Run this notebook and make sure that you understand what is going on under the hood (see \texttt{abstract\_ising.py} and \texttt{ising\_animator.py}).
 
 \subsubsection*{Task \#2}
 
@@ -78,7 +78,7 @@ We've given you the required classes in order to get your started on these model
 
 \subsubsection*{Task \#3}
 This is where things get fun!
-We'll be applying what we've learned so far to calculate the ground state energy
+We'll be applying what we've learned so far to find the ground state energy
 of the Hydrogen molecule at various separation lengths.
 
 There are several methods with which one can map the electronic structure Hamiltonian
@@ -139,14 +139,14 @@ Hamiltonian in order to find the ground state energy of $H_2$.
           you got from applying annealing to the original $k$-local Hamiltonian. Does it seem to
           be more or less difficult to find the ground state with classical thermal annealing?
 
-\item If you have a trustworthy $2$-local Hamiltonian from the above challenge, compare your home-grown 
-	thermal annealing procedure to open-source commercial software (e.g.~D-Wave Leap).  Benchmark
-	performance.  Contrast and compare any differences in annealing approaches.
+    \item If you have a trustworthy $2$-local Hamiltonian from the above challenge, compare your home-grown
+        thermal annealing procedure to open-source commercial software (e.g.~D-Wave Leap).  Benchmark
+        performance.  Compare and contrast any differences in annealing approaches.
 
-    \item Map your favorite NP-complete complete Hamiltonian to an Ising Hamiltonain, and perform
-          a thermally-annealed MC simulation to try to solve to problem. See \cite{ising_np} for some
+    \item Map your favorite NP-complete Hamiltonian to an Ising Hamiltonian, and perform
+          a thermally-annealed MC simulation to try to solve the problem. See \cite{ising_np} for some
           inspiration. Benchmark against commercially available open-source optimization software.
-          
+
 \end{enumerate}
 
 \subsection*{Acknowledgements}\label{sec:acknowledgements}
