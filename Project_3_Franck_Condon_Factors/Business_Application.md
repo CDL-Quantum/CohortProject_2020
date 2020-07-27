@@ -41,6 +41,11 @@ In our research, there are two main concerns around counterfeit wine for which w
 
 [Software Licensing.](./Challenge4.md)
 
+
+## Step 4: Prepare a 90 second video explaining the value proposition of your innovation to this potential customer in non-technical language
+
+[![Introduction](../figures/video.png)](https://youtu.be/vgmyN519Mew)
+
 ## References
 http://www.thedrinksbusiness.com/2013/11/fake-wine-now-accounts-for-20-of-market/
 https://www.thedrinksbusiness.com/2016/12/how-much-fake-fine-wine-is-in-the-market/
@@ -49,7 +54,3 @@ https://www.townandcountrymag.com/society/money-and-power/a23065645/wine-fraud-s
 https://www.thestar.com/business/2017/01/21/counterfeit-wine-market-a-growing-concern.html
 https://www.theguardian.com/global/2016/sep/11/the-great-wine-fraud-a-vintage-swindle
 
-
-## Step 4: Prepare a 90 second video explaining the value proposition of your innovation to this potential customer in non-technical language
-
-[![Introduction](../figures/video.png)](https://youtu.be/vgmyN519Mew)
