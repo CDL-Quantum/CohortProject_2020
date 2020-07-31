@@ -22,7 +22,7 @@ are now showing some promise in terms of their role in enhancing/activating disc
 These intergenic regions make up at least 50%+ of a human genome, but are largely misunderstood. Sequencing DNA is complex/inefficient and we feel that we could help make that process more efficient, and also focus on 
 intergenic regions as a niche area.
 
-![Intergenic_DNA](/img/Intergenic_DNA.gif)
+![Intergenic_DNA](img/Intergenic_DNA.gif)
 
 <b>Some more details on the problem from secondary research:</b> 
  
@@ -33,7 +33,7 @@ three billion contained in the whole human genome. Scientists therefore cut stra
 To construct a genome from short reads, it's necessary to construct a graph of those reads. We do it by breaking the reads into k-mers and 
 assembling them into a graph.
 
-![83YQO](/img/83YQO.png)
+![83YQO](img/83YQO.png)
 
 In this example, we have a k-mer of 3. We can reconstruct the genome by visiting each node once as in the diagram. This is known as the Hamiltonian path.
 
@@ -42,7 +42,7 @@ In this example, we have a k-mer of 3. We can reconstruct the genome by visiting
 <b>Opportunity:</b> How cells, tissues, and organisms interpret the information encoded in the genome has vital implications for our understanding of 
 development, health, and disease. In the graphic below one can see how genome data is used in the studies of human diseases. 
  
-![encode-3-static-graphic-c](/img/encode-3-static-graphic-c.png)
+![encode-3-static-graphic-c](img/encode-3-static-graphic-c.png)
 
 <b>We believe that we can use Markov Chain Monte Carlo methods on quantum annealing machines to better understand intergenic regions.</b> 
 There is already evidence that scientists have used quantum annealing to better understand the genome and that there has been
