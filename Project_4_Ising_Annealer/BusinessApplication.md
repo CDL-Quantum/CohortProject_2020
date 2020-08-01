@@ -69,37 +69,38 @@ genome assembly problems both for real and synthetic data on quantum annealing d
 
 Top 10 gene sequencing companies by revenue:
  
-1. Illumina
+<b>1. Illumina</b>
  * $3.33B revenues in 2018
  * Looking to lower the costs of gene sequencing
  
-2. Thermo Fisher Scientific
+<b>2. Thermo Fisher Scientific</b>
 * $418.36M - revenues from gene sequencing
 
-3. BGI Genomics
+<b>3. BGI Genomics</b>
 * $311.61M revenue in 2017
 * Top genetic testing company in China
 
-4. Agilent Technologies
+<b>4. Agilent Technologies</b>
 * $250M revenue in 2018
 * Leader in lab equipment
 
-5. 10X Genomics
+<b>5. 10X Genomics</b>
 * $146M revenues in 2018
 
-6. Qiagen
+<b>6. Qiagen</b>
 * $140M revenues in 2018
-7. Genewiz
+
+<b>7. Genewiz</b>
 * Q1 2019 revenues $33M
 
-8. Macrogen
+<b>8. Macrogen</b>
 * $97.01M revenues in 2018
 
-9. Pacific Biosciences
+<b>9. Pacific Biosciences</b>
 * $78.63M in revenues in 2018
 * Acquired by Illumina
 
-10. Oxford Nanopore Technologies
+<b>10. Oxford Nanopore Technologies</b>
 * $18.1M revenues in 2017
 * Raised $200M in 2018
 
