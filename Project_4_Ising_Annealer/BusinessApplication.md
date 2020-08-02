@@ -106,4 +106,4 @@ Top 10 gene sequencing companies by revenue:
 
 ## 4. Short presentation explains our value proposition.
 
-[![Introduction](img/figures/video.png)](https://youtu.be/nIdBDuqI9mw)
+[![Introduction](img/video.png)](https://youtu.be/nIdBDuqI9mw)
