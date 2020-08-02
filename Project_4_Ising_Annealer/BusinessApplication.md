@@ -1,20 +1,17 @@
 ![CDL 2020 Cohort Project](../figures/CDL_logo.jpg)
 
-## Quantum Cohort Project Business Application: Issing Annealing 
+## Quantum Cohort Project Business Application: Annealing the Ising model 
 
 ## 1. The technical problem that we solved in this exercise.
 
-### [Task 1]() summary: 
-We used the simulated annealing technique on a problem formulated as a spin glass Ising model for
-which we cannot do exact optimization, but an approximately optimal solution will be obtained.
- 
-### [Task 2]() summary: 
-In this task we transformed various kinds of combinatorial optimization problems from quantum chemistry energy 
-calculations into Ising models and then solved them with simulated annealing methods.
- 
-### [Task 3]() summary: 
-In this task, we transformed k-local hamiltonian to 2-local hamiltonian. 
-Then embedded it on the D-Wave's chimera topology and used quantum annealing on the real device to obtain the optimal value.
+The Ising model is a simple mathematical model that describes a system of particles on a lattice that 
+interact with one through simple, pair-wise interactions. Despite the simplicity of the model,
+it can be used to understand complex physical phenomena such as phase-transitions. In this exercise, in [Task 1](Task_1.ipynb),
+we started by simulating simple Ising model and determined its ground state configuration using simulated Annealing. The convergence
+of this simulated annealing procedure is dependent on the "annealing" schedule which, over-time, reduces the temperature 
+of the simulation until convergence is achieved. Therefore, in [Task 2](Task_2.ipynb) we investigated the effect of
+different schedules to the speed of convergence for the ising models. Finally, in [Task 3](Task_3.ipynb), we applied our methods used to solve the Ising model
+to simulate a hydrogen atom with a larger number of pair-wise interactions in the Hamiltonian (up to 4).
 
  
 ## 2. Examples of real-world problems this solution can solve.
@@ -104,6 +101,3 @@ Top 10 gene sequencing companies by revenue:
 * $18.1M revenues in 2017
 * Raised $200M in 2018
 
-## 4. Short presentation explains our value proposition.
-
-[![Introduction](img/video.png)](https://youtu.be/nIdBDuqI9mw)
