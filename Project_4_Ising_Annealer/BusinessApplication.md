@@ -103,4 +103,4 @@ Top 10 gene sequencing companies by revenue:
 
 ## 4. Find our short presentation here.
 
-[![Introduction](/video.png)](https://youtu.be/nIdBDuqI9mw)
+[![Introduction](img/video.png)](https://youtu.be/nIdBDuqI9mw)
