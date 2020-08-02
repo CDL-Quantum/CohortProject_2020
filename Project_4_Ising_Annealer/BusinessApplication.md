@@ -104,3 +104,6 @@ Top 10 gene sequencing companies by revenue:
 * $18.1M revenues in 2017
 * Raised $200M in 2018
 
+## 4. Short presentation explains our value proposition.
+
+[![Introduction](img/figures/video.png)](https://youtu.be/nIdBDuqI9mw)
