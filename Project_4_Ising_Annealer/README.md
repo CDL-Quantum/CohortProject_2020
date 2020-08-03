@@ -32,8 +32,8 @@ connected Mattis model. The results of these calculations are illustrated in the
 <p align="center">
 <figure>
   <img src="img/Task2_comparison.png" alt="The results for task 2" style="width: 30%; height: 30%">
-  <figcaption>  <b>Figure: </b> <em> <b>Left-</b> The energy vs number of spin objects for an Ising model using a linear annealing schedule and an exponential schedule. 
-  <b>Right-</b> The energy vs number of spin objects for the Mattis model using the linear and exponential annealing schedule. </em> </figcaption>
+  <figcaption>  <b>Figure: </b> <em> <b>Left-</b> The energy vs number of spin objects for an 1D periodic boundary condition Ising model using various schedules. 
+  <b>Right-</b> The energy vs number of spin objects for the fully connected Ising model using the linear, exponential and logarithmic annealing schedule. </em> </figcaption>
 </figure>
 </p>
 
