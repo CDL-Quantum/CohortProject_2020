@@ -98,7 +98,7 @@ to converge. An illustration of the failure of the annealing process for the 2-l
 
 ## [Further Challenges2: ](Challenge2.ipynb)
 
-For the [further challenges2](Challenge2.ipynb), Hamiltonian Path problem is implemented as QUBO and benchmarked against Google OR-Tools.
+For the [further challenges2](Challenge2.ipynb), Hamiltonian Path problem is implemented as QUBO and benchmarked against OSS optimization solvers.
 
 ## Business Application
 
