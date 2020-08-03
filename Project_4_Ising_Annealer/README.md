@@ -25,8 +25,8 @@ random initial state to the ground state configuration. The Figure below illustr
 </p>
 
 ### [Task 2: ](Task_2.ipynb) Some Simple Spin Glasses
-In this task, two different annealing schedules (the exponential and linear schedule) were implemented and compared
-against one another. These two schedules were tested on the Ising model aswell as the fully 
+In this task, three different annealing schedules (the exponential, linear and logarithmic schedule) and their adaptive variant were implemented and compared
+against others. These schedules were tested on the 1D periodic boundary condition Ising model, the fully connected Ising model, as well as the fully
 connected Mattis model. The results of these calculations are illustrated in the figures below.
 
 <p align="center">
